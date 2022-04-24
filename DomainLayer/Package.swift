@@ -11,12 +11,14 @@ let package = Package(
             targets: ["DomainLayer"]),
     ],
     dependencies: [
+        .package(name: "CommonLayer", path: "../CommonLayer"),
         .package(name: "DataLayer", path: "../DataLayer"),
     ],
     targets: [
         .target(
             name: "DomainLayer",
             dependencies: [
+                .byName(name: "CommonLayer"),
                 .byName(name: "DataLayer"),
             ]),
     ]

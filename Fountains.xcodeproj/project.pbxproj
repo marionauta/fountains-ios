@@ -24,6 +24,7 @@
 		ACE2909A2815D0F6002B0BD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACE290A62815D227002B0BD8 /* DomainLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DomainLayer; sourceTree = "<group>"; };
+		ACEE77CE2815F06400340A88 /* CommonLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonLayer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		ACE2908C2815D0F6002B0BD8 = {
 			isa = PBXGroup;
 			children = (
+				ACEE77CE2815F06400340A88 /* CommonLayer */,
 				ACCF53CC2815E6CE00D62A53 /* DataLayer */,
 				ACE290A62815D227002B0BD8 /* DomainLayer */,
 				ACE290972815D0F6002B0BD8 /* Fountains */,
