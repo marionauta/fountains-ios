@@ -12,12 +12,21 @@ struct MapScreen: View {
                     Image(systemName: "drop.circle.fill")
                         .font(.title)
                         .foregroundColor(.blue)
+                        .onTapGesture {
+                            viewModel.openDetail(for: fountain)
+                        }
                 }
             }
             .edgesIgnoringSafeArea(.all)
 
             if viewModel.isLoading {
                 LoadingView()
+            }
+        }
+        .sheet(item: $viewModel.route) { route in
+            switch route {
+            case let .fountain(fountain):
+                FountainDetailScreen(fountain: fountain)
             }
         }
         .task {

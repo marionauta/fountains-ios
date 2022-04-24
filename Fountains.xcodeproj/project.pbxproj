@@ -11,6 +11,7 @@
 		ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53C82815D58400D62A53 /* MapScreen.swift */; };
 		ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */; };
 		ACCFBE44281600D600319CCB /* MapScreenLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFBE43281600D600319CCB /* MapScreenLoadingView.swift */; };
+		ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFBE462816030900319CCB /* FountainDetailScreen.swift */; };
 		ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE290982815D0F6002B0BD8 /* FountainsApp.swift */; };
 		ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2909A2815D0F6002B0BD8 /* ContentView.swift */; };
 		ACE2909D2815D0F7002B0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 		ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		ACCF53CC2815E6CE00D62A53 /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataLayer; sourceTree = "<group>"; };
 		ACCFBE43281600D600319CCB /* MapScreenLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreenLoadingView.swift; sourceTree = "<group>"; };
+		ACCFBE462816030900319CCB /* FountainDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailScreen.swift; sourceTree = "<group>"; };
 		ACE290952815D0F6002B0BD8 /* Fountains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fountains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE290982815D0F6002B0BD8 /* FountainsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainsApp.swift; sourceTree = "<group>"; };
 		ACE2909A2815D0F6002B0BD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 		ACCF53C72815D52F00D62A53 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				ACCFBE45281602E500319CCB /* FountainDetail */,
 				ACEE77CC2815EC0200340A88 /* Map */,
 			);
 			path = Screens;
@@ -62,6 +65,14 @@
 				ACCFBE43281600D600319CCB /* MapScreenLoadingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		ACCFBE45281602E500319CCB /* FountainDetail */ = {
+			isa = PBXGroup;
+			children = (
+				ACCFBE462816030900319CCB /* FountainDetailScreen.swift */,
+			);
+			path = FountainDetail;
 			sourceTree = "<group>";
 		};
 		ACE2908C2815D0F6002B0BD8 = {
@@ -187,6 +198,7 @@
 			files = (
 				ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */,
 				ACCFBE44281600D600319CCB /* MapScreenLoadingView.swift in Sources */,
+				ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */,
 				ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
 				ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */,
