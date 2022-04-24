@@ -15,6 +15,10 @@ struct MapScreen: View {
                 }
             }
             .edgesIgnoringSafeArea(.all)
+
+            if viewModel.isLoading {
+                LoadingView()
+            }
         }
         .task {
             await viewModel.load()
