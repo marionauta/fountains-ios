@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC1F87312819B9EA00F5D09F /* FountainMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F87302819B9EA00F5D09F /* FountainMap.swift */; };
+		AC7A7176285A259700BB0802 /* FountainMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */; };
 		ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACCF53C52815D52500D62A53 /* DomainLayer */; };
 		ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53C82815D58400D62A53 /* MapScreen.swift */; };
 		ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */; };
 		ACCFBE44281600D600319CCB /* MapScreenLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFBE43281600D600319CCB /* MapScreenLoadingView.swift */; };
 		ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFBE462816030900319CCB /* FountainDetailScreen.swift */; };
+		ACD2756D2816DA8D007B70FB /* CommonLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACD2756C2816DA8D007B70FB /* CommonLayer */; };
 		ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE290982815D0F6002B0BD8 /* FountainsApp.swift */; };
 		ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2909A2815D0F6002B0BD8 /* ContentView.swift */; };
 		ACE2909D2815D0F7002B0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC1F87302819B9EA00F5D09F /* FountainMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainMap.swift; sourceTree = "<group>"; };
+		AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainMapAnnotation.swift; sourceTree = "<group>"; };
 		ACCF53C82815D58400D62A53 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		ACCF53CC2815E6CE00D62A53 /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataLayer; sourceTree = "<group>"; };
@@ -37,6 +42,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
+				ACD2756D2816DA8D007B70FB /* CommonLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +126,8 @@
 				ACCFBE42281600C300319CCB /* Views */,
 				ACCF53C82815D58400D62A53 /* MapScreen.swift */,
 				ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */,
+				AC1F87302819B9EA00F5D09F /* FountainMap.swift */,
+				AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -142,6 +150,7 @@
 			name = Fountains;
 			packageProductDependencies = (
 				ACCF53C52815D52500D62A53 /* DomainLayer */,
+				ACD2756C2816DA8D007B70FB /* CommonLayer */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -171,6 +180,8 @@
 				Base,
 			);
 			mainGroup = ACE2908C2815D0F6002B0BD8;
+			packageReferences = (
+			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -199,8 +210,10 @@
 				ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */,
 				ACCFBE44281600D600319CCB /* MapScreenLoadingView.swift in Sources */,
 				ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */,
+				AC7A7176285A259700BB0802 /* FountainMapAnnotation.swift in Sources */,
 				ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
+				AC1F87312819B9EA00F5D09F /* FountainMap.swift in Sources */,
 				ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -405,6 +418,10 @@
 		ACCF53C52815D52500D62A53 /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DomainLayer;
+		};
+		ACD2756C2816DA8D007B70FB /* CommonLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CommonLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

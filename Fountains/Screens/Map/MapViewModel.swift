@@ -1,4 +1,5 @@
 import Combine
+import CommonLayer
 import Foundation
 import DomainLayer
 import MapKit
@@ -10,7 +11,7 @@ final class MapViewModel: ObservableObject {
     @Published public var isLoading: Bool = true
     @Published public var fountains: [WaterFountain] = []
     @Published public var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 0, longitude: 0),
+        center: .sevilla,
         span: MKCoordinateSpan(
             latitudeDelta: 0.03,
             longitudeDelta: 0.03
@@ -38,10 +39,10 @@ extension MapViewModel {
     enum Route: Identifiable {
         case fountain(WaterFountain)
 
-        var id: UUID {
+        var id: AnyHashable {
             switch self {
             case let .fountain(fountain):
-                return fountain.id.value
+                return fountain.id
             }
         }
     }

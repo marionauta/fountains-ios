@@ -5,9 +5,9 @@ struct ApiClient {
         static let baseURL = URL(string: "http://192.168.100.152:8080/")!
     }
 
-    func get(at: String) async throws -> Data {
-        let url = Constants.baseURL.appendingPathComponent(at)
+    func get<T: Decodable>(_ type: T.Type, at route: ApiRoute) async throws -> T {
+        let url = Constants.baseURL.appendingPathComponent(route.route)
         let (data, _) = try await URLSession.shared.data(from: url)
-        return data
+        return try JSONDecoder().decode(ServerResponse<T>.self, from: data).data
     }
 }

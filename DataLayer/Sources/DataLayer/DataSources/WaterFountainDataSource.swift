@@ -5,9 +5,7 @@ public struct WaterFountainDataSource {
 
     public init() {}
 
-    public func all() async -> [WaterFountainDto] {
-        let data = try! await apiClient.get(at: "/")
-        let response = try! JSONDecoder().decode(ServerResponse<[WaterFountainDto]>.self, from: data)
-        return response.data
+    public func all() async -> [WaterFountainDto]? {
+        try? await apiClient.get([WaterFountainDto].self, at: .fountains)
     }
 }

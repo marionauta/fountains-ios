@@ -6,6 +6,6 @@ struct WaterFountainRepository {
 
     public func all() async -> [WaterFountain] {
         let fountains = await dataSource.all()
-        return fountains.intoDomain()
+        return fountains?.intoDomain() ?? []
     }
 }

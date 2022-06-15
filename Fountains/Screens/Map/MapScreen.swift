@@ -7,15 +7,9 @@ struct MapScreen: View {
 
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $viewModel.region, annotationItems: viewModel.fountains) { fountain in
-                MapAnnotation(coordinate: fountain.coordinate) {
-                    Image(systemName: "drop.circle.fill")
-                        .font(.title)
-                        .foregroundColor(.blue)
-                        .onTapGesture {
-                            viewModel.openDetail(for: fountain)
-                        }
-                }
+            FountainMap(coordinateRegion: $viewModel.region, annotationItems: viewModel.fountains) { annotation in
+                guard let fountain = annotation as? WaterFountain else { return }
+                viewModel.openDetail(for: fountain)
             }
             .edgesIgnoringSafeArea(.all)
 
@@ -35,11 +29,21 @@ struct MapScreen: View {
     }
 }
 
-extension WaterFountain {
+extension WaterFountain: FountainMapAnnotation {
+    var annotationId: AnyHashable { id }
+
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(
             latitude: location.latitude,
             longitude: location.longitude
         )
     }
+
+    var clusteringIdentifier: String? { "fountain" }
+
+    var glyphImage: UIImage? { UIImage(systemName: "drop.circle.fill") }
+
+    var tintColor: UIColor? { UIColor(Color.blue) }
+
+    var foregroundTintColor: UIColor? { .white }
 }

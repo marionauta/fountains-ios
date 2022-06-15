@@ -7,7 +7,17 @@ extension WaterFountainDto: IntoDomain {
         WaterFountain(
             id: Identifier(id),
             name: name,
-            location: location.intoDomain()
+            location: location.intoDomain(),
+            properties: properties.intoDomain()
+        )
+    }
+}
+
+extension WaterFountainDto.PropertiesDto: IntoDomain {
+    func intoDomain() -> WaterFountain.Properties {
+        WaterFountain.Properties(
+            bottle: WaterFountain.Properties.Value(rawValue: bottle) ?? .undefined,
+            wheelchair: WaterFountain.Properties.Value(rawValue: wheelchair) ?? .undefined
         )
     }
 }
