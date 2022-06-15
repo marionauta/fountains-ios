@@ -9,7 +9,7 @@ extension MapScreen {
                     ProgressView()
                         .progressViewStyle(.circular)
                         .padding()
-                    Text("Loading...")
+                    Text("map_loadingview_title")
                     Spacer()
                 }
                 .background(.background)

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AC1F87312819B9EA00F5D09F /* FountainMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F87302819B9EA00F5D09F /* FountainMap.swift */; };
 		AC7A7176285A259700BB0802 /* FountainMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */; };
+		AC891458285A2B6B00D57CCF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC89145A285A2B6B00D57CCF /* Localizable.strings */; };
 		ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACCF53C52815D52500D62A53 /* DomainLayer */; };
 		ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53C82815D58400D62A53 /* MapScreen.swift */; };
 		ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		AC1F87302819B9EA00F5D09F /* FountainMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainMap.swift; sourceTree = "<group>"; };
 		AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainMapAnnotation.swift; sourceTree = "<group>"; };
+		AC891459285A2B6B00D57CCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		AC89145B285A2B6D00D57CCF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ACCF53C82815D58400D62A53 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		ACCF53CC2815E6CE00D62A53 /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataLayer; sourceTree = "<group>"; };
@@ -49,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC7A7177285A2B1C00BB0802 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				AC89145A285A2B6B00D57CCF /* Localizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
 		ACCF53C42815D52500D62A53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +117,7 @@
 			children = (
 				ACEE77CB2815EB6F00340A88 /* App */,
 				ACCF53C72815D52F00D62A53 /* Screens */,
+				AC7A7177285A2B1C00BB0802 /* Strings */,
 				ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */,
 			);
 			path = Fountains;
@@ -178,6 +190,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = ACE2908C2815D0F6002B0BD8;
 			packageReferences = (
@@ -197,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACE2909D2815D0F7002B0BD8 /* Assets.xcassets in Resources */,
+				AC891458285A2B6B00D57CCF /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +233,18 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		AC89145A285A2B6B00D57CCF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC891459285A2B6B00D57CCF /* en */,
+				AC89145B285A2B6D00D57CCF /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		ACE290A12815D0F7002B0BD8 /* Debug */ = {

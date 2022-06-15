@@ -7,27 +7,27 @@ struct FountainDetailScreen: View {
     var body: some View {
         NavigationView {
             Form {
-                Section("Location") {
+                Section("fountaindetail_location_title") {
                     HStack {
-                        Text("Latitude")
+                        Text("fountaindetail_location_lat")
                         Spacer()
                         Text(fountain.location.latitude, format: .number)
                     }
                     HStack {
-                        Text("Longitude")
+                        Text("fountaindetail_location_lng")
                         Spacer()
                         Text(fountain.location.longitude, format: .number)
                     }
                 }
 
-                Section("Details") {
+                Section("fountaindetail_details_title") {
                     HStack {
-                        Text("Bottles")
+                        Text("fountaindetail_details_bottles")
                         Spacer()
                         Image(systemName: fountain.properties.bottle.imageName)
                     }
                     HStack {
-                        Text("Wheelchairs")
+                        Text("fountaindetail_details_wheelchairs")
                         Spacer()
                         Image(systemName: fountain.properties.wheelchair.imageName)
                     }
@@ -38,8 +38,8 @@ struct FountainDetailScreen: View {
         }
     }
 
-    var title: String {
-        fountain.name.nilIfEmpty ?? "Fountain"
+    var title: LocalizedStringKey {
+        fountain.name.nilIfEmpty.map(LocalizedStringKey.init(stringLiteral:)) ?? "fountaindetail_screen_title"
     }
 }
 

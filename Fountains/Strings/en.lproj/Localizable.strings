@@ -1,0 +1,14 @@
+// Map
+
+"map_loadingview_title" = "Loading...";
+
+// Fountain Detail
+
+"fountaindetail_screen_title" = "Fountain";
+"fountaindetail_location_title" = "Location";
+"fountaindetail_location_lat" = "Latitude";
+"fountaindetail_location_lng" = "Longitude";
+
+"fountaindetail_details_title" = "Details";
+"fountaindetail_details_bottles" = "Bottles";
+"fountaindetail_details_wheelchairs" = "Wheelchairs";
