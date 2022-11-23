@@ -10,6 +10,10 @@
 		AC1F87312819B9EA00F5D09F /* FountainMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F87302819B9EA00F5D09F /* FountainMap.swift */; };
 		AC7A7176285A259700BB0802 /* FountainMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */; };
 		AC891458285A2B6B00D57CCF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC89145A285A2B6B00D57CCF /* Localizable.strings */; };
+		ACB4962B292E6CD3003BE70B /* AddServerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962A292E6CD3003BE70B /* AddServerScreen.swift */; };
+		ACB4962D292E7126003BE70B /* AddServerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962C292E7126003BE70B /* AddServerViewModel.swift */; };
+		ACB49630292E79B1003BE70B /* ServerListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962F292E79B1003BE70B /* ServerListScreen.swift */; };
+		ACB49632292E7CB7003BE70B /* ServerListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB49631292E7CB7003BE70B /* ServerListViewModel.swift */; };
 		ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACCF53C52815D52500D62A53 /* DomainLayer */; };
 		ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53C82815D58400D62A53 /* MapScreen.swift */; };
 		ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */; };
@@ -26,6 +30,10 @@
 		AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainMapAnnotation.swift; sourceTree = "<group>"; };
 		AC891459285A2B6B00D57CCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC89145B285A2B6D00D57CCF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ACB4962A292E6CD3003BE70B /* AddServerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerScreen.swift; sourceTree = "<group>"; };
+		ACB4962C292E7126003BE70B /* AddServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewModel.swift; sourceTree = "<group>"; };
+		ACB4962F292E79B1003BE70B /* ServerListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListScreen.swift; sourceTree = "<group>"; };
+		ACB49631292E7CB7003BE70B /* ServerListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListViewModel.swift; sourceTree = "<group>"; };
 		ACCF53C82815D58400D62A53 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		ACCF53CC2815E6CE00D62A53 /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataLayer; sourceTree = "<group>"; };
@@ -60,6 +68,24 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		ACB49629292E6CBE003BE70B /* AddServer */ = {
+			isa = PBXGroup;
+			children = (
+				ACB4962A292E6CD3003BE70B /* AddServerScreen.swift */,
+				ACB4962C292E7126003BE70B /* AddServerViewModel.swift */,
+			);
+			path = AddServer;
+			sourceTree = "<group>";
+		};
+		ACB4962E292E7996003BE70B /* ServerList */ = {
+			isa = PBXGroup;
+			children = (
+				ACB4962F292E79B1003BE70B /* ServerListScreen.swift */,
+				ACB49631292E7CB7003BE70B /* ServerListViewModel.swift */,
+			);
+			path = ServerList;
+			sourceTree = "<group>";
+		};
 		ACCF53C42815D52500D62A53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,8 +96,10 @@
 		ACCF53C72815D52F00D62A53 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				ACB49629292E6CBE003BE70B /* AddServer */,
 				ACCFBE45281602E500319CCB /* FountainDetail */,
 				ACEE77CC2815EC0200340A88 /* Map */,
+				ACB4962E292E7996003BE70B /* ServerList */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -224,11 +252,15 @@
 				ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */,
 				ACCFBE44281600D600319CCB /* MapScreenLoadingView.swift in Sources */,
 				ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */,
+				ACB49632292E7CB7003BE70B /* ServerListViewModel.swift in Sources */,
 				AC7A7176285A259700BB0802 /* FountainMapAnnotation.swift in Sources */,
 				ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
+				ACB49630292E79B1003BE70B /* ServerListScreen.swift in Sources */,
 				AC1F87312819B9EA00F5D09F /* FountainMap.swift in Sources */,
+				ACB4962B292E6CD3003BE70B /* AddServerScreen.swift in Sources */,
 				ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */,
+				ACB4962D292E7126003BE70B /* AddServerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -351,7 +383,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -376,6 +408,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -404,6 +437,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
