@@ -1,13 +1,9 @@
 import Foundation
 
 struct ApiClient {
-    private enum Constants {
-        static let baseURL = URL(string: "http://192.168.100.152:8080/")!
-    }
-
     private let baseURL: URL
 
-    init(baseURL: URL = Constants.baseURL) {
+    init(baseURL: URL) {
         self.baseURL = baseURL
     }
 

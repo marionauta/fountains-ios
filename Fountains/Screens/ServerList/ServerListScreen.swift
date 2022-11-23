@@ -46,7 +46,9 @@ private struct ServerList: View {
     var body: some View {
         List {
             ForEach(viewModel.servers, id: \.address) { server in
-                Text(server.name)
+                NavigationLink(server.name) {
+                    MapScreen(server: server)
+                }
             }
         }
         .listStyle(.insetGrouped)

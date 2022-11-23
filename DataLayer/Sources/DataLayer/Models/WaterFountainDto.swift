@@ -1,7 +1,7 @@
 import Foundation
 
 public struct WaterFountainDto: Codable {
-    public let id: UUID
+    public let id: String
     public let name: String
     public let location: LocationDto
     public let properties: PropertiesDto

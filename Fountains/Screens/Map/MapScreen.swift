@@ -5,6 +5,8 @@ import SwiftUI
 struct MapScreen: View {
     @StateObject private var viewModel = MapViewModel()
 
+    let server: Server
+
     var body: some View {
         ZStack {
             FountainMap(coordinateRegion: $viewModel.region, annotationItems: viewModel.fountains) { annotation in
@@ -24,7 +26,7 @@ struct MapScreen: View {
             }
         }
         .task {
-            await viewModel.load()
+            await viewModel.load(from: server)
         }
     }
 }
@@ -32,12 +34,7 @@ struct MapScreen: View {
 extension WaterFountain: FountainMapAnnotation {
     var annotationId: AnyHashable { id }
 
-    var coordinate: CLLocationCoordinate2D {
-        CLLocationCoordinate2D(
-            latitude: location.latitude,
-            longitude: location.longitude
-        )
-    }
+    var coordinate: CLLocationCoordinate2D { location.coordinate }
 
     var clusteringIdentifier: String? { "fountain" }
 

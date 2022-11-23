@@ -20,9 +20,9 @@ final class MapViewModel: ObservableObject {
     @Published public var route: Route?
 
     @MainActor
-    public func load() async {
+    public func load(from server: Server) async {
         isLoading = true
-        fountains = await fountainsUseCase.execute()
+        fountains = await fountainsUseCase.execute(server: server)
         if let fountain = fountains.first {
             region.center = .init(latitude: fountain.location.latitude, longitude: fountain.location.longitude)
         }

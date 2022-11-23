@@ -1,11 +1,10 @@
 import Foundation
 
 public struct WaterFountainDataSource {
-    private let apiClient = ApiClient()
-
     public init() {}
 
-    public func all() async -> [WaterFountainDto]? {
-        try? await apiClient.get([WaterFountainDto].self, at: .fountains)
+    public func all(url: URL) async -> [WaterFountainDto]? {
+        let apiClient = ApiClient(baseURL: url)
+        return try? await apiClient.get(ServerResponse<FountainsResponse>.self, at: .drinkingFountains).data.fountains
     }
 }

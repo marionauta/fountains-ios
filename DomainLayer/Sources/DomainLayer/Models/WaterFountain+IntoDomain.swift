@@ -5,7 +5,7 @@ import Foundation
 extension WaterFountainDto: IntoDomain {
     func intoDomain() -> WaterFountain {
         WaterFountain(
-            id: Identifier(id),
+            id: id,
             name: name,
             location: location.intoDomain(),
             properties: properties.intoDomain()

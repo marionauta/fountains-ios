@@ -2,14 +2,14 @@ import Foundation
 
 enum ApiRoute {
     case server
-    case fountains
+    case drinkingFountains
 
     var route: String {
         switch self {
         case .server:
             return "v1/server"
-        case .fountains:
-            return "fountains"
+        case .drinkingFountains:
+            return "v1/drinking-fountains"
         }
     }
 }
