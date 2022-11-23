@@ -27,8 +27,8 @@ final class AddServerViewModel: ObservableObject {
     }
 
     public func addServer(callback: () -> Void) {
-        guard let serverInfo, let address = URL(string: address) else { return }
-        let server = Server(name: serverInfo.area.displayName, address: address)
+        guard let area = serverInfo?.area, let address = URL(string: address) else { return }
+        let server = Server(name: area.displayName, address: address, location: area.location)
         repository.add(server: server)
         callback()
     }
