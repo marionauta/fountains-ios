@@ -5,6 +5,6 @@ public struct ServerInfoDataSource {
 
     public func get(url: URL) async -> ServerInfoDto? {
         let apiClient = ApiClient(baseURL: url)
-        return try? await apiClient.get(ServerInfoDto.self, at: .server)
+        return try? await apiClient.get(ServerResponse<ServerInfoDto>.self, at: .server).data
     }
 }

@@ -45,11 +45,17 @@ private struct ServerList: View {
 
     var body: some View {
         List {
-            ForEach(viewModel.servers, id: \.address) { server in
+            ForEach(viewModel.servers) { server in
                 NavigationLink(server.name) {
                     MapScreen(server: server)
                 }
+                .swipeActions {
+                    Button("Delete", role: .destructive) {
+                        viewModel.deleteServer(serverId: server.id)
+                    }
+                }
             }
+
         }
         .listStyle(.insetGrouped)
     }

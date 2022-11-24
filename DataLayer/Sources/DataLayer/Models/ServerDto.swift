@@ -1,12 +1,12 @@
 import Foundation
 
-public struct Server: Codable, Identifiable {
+public struct ServerDto: Codable, Identifiable {
     public let id: UUID
     public let name: String
     public let address: URL
-    public let location: Location
+    public let location: LocationDto
 
-    public init(id: UUID = UUID(), name: String, address: URL, location: Location) {
+    public init(id: UUID = UUID(), name: String, address: URL, location: LocationDto) {
         self.id = id
         self.name = name
         self.address = address

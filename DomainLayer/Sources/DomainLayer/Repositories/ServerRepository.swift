@@ -1,29 +1,19 @@
 import Combine
+import DataLayer
 import Foundation
 
-private final class Cache: ObservableObject {
-    static let instance = Cache()
-    private init() {}
+struct ServerRepository {
+    private let dataSource = ServerDataSource()
 
-    var signal = PassthroughSubject<Void, Never>()
-
-    var servers: [Server] = [] {
-        didSet {
-            signal.send(())
-        }
-    }
-}
-
-public struct ServerRepository {
-    public init() {}
-
-    public func add(server: Server) {
-        Cache.instance.servers.append(server)
+    func add(server: Server) {
+        dataSource.add(server: server.intoData())
     }
 
-    public func get() -> some Publisher<[Server], Never> {
-        Cache.instance.signal
-            .merge(with: Just(()))
-            .map { Cache.instance.servers }
+    func remove(serverId: Server.ID) {
+        dataSource.remove(serverId: serverId)
+    }
+
+    func all() -> some Publisher<[Server], Never> {
+        dataSource.all().map { $0.intoDomain() }
     }
 }

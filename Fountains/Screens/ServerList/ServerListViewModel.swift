@@ -4,7 +4,8 @@ import Foundation
 
 final class ServerListViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
-    private let serverRepository = ServerRepository()
+    private let getServersUseCase = GetServersUseCase()
+    private let deleteServerUseCase = DeleteServerUseCase()
 
     @Published var servers: [Server] = []
     @Published var isAddingServer = false
@@ -18,8 +19,12 @@ final class ServerListViewModel: ObservableObject {
         isAddingServer = true
     }
 
+    func deleteServer(serverId: Server.ID) {
+        deleteServerUseCase.execute(serverId: serverId)
+    }
+
     private func getServers() {
-        serverRepository.get()
+        getServersUseCase.execute()
             .receive(on: DispatchQueue.main)
             .assign(to: \.servers, on: self)
             .store(in: &cancellables)

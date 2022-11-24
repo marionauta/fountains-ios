@@ -11,6 +11,8 @@ struct AddServerScreen: View {
                 HStack {
                     TextField("Address", text: $viewModel.address)
                         .textFieldStyle(.roundedBorder)
+                        .autocorrectionDisabled()
+                        .textInputAutocapitalization(.never)
                         .keyboardType(.URL)
 
                     Button("Check!") {
@@ -20,18 +22,20 @@ struct AddServerScreen: View {
                     }
                     .disabled(viewModel.address.isEmpty)
                 }
+                .padding(.top)
+                .padding(.horizontal)
 
                 if let serverInfo = viewModel.serverInfo {
                     Text(serverInfo.area.displayName)
                         .font(.title)
 
                     Map(coordinateRegion: .constant(viewModel.previewMapRegion))
+                        .edgesIgnoringSafeArea(.bottom)
                         .disabled(true)
+                } else {
+                    Spacer()
                 }
-
-                Spacer()
             }
-            .padding()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {

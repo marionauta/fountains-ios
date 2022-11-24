@@ -4,7 +4,7 @@ import MapKit
 
 final class AddServerViewModel: ObservableObject {
     private let useCase = GetServerInfoUseCase()
-    private let repository = ServerRepository()
+    private let addServerUseCase = CreateServerUseCase()
 
     @Published var address: String = ""
     @Published var serverInfo: ServerInfo?
@@ -29,7 +29,7 @@ final class AddServerViewModel: ObservableObject {
     public func addServer(callback: () -> Void) {
         guard let area = serverInfo?.area, let address = URL(string: address) else { return }
         let server = Server(name: area.displayName, address: address, location: area.location)
-        repository.add(server: server)
+        addServerUseCase.execute(server: server)
         callback()
     }
 }
