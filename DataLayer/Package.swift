@@ -11,10 +11,13 @@ let package = Package(
             targets: ["DataLayer"]),
     ],
     dependencies: [
+        .package(name: "NetworkLayer", path: "../NetworkLayer"),
     ],
     targets: [
         .target(
             name: "DataLayer",
-            dependencies: []),
+            dependencies: [
+                .byName(name: "NetworkLayer"),
+            ]),
     ]
 )

@@ -1,4 +1,5 @@
 import Foundation
+import NetworkLayer
 
 public struct ServerDiscoveryDataSource {
     enum Constants {
@@ -10,6 +11,6 @@ public struct ServerDiscoveryDataSource {
     public init() {}
 
     public func all() async -> [ServerDiscoveryItemDto] {
-        (try? await apiClient.get([ServerDiscoveryItemDto].self, at: .serverList)) ?? []
+        (try? await apiClient.get([ServerDiscoveryItemDto].self, at: DiscoveryRoute.list)) ?? []
     }
 }
