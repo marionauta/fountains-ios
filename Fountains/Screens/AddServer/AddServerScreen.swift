@@ -20,18 +20,39 @@ struct AddServerScreen: View {
                             await viewModel.getServerInfo()
                         }
                     }
+                    .disabled(viewModel.isLoading)
                     .disabled(viewModel.address.isEmpty)
                 }
                 .padding(.top)
                 .padding(.horizontal)
 
-                if let serverInfo = viewModel.serverInfo {
+                if viewModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                    Spacer()
+                } else if let serverInfo = viewModel.serverInfo {
                     Text(serverInfo.area.displayName)
                         .font(.title)
 
                     Map(coordinateRegion: .constant(viewModel.previewMapRegion))
                         .edgesIgnoringSafeArea(.bottom)
                         .disabled(true)
+                } else if !viewModel.discoveredServers.isEmpty {
+                    Text("Known servers")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding([.top, .horizontal])
+
+                    List {
+                        ForEach(viewModel.discoveredServers, id: \.address) { server in
+                            Button(server.name) {
+                                Task {
+                                    await viewModel.checkPredefinedServer(at: server.address)
+                                }
+                            }
+                        }
+                    }
+                    .listStyle(.plain)
                 } else {
                     Spacer()
                 }
@@ -53,6 +74,9 @@ struct AddServerScreen: View {
             }
             .navigationTitle("Add server")
             .navigationBarTitleDisplayMode(.inline)
+            .task {
+                await viewModel.getDiscoveredServers()
+            }
         }
     }
 }

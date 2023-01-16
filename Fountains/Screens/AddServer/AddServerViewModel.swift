@@ -3,9 +3,12 @@ import Foundation
 import MapKit
 
 final class AddServerViewModel: ObservableObject {
-    private let useCase = GetServerInfoUseCase()
+    private let getDiscoveredUseCase = GetDiscoveredServersUseCase()
+    private let getInfoUseCase = GetServerInfoUseCase()
     private let addServerUseCase = CreateServerUseCase()
 
+    @Published var isLoading: Bool = false
+    @Published var discoveredServers: [ServerDiscoveryItem] = []
     @Published var address: String = ""
     @Published var serverInfo: ServerInfo?
     var previewMapRegion: MKCoordinateRegion {
@@ -20,10 +23,24 @@ final class AddServerViewModel: ObservableObject {
     }
 
     @MainActor
+    public func getDiscoveredServers() async {
+        isLoading = true
+        await discoveredServers = getDiscoveredUseCase.execute()
+        isLoading = false
+    }
+
+    @MainActor
     public func getServerInfo() async {
         guard let url = URL(string: address) else { return }
-        serverInfo = await useCase.execute(url: url)
+        isLoading = true
+        serverInfo = await getInfoUseCase.execute(url: url)
+        isLoading = false
+    }
 
+    @MainActor
+    public func checkPredefinedServer(at address: URL) async {
+        self.address = address.absoluteString
+        await getServerInfo()
     }
 
     public func addServer(callback: () -> Void) {
