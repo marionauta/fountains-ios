@@ -8,16 +8,12 @@ let package = Package(
     products: [
         .library(
             name: "DataLayer",
-            targets: ["DataLayer"]),
-    ],
-    dependencies: [
-        .package(name: "NetworkLayer", path: "../NetworkLayer"),
+            targets: ["DataLayer", "WaterFountains"]),
     ],
     targets: [
-        .target(
-            name: "DataLayer",
-            dependencies: [
-                .byName(name: "NetworkLayer"),
-            ]),
+        .target(name: "DataLayer"),
+        .binaryTarget(
+            name: "WaterFountains",
+            path: "../../android/WaterFountains/build/XCFrameworks/release/WaterFountains.xcframework")
     ]
 )

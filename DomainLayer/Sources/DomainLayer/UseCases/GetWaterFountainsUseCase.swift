@@ -6,6 +6,6 @@ public struct GetWaterFountainsUseCase {
     public init() {}
 
     public func execute(server: Server) async -> [WaterFountain] {
-        return await repository.all(server: server)
+        try! await repository.all(server: server)
     }
 }

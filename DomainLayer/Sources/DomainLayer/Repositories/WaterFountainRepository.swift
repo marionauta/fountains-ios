@@ -1,11 +1,12 @@
 import Foundation
-import DataLayer
+import WaterFountains
 
 struct WaterFountainRepository {
-    private let dataSource = WaterFountainDataSource()
+    private let dataSource = FountainDataSource()
 
-    func all(server: Server) async -> [WaterFountain] {
-        let fountains = await dataSource.all(url: server.address)
-        return fountains?.intoDomain() ?? []
+    @MainActor
+    func all(server: Server) async throws -> [WaterFountain] {
+        let fountains = try await dataSource.all(url: server.address.absoluteString)
+        return fountains?.fountains.intoDomain() ?? []
     }
 }

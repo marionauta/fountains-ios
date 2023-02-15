@@ -6,6 +6,6 @@ public struct GetServerInfoUseCase {
     public init() {}
 
     public func execute(url: URL) async -> ServerInfo? {
-        return await repository.get(url: url)
+        try? await repository.get(url: url)
     }
 }

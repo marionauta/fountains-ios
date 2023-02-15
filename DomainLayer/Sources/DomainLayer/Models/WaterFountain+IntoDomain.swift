@@ -1,8 +1,8 @@
 import CommonLayer
-import DataLayer
 import Foundation
+import WaterFountains
 
-extension WaterFountainDto: IntoDomain {
+extension FountainDto: IntoDomain {
     func intoDomain() -> WaterFountain {
         WaterFountain(
             id: id,
@@ -13,7 +13,7 @@ extension WaterFountainDto: IntoDomain {
     }
 }
 
-extension WaterFountainDto.PropertiesDto: IntoDomain {
+extension FountainPropertiesDto: IntoDomain {
     func intoDomain() -> WaterFountain.Properties {
         WaterFountain.Properties(
             bottle: WaterFountain.Properties.Value(rawValue: bottle) ?? .undefined,
