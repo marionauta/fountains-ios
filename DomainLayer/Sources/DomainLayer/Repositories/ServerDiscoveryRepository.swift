@@ -1,10 +1,11 @@
-import DataLayer
 import Foundation
+import WaterFountains
 
 struct ServerDiscoveryRepository {
-    private let dataSource = ServerDiscoveryDataSource()
+    private let dataSource = DiscoveryDataSource()
 
-    func all() async -> [ServerDiscoveryItem] {
-        await dataSource.all()
+    @MainActor
+    func all() async throws -> [ServerDiscoveryItem] {
+        try await dataSource.all().intoDomain()
     }
 }

@@ -1,4 +1,16 @@
-import DataLayer
 import Foundation
+import WaterFountains
 
-public typealias ServerDiscoveryItem = ServerDiscoveryItemDto
+public struct ServerDiscoveryItem {
+    public let name: String
+    public let address: URL
+}
+
+extension ServerDiscoveryItemDto: IntoDomain {
+    func intoDomain() -> ServerDiscoveryItem {
+        ServerDiscoveryItem(
+            name: name,
+            address: URL(string: address)!
+        )
+    }
+}

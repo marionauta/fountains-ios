@@ -1,11 +1,12 @@
 import Foundation
-import DataLayer
+import WaterFountains
 
 struct ServerInfoRepository {
     private let dataSource = ServerInfoDataSource()
 
-    func get(url: URL) async -> ServerInfo? {
-        let info = await dataSource.get(url: url)
+    @MainActor
+    func get(url: URL) async throws -> ServerInfo? {
+        let info = try await dataSource.get(baseUrl: url.absoluteString)
         return info?.intoDomain()
     }
 }

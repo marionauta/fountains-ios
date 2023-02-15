@@ -6,6 +6,6 @@ public struct GetDiscoveredServersUseCase {
     public init() {}
 
     public func execute() async -> [ServerDiscoveryItem] {
-        await repository.all()
+        try! await repository.all()
     }
 }
