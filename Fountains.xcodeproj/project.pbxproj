@@ -26,10 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC1D2371299C0DBD001DCCCE /* WaterFountains.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WaterFountains.framework; path = "../android/WaterFountains/build/xcode-frameworks/Debug/iphonesimulator16.2/WaterFountains.framework"; sourceTree = "<group>"; };
 		AC1F87302819B9EA00F5D09F /* FountainMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainMap.swift; sourceTree = "<group>"; };
 		AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainMapAnnotation.swift; sourceTree = "<group>"; };
 		AC891459285A2B6B00D57CCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC89145B285A2B6D00D57CCF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ACA7ECEC299CE15700878C99 /* WaterFountains.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = WaterFountains.xcframework; path = ../android/WaterFountains/build/out/xcframework/debug/WaterFountains.xcframework; sourceTree = "<group>"; };
 		ACB4962A292E6CD3003BE70B /* AddServerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerScreen.swift; sourceTree = "<group>"; };
 		ACB4962C292E7126003BE70B /* AddServerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerViewModel.swift; sourceTree = "<group>"; };
 		ACB4962F292E79B1003BE70B /* ServerListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerListScreen.swift; sourceTree = "<group>"; };
@@ -90,6 +92,8 @@
 		ACCF53C42815D52500D62A53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACA7ECEC299CE15700878C99 /* WaterFountains.xcframework */,
+				AC1D2371299C0DBD001DCCCE /* WaterFountains.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,6 +185,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ACE290A32815D0F7002B0BD8 /* Build configuration list for PBXNativeTarget "Fountains" */;
 			buildPhases = (
+				ACA7ECF0299CE30B00878C99 /* Compile KMM */,
 				ACE290912815D0F6002B0BD8 /* Sources */,
 				ACE290922815D0F6002B0BD8 /* Frameworks */,
 				ACE290932815D0F6002B0BD8 /* Resources */,
@@ -245,6 +250,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		ACA7ECF0299CE30B00878C99 /* Compile KMM */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile KMM";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/../android\"\n./gradlew :WaterFountains:embedAndSignAppleFrameworkForXcode\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ACE290912815D0F6002B0BD8 /* Sources */ = {
@@ -404,6 +431,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8AGC2Z4ZX9;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../android/WaterFountains/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -416,6 +444,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					WaterFountains,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mn.Fountains;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -433,6 +466,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8AGC2Z4ZX9;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/../android/WaterFountains/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -445,6 +479,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					WaterFountains,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mn.Fountains;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
