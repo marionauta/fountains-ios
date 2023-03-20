@@ -1,13 +1,16 @@
-import DataLayer
 import Foundation
+import WaterFountains
 
-extension ServerDto: IntoDomain {
+extension StoredServer: IntoDomain {
     func intoDomain() -> Server {
         Server(
             id: id,
             name: name,
-            address: address,
-            location: location.intoDomain()
+            address: URL(string: address)!,
+            location: Location(
+                latitude: latitude,
+                longitude: longitude
+            )
         )
     }
 }

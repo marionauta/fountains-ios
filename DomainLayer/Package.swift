@@ -19,7 +19,7 @@ let package = Package(
             name: "DomainLayer",
             dependencies: [
                 .byName(name: "CommonLayer"),
-                .byName(name: "DataLayer"),
+                .product(name: "WaterFountains", package: "DataLayer"),
             ]),
     ]
 )
