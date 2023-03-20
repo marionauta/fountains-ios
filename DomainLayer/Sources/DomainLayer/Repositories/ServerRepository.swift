@@ -1,19 +1,33 @@
 import Combine
-import DataLayer
 import Foundation
+import WaterFountains
 
 struct ServerRepository {
-    private let dataSource = ServerDataSource()
+    private let dataSource = StoredServersDataSource()
 
     func add(server: Server) {
-        dataSource.add(server: server.intoData())
+        Task { @MainActor in
+            try? await dataSource.add(server: server.intoData())
+        }
     }
 
     func remove(serverId: Server.ID) {
-        dataSource.remove(serverId: serverId)
+        Task { @MainActor in
+            try? await dataSource.delete(id: serverId)
+        }
     }
 
-    func all() -> some Publisher<[Server], Never> {
-        dataSource.all().map { $0.intoDomain() }
+    func all() -> some Publisher<[Server], Error> {
+        let subject = CurrentValueSubject<[StoredServer], Error>([])
+        Task { @MainActor in
+            dataSource.allFlowList { flowList, error in
+                guard let flowList = flowList else {
+                    subject.send(completion: .finished) // TODO: handle error?
+                    return
+                }
+                flowList.collect(subject: subject)
+            }
+        }
+        return subject.map { servers in servers.intoDomain() }
     }
 }

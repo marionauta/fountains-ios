@@ -7,11 +7,10 @@ let package = Package(
     platforms: [.iOS(.v15)],
     products: [
         .library(
-            name: "DataLayer",
-            targets: ["DataLayer", "WaterFountains"]),
+            name: "WaterFountains",
+            targets: ["WaterFountains"]),
     ],
     targets: [
-        .target(name: "DataLayer"),
         .binaryTarget(
             name: "WaterFountains",
             path: "../../android/WaterFountains/build/XCFrameworks/release/WaterFountains.xcframework")

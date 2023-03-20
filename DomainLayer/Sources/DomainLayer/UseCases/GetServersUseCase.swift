@@ -7,6 +7,6 @@ public struct GetServersUseCase {
     public init() {}
 
     public func execute() -> some Publisher<[Server], Never> {
-        repository.all()
+        repository.all().replaceError(with: [])
     }
 }
