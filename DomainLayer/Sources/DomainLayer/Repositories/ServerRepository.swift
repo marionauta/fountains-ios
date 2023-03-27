@@ -19,15 +19,7 @@ struct ServerRepository {
 
     func all() -> some Publisher<[Server], Error> {
         let subject = CurrentValueSubject<[StoredServer], Error>([])
-        Task { @MainActor in
-            dataSource.allFlowList { flowList, error in
-                guard let flowList = flowList else {
-                    subject.send(completion: .finished) // TODO: handle error?
-                    return
-                }
-                flowList.collect(subject: subject)
-            }
-        }
+        dataSource.allStream().collect(subject: subject)
         return subject.map { servers in servers.intoDomain() }
     }
 }
