@@ -1,27 +1,27 @@
 import MapKit
 import SwiftUI
 
-struct AddServerScreen: View {
+struct AddAreaScreen: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel = AddServerViewModel()
+    @StateObject private var viewModel = AddAreaViewModel()
 
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    TextField("Address", text: $viewModel.address)
+                    TextField("Berlin, London...", text: $viewModel.query)
                         .textFieldStyle(.roundedBorder)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                         .keyboardType(.URL)
 
-                    Button("Check!") {
+                    Button("Search") {
                         Task {
-                            await viewModel.getServerInfo()
+                            await viewModel.searchForAreas()
                         }
                     }
                     .disabled(viewModel.isLoading)
-                    .disabled(viewModel.address.isEmpty)
+                    .disabled(viewModel.query.isEmpty)
                 }
                 .padding(.top)
                 .padding(.horizontal)
@@ -30,25 +30,23 @@ struct AddServerScreen: View {
                     ProgressView()
                         .progressViewStyle(.circular)
                     Spacer()
-                } else if let serverInfo = viewModel.serverInfo {
-                    Text(serverInfo.area.displayName)
+                } else if let selectedArea = viewModel.selectedArea {
+                    Text(selectedArea.name)
                         .font(.title)
 
                     Map(coordinateRegion: .constant(viewModel.previewMapRegion))
                         .edgesIgnoringSafeArea(.bottom)
                         .disabled(true)
-                } else if !viewModel.discoveredServers.isEmpty {
-                    Text("Known servers")
+                } else if !viewModel.discoveredAreas.isEmpty {
+                    Text("Results")
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding([.top, .horizontal])
 
                     List {
-                        ForEach(viewModel.discoveredServers, id: \.address) { server in
-                            Button(server.name) {
-                                Task {
-                                    await viewModel.checkPredefinedServer(at: server.address)
-                                }
+                        ForEach(viewModel.discoveredAreas) { area in
+                            Button(area.name) {
+                                viewModel.selectedArea = area
                             }
                         }
                     }
@@ -65,17 +63,17 @@ struct AddServerScreen: View {
                 }
                 ToolbarItem {
                     Button("Add") {
-                        viewModel.addServer {
+                        viewModel.storeArea {
                             dismiss()
                         }
                     }
-                    .disabled(viewModel.serverInfo == nil)
+                    .disabled(viewModel.selectedArea == nil)
                 }
             }
-            .navigationTitle("Add server")
+            .navigationTitle("Add location")
             .navigationBarTitleDisplayMode(.inline)
             .task {
-                await viewModel.getDiscoveredServers()
+                await viewModel.searchForAreas()
             }
         }
     }

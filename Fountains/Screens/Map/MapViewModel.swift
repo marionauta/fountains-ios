@@ -5,7 +5,7 @@ import DomainLayer
 import MapKit
 
 final class MapViewModel: ObservableObject {
-    private let fountainsUseCase = GetWaterFountainsUseCase()
+    private let fountainsUseCase = GetFountainsUseCase()
     private let feedbackGenerator = UISelectionFeedbackGenerator()
 
     @Published public var isLoading: Bool = true
@@ -20,10 +20,10 @@ final class MapViewModel: ObservableObject {
     @Published public var route: Route?
 
     @MainActor
-    public func load(from server: Server) async {
+    public func load(from area: Area) async {
         isLoading = true
-        fountains = await fountainsUseCase.execute(server: server)
-        region.center = server.location.coordinate
+        fountains = await fountainsUseCase.execute(area: area)
+        region.center = area.location.coordinate
         isLoading = false
     }
 
