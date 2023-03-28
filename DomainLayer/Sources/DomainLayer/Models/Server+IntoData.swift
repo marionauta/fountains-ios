@@ -1,14 +1,14 @@
 import Foundation
 import WaterFountains
 
-extension Server {
-    public func intoData() -> StoredServer {
-        let s = StoredServer()
+extension Area {
+    public func intoData() -> StoredArea {
+        let s = StoredArea()
         s.id = id
         s.name = name
-        s.address = address.absoluteString
         s.latitude = location.latitude
         s.longitude = location.longitude
+        s.osmAreaId = osmAreaId
         return s
     }
 }

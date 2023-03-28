@@ -5,7 +5,7 @@ import SwiftUI
 struct MapScreen: View {
     @StateObject private var viewModel = MapViewModel()
 
-    let server: Server
+    let area: Area
 
     var body: some View {
         ZStack {
@@ -26,7 +26,7 @@ struct MapScreen: View {
             }
         }
         .task {
-            await viewModel.load(from: server)
+            await viewModel.load(from: area)
         }
     }
 }
