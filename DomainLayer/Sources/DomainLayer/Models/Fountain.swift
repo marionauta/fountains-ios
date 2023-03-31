@@ -14,6 +14,7 @@ extension Fountain {
         public let bottle: Value
         public let wheelchair: Value
         public let mapillaryId: String?
+        public let checkDate: Date?
     }
 }
 

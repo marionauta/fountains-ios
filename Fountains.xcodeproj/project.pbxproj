@@ -18,6 +18,7 @@
 		ACB4962D292E7126003BE70B /* AddAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962C292E7126003BE70B /* AddAreaViewModel.swift */; };
 		ACB49630292E79B1003BE70B /* AreaListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962F292E79B1003BE70B /* AreaListScreen.swift */; };
 		ACB49632292E7CB7003BE70B /* AreaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB49631292E7CB7003BE70B /* AreaListViewModel.swift */; };
+		ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCE471429D73335008167D6 /* FountainPropertyRow.swift */; };
 		ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACCF53C52815D52500D62A53 /* DomainLayer */; };
 		ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53C82815D58400D62A53 /* MapScreen.swift */; };
 		ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */; };
@@ -42,6 +43,7 @@
 		ACB4962C292E7126003BE70B /* AddAreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAreaViewModel.swift; sourceTree = "<group>"; };
 		ACB4962F292E79B1003BE70B /* AreaListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListScreen.swift; sourceTree = "<group>"; };
 		ACB49631292E7CB7003BE70B /* AreaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListViewModel.swift; sourceTree = "<group>"; };
+		ACCE471429D73335008167D6 /* FountainPropertyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainPropertyRow.swift; sourceTree = "<group>"; };
 		ACCF53C82815D58400D62A53 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		ACCF53CC2815E6CE00D62A53 /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataLayer; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 			path = AreaList;
 			sourceTree = "<group>";
 		};
+		ACCE471329D732C2008167D6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACCE471429D73335008167D6 /* FountainPropertyRow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		ACCF53C72815D52F00D62A53 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		ACCFBE45281602E500319CCB /* FountainDetail */ = {
 			isa = PBXGroup;
 			children = (
+				ACCE471329D732C2008167D6 /* Views */,
 				ACCFBE462816030900319CCB /* FountainDetailScreen.swift */,
 				AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */,
 				AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */,
@@ -249,6 +260,7 @@
 				AC2DDA5629D7140F002C667F /* AddAreaCoordinator.swift in Sources */,
 				ACB49632292E7CB7003BE70B /* AreaListViewModel.swift in Sources */,
 				AC7A7176285A259700BB0802 /* FountainMapAnnotation.swift in Sources */,
+				ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */,
 				ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
 				ACB49630292E79B1003BE70B /* AreaListScreen.swift in Sources */,
