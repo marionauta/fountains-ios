@@ -11,7 +11,7 @@ final class MapViewModel: ObservableObject {
     @Published public var isLoading: Bool = true
     @Published public var fountains: [Fountain] = []
     @Published public var region = MKCoordinateRegion(
-        center: .sevilla,
+        center: .init(latitude: 0, longitude: 0),
         span: MKCoordinateSpan(
             latitudeDelta: 0.03,
             longitudeDelta: 0.03
@@ -22,8 +22,8 @@ final class MapViewModel: ObservableObject {
     @MainActor
     public func load(from area: Area) async {
         isLoading = true
-        fountains = await fountainsUseCase.execute(area: area)
         region.center = area.location.coordinate
+        fountains = await fountainsUseCase.execute(area: area)
         isLoading = false
     }
 
