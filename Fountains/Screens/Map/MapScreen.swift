@@ -8,13 +8,11 @@ struct MapScreen: View {
     let area: Area
 
     var body: some View {
-        ZStack {
-            FountainMap(coordinateRegion: $viewModel.region, annotationItems: viewModel.fountains) { annotation in
-                guard let fountain = annotation as? Fountain else { return }
-                viewModel.openDetail(for: fountain)
-            }
-            .edgesIgnoringSafeArea([.horizontal, .bottom])
+        FountainMap(coordinateRegion: $viewModel.region, annotationItems: viewModel.fountains) { annotation in
+            guard let fountain = annotation as? Fountain else { return }
+            viewModel.openDetail(for: fountain)
         }
+        .edgesIgnoringSafeArea([.horizontal, .bottom])
         .navigationTitle(area.trimmedDisplayName)
         .toolbar {
             ToolbarItem {
