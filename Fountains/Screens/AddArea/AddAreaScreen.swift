@@ -1,9 +1,8 @@
-import MapKit
 import SwiftUI
 
 struct AddAreaScreen: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject private var viewModel = AddAreaViewModel()
+    @ObservedObject var viewModel: AddAreaViewModel
 
     var body: some View {
         NavigationView {
@@ -30,13 +29,7 @@ struct AddAreaScreen: View {
                     ProgressView()
                         .progressViewStyle(.circular)
                     Spacer()
-                } else if let selectedArea = viewModel.selectedArea {
-                    Text(selectedArea.name)
-                        .font(.title)
 
-                    Map(coordinateRegion: .constant(viewModel.previewMapRegion))
-                        .edgesIgnoringSafeArea(.bottom)
-                        .disabled(true)
                 } else if !viewModel.discoveredAreas.isEmpty {
                     Text("Results")
                         .font(.headline)
@@ -56,25 +49,16 @@ struct AddAreaScreen: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button {
                         dismiss()
+                    } label: {
+                        Label("Cancel", systemImage: "xmark")
                     }
-                }
-                ToolbarItem {
-                    Button("Add") {
-                        viewModel.storeArea {
-                            dismiss()
-                        }
-                    }
-                    .disabled(viewModel.selectedArea == nil)
                 }
             }
             .navigationTitle("Add location")
             .navigationBarTitleDisplayMode(.inline)
-            .task {
-                await viewModel.searchForAreas()
-            }
         }
     }
 }
