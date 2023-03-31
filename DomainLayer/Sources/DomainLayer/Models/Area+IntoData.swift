@@ -5,7 +5,6 @@ import WaterFountains
 extension Area {
     public func intoData() -> StoredArea {
         let s = StoredArea()
-        s.id = id.value
         s.name = name
         s.latitude = location.latitude
         s.longitude = location.longitude
