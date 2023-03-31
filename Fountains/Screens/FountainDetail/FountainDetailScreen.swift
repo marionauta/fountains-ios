@@ -2,39 +2,52 @@ import DomainLayer
 import SwiftUI
 
 struct FountainDetailScreen: View {
+    @Environment(\.dismiss) private var dismiss
+
     public var fountain: Fountain
+    @ObservedObject public var viewModel: FountainDetailViewModel
 
     var body: some View {
-        NavigationView {
-            Form {
-                Section("fountaindetail_location_title") {
-                    HStack {
-                        Text("fountaindetail_location_lat")
-                        Spacer()
-                        Text(fountain.location.latitude, format: .number)
-                    }
-                    HStack {
-                        Text("fountaindetail_location_lng")
-                        Spacer()
-                        Text(fountain.location.longitude, format: .number)
-                    }
+        VStack(spacing: 0) {
+            if let imageUrl = viewModel.fountainImageUrl {
+                AsyncImage(url: imageUrl) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } placeholder: {
+                    ProgressView()
                 }
+                .frame(maxWidth: .infinity, maxHeight: 250)
+                .clipped()
+            }
 
-                Section("fountaindetail_details_title") {
-                    HStack {
-                        Text("fountaindetail_details_bottles")
-                        Spacer()
-                        Image(systemName: fountain.properties.bottle.imageName)
-                    }
-                    HStack {
-                        Text("fountaindetail_details_wheelchairs")
-                        Spacer()
-                        Image(systemName: fountain.properties.wheelchair.imageName)
-                    }
+            HStack {
+                Text("fountaindetail_details_bottles")
+                Spacer()
+                Image(systemName: fountain.properties.bottle.imageName)
+            }
+
+            HStack {
+                Text("fountaindetail_details_wheelchairs")
+                Spacer()
+                Image(systemName: fountain.properties.wheelchair.imageName)
+            }
+
+            Spacer()
+        }
+        .navigationTitle(title)
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button {
+                    dismiss()
+                } label: {
+                    Label("general.close", systemImage: "xmark")
                 }
             }
-            .navigationTitle(title)
-            .navigationBarTitleDisplayMode(.inline)
+        }
+        .task {
+            await viewModel.loadFountainImage(for: fountain.properties.mapillaryId)
         }
     }
 

@@ -17,7 +17,8 @@ extension FountainPropertiesDto: IntoDomain {
     func intoDomain() -> Fountain.Properties {
         Fountain.Properties(
             bottle: Fountain.Properties.Value(rawValue: bottle) ?? .undefined,
-            wheelchair: Fountain.Properties.Value(rawValue: wheelchair) ?? .undefined
+            wheelchair: Fountain.Properties.Value(rawValue: wheelchair) ?? .undefined,
+            mapillaryId: mapillaryId
         )
     }
 }

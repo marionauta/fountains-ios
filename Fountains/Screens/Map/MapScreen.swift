@@ -26,7 +26,7 @@ struct MapScreen: View {
         .sheet(item: $viewModel.route) { route in
             switch route {
             case let .fountain(fountain):
-                FountainDetailScreen(fountain: fountain)
+                FountainDetailCoordinator(fountain: fountain)
             }
         }
         .task {
