@@ -13,6 +13,7 @@ struct AreaListScreen: View {
                 }
             }
             .navigationTitle("Locations")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem {
                     Button("Add", action: viewModel.addArea)
@@ -20,7 +21,8 @@ struct AreaListScreen: View {
             }
         }
         .sheet(isPresented: $viewModel.isAddingAreas) {
-            AddAreaScreen()
+            AddAreaCoordinator()
+                .environmentObject(viewModel)
         }
         .onAppear {
             viewModel.load()

@@ -13,10 +13,14 @@ struct MapScreen: View {
                 guard let fountain = annotation as? Fountain else { return }
                 viewModel.openDetail(for: fountain)
             }
-            .edgesIgnoringSafeArea(.all)
-
-            if viewModel.isLoading {
-                LoadingView()
+            .edgesIgnoringSafeArea([.horizontal, .bottom])
+        }
+        .navigationTitle(area.trimmedDisplayName)
+        .toolbar {
+            ToolbarItem {
+                if viewModel.isLoading {
+                    ProgressView().progressViewStyle(.circular)
+                }
             }
         }
         .sheet(item: $viewModel.route) { route in

@@ -1,6 +1,5 @@
 import DomainLayer
 import Foundation
-import MapKit
 
 final class AddAreaViewModel: ObservableObject {
     private let searchAreasUseCase = SearchAreasUseCase()
@@ -10,16 +9,6 @@ final class AddAreaViewModel: ObservableObject {
     @Published var discoveredAreas: [Area] = []
     @Published var query: String = ""
     @Published var selectedArea: Area?
-    var previewMapRegion: MKCoordinateRegion {
-        guard let selectedArea else { return MKCoordinateRegion() }
-        return MKCoordinateRegion(
-            center: selectedArea.location.coordinate,
-            span: MKCoordinateSpan(
-                latitudeDelta: 0.03,
-                longitudeDelta: 0.03
-            )
-        )
-    }
 
     @MainActor
     public func searchForAreas() async {
