@@ -8,5 +8,6 @@ public struct GetAreasUseCase {
 
     public func execute() -> some Publisher<[Area], Never> {
         repository.all().replaceError(with: [])
+            .map { $0.sorted(using: KeyPathComparator(\.name)) }
     }
 }
