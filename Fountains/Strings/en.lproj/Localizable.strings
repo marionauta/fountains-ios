@@ -2,17 +2,13 @@
 
 "general.close" = "Close";
 
-// Map
-
-"map_loadingview_title" = "Loading...";
-
 // Fountain Detail
 
-"fountaindetail_screen_title" = "Fountain";
-"fountaindetail_location_title" = "Location";
-"fountaindetail_location_lat" = "Latitude";
-"fountaindetail_location_lng" = "Longitude";
-
-"fountaindetail_details_title" = "Details";
-"fountaindetail_details_bottles" = "Bottles";
-"fountaindetail_details_wheelchairs" = "Wheelchairs";
+"fountain_detail_fallback_title" = "Fountain";
+"fountain_detail_bottle_title" = "Bottle filling";
+"fountain_detail_bottle_description" = "A water bottle can easily be filled.";
+"fountain_detail_wheelchair_title" = "Wheelchair access";
+"fountain_detail_wheelchair_description" = "The fountain can be used with wheelchairs.";
+"fountain_detail_check_date_title" = "Last checked";
+"fountain_detail_check_date_description" = "The last time someone checked this water fountain.";
+"fountain_detail_something_wrong_button" = "Something wrong?";

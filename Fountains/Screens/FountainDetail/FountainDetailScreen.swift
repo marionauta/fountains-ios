@@ -21,17 +21,28 @@ struct FountainDetailScreen: View {
                 .clipped()
             }
 
-            HStack {
-                Text("fountaindetail_details_bottles")
-                Spacer()
-                Image(systemName: fountain.properties.bottle.imageName)
+            FountainPropertyRow(
+                name: "fountain_detail_bottle_title",
+                description: "fountain_detail_bottle_description",
+                value: fountain.properties.bottle.rawValue
+            )
+
+            FountainPropertyRow(
+                name: "fountain_detail_wheelchair_title",
+                description: "fountain_detail_wheelchair_description",
+                value: fountain.properties.wheelchair.rawValue
+            )
+
+            if let checkDate = fountain.properties.checkDate {
+                FountainPropertyRow(
+                    name: "fountain_detail_check_date_title",
+                    description: "fountain_detail_check_date_description",
+                    value: checkDate.formatted(date: .long, time: .omitted)
+                )
             }
 
-            HStack {
-                Text("fountaindetail_details_wheelchairs")
-                Spacer()
-                Image(systemName: fountain.properties.wheelchair.imageName)
-            }
+            Link("fountain_detail_something_wrong_button", destination: somethingWrongUrl)
+                .padding(16)
 
             Spacer()
         }
@@ -52,21 +63,10 @@ struct FountainDetailScreen: View {
     }
 
     var title: LocalizedStringKey {
-        fountain.name.nilIfEmpty.map(LocalizedStringKey.init(stringLiteral:)) ?? "fountaindetail_screen_title"
+        fountain.name.nilIfEmpty.map(LocalizedStringKey.init(stringLiteral:)) ?? "fountain_detail_fallback_title"
     }
-}
 
-private extension Fountain.Properties.Value {
-    var imageName: String {
-        switch self {
-        case .undefined:
-            return "questionmark.app.dashed"
-        case .no:
-            return "nosign"
-        case .limited:
-            return "pyramid"
-        case .yes:
-            return "checkmark.seal"
-        }
+    var somethingWrongUrl: URL {
+        URL(string: "https://aguapp.nachbaur.dev/help/corregir?lat=\(fountain.location.latitude)&lng=\(fountain.location.longitude)")!
     }
 }

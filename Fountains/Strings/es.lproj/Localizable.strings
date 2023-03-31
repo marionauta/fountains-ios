@@ -1,14 +1,14 @@
-// Map
+// General
 
-"map_loadingview_title" = "Cargando...";
+"general.close" = "Cerrar";
 
 // Fountain Detail
 
-"fountaindetail_screen_title" = "Fuente";
-"fountaindetail_location_title" = "Ubicación";
-"fountaindetail_location_lat" = "Latitud";
-"fountaindetail_location_lng" = "Longitud";
-
-"fountaindetail_details_title" = "Detalles";
-"fountaindetail_details_bottles" = "Botellas";
-"fountaindetail_details_wheelchairs" = "Sillas de ruedas";
+"fountain_detail_fallback_title" = "Fuente";
+"fountain_detail_bottle_title" = "Rellenado de botellas";
+"fountain_detail_bottle_description" = "Una botella de agua se puede llenar fácilmente.";
+"fountain_detail_wheelchair_title" = "Acceso con silla de ruedas";
+"fountain_detail_wheelchair_description" = "La fuente se puede acceder con silla de ruedas.";
+"fountain_detail_check_date_title" = "Comprobado";
+"fountain_detail_check_date_description" = "La  última vez que alguien comprobó esta fuente.";
+"fountain_detail_something_wrong_button" = "¿Algún error?";

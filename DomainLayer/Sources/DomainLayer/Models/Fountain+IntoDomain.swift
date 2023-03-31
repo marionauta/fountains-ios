@@ -18,7 +18,18 @@ extension FountainPropertiesDto: IntoDomain {
         Fountain.Properties(
             bottle: Fountain.Properties.Value(rawValue: bottle) ?? .undefined,
             wheelchair: Fountain.Properties.Value(rawValue: wheelchair) ?? .undefined,
-            mapillaryId: mapillaryId
+            mapillaryId: mapillaryId,
+            checkDate: checkDate.flatMap {
+                DateFormatter.forCheckDate.date(from: $0)
+            }
         )
     }
+}
+
+private extension DateFormatter {
+    static let forCheckDate: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }()
 }
