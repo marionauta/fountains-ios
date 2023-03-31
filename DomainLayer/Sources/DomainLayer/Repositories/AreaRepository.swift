@@ -20,7 +20,7 @@ struct AreaRepository {
 
     func delete(areaId: Area.ID) {
         Task { @MainActor in
-            try? await storedDataSource.delete(id: areaId)
+            try? await storedDataSource.delete(id: areaId.value)
         }
     }
 

@@ -9,7 +9,7 @@ final class MapViewModel: ObservableObject {
     private let feedbackGenerator = UISelectionFeedbackGenerator()
 
     @Published public var isLoading: Bool = true
-    @Published public var fountains: [WaterFountain] = []
+    @Published public var fountains: [Fountain] = []
     @Published public var region = MKCoordinateRegion(
         center: .sevilla,
         span: MKCoordinateSpan(
@@ -27,7 +27,7 @@ final class MapViewModel: ObservableObject {
         isLoading = false
     }
 
-    public func openDetail(for fountain: WaterFountain) {
+    public func openDetail(for fountain: Fountain) {
         feedbackGenerator.selectionChanged()
         route = .fountain(fountain)
     }
@@ -35,7 +35,7 @@ final class MapViewModel: ObservableObject {
 
 extension MapViewModel {
     enum Route: Identifiable {
-        case fountain(WaterFountain)
+        case fountain(Fountain)
 
         var id: AnyHashable {
             switch self {

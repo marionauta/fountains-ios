@@ -10,7 +10,7 @@ struct MapScreen: View {
     var body: some View {
         ZStack {
             FountainMap(coordinateRegion: $viewModel.region, annotationItems: viewModel.fountains) { annotation in
-                guard let fountain = annotation as? WaterFountain else { return }
+                guard let fountain = annotation as? Fountain else { return }
                 viewModel.openDetail(for: fountain)
             }
             .edgesIgnoringSafeArea(.all)
@@ -31,7 +31,7 @@ struct MapScreen: View {
     }
 }
 
-extension WaterFountain: FountainMapAnnotation {
+extension Fountain: FountainMapAnnotation {
     var annotationId: AnyHashable { id }
 
     var coordinate: CLLocationCoordinate2D { location.coordinate }

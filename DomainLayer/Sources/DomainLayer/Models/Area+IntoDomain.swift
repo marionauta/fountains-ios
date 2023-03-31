@@ -1,3 +1,4 @@
+import CommonLayer
 import Foundation
 import WaterFountains
 
@@ -5,7 +6,7 @@ extension AreaOsm: IntoDomain {
     func intoDomain() -> Area? {
         guard let areaId = self.areaId() else { return nil }
         return Area(
-            id: String(osm_id),
+            id: Identifier(String(osm_id)),
             name: display_name,
             location: Location(
                 latitude: Double(lat) ?? 0,
@@ -19,7 +20,7 @@ extension AreaOsm: IntoDomain {
 extension StoredArea: IntoDomain {
     func intoDomain() -> Area {
         Area(
-            id: id,
+            id: Identifier(id),
             name: name,
             location: Location(
                 latitude: latitude,

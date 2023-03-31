@@ -44,7 +44,7 @@ private struct AreaList: View {
     var body: some View {
         List {
             ForEach(viewModel.areas) { area in
-                NavigationLink(area.name) {
+                NavigationLink(area.trimmedDisplayName) {
                     MapScreen(area: area)
                 }
                 .swipeActions {
