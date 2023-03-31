@@ -2,7 +2,7 @@ import DomainLayer
 import SwiftUI
 
 struct FountainDetailScreen: View {
-    public var fountain: WaterFountain
+    public var fountain: Fountain
 
     var body: some View {
         NavigationView {
@@ -43,7 +43,7 @@ struct FountainDetailScreen: View {
     }
 }
 
-private extension WaterFountain.Properties.Value {
+private extension Fountain.Properties.Value {
     var imageName: String {
         switch self {
         case .undefined:
