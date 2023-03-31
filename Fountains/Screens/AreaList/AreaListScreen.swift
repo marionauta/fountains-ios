@@ -50,7 +50,7 @@ private struct AreaList: View {
                     MapScreen(area: area)
                 }
                 .swipeActions {
-                    Button("Delete", role: .destructive) {
+                    Button("general.delete", role: .destructive) {
                         viewModel.deleteArea(areaId: area.id)
                     }
                 }
