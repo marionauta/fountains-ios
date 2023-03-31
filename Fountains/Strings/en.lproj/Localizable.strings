@@ -1,3 +1,7 @@
+// General
+
+"general.close" = "Close";
+
 // Map
 
 "map_loadingview_title" = "Loading...";

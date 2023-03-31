@@ -13,6 +13,7 @@ extension Fountain {
     public struct Properties {
         public let bottle: Value
         public let wheelchair: Value
+        public let mapillaryId: String?
     }
 }
 

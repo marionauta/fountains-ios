@@ -10,6 +10,8 @@
 		AC1F87312819B9EA00F5D09F /* FountainMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1F87302819B9EA00F5D09F /* FountainMap.swift */; };
 		AC2DDA5429D713D0002C667F /* AreaPreviewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2DDA5329D713D0002C667F /* AreaPreviewModal.swift */; };
 		AC2DDA5629D7140F002C667F /* AddAreaCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2DDA5529D7140F002C667F /* AddAreaCoordinator.swift */; };
+		AC4B038729D72AA3008946C9 /* FountainDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */; };
+		AC4B038929D72B83008946C9 /* FountainDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */; };
 		AC7A7176285A259700BB0802 /* FountainMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */; };
 		AC891458285A2B6B00D57CCF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC89145A285A2B6B00D57CCF /* Localizable.strings */; };
 		ACB4962B292E6CD3003BE70B /* AddAreaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962A292E6CD3003BE70B /* AddAreaScreen.swift */; };
@@ -31,6 +33,8 @@
 		AC2DDA5329D713D0002C667F /* AreaPreviewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaPreviewModal.swift; sourceTree = "<group>"; };
 		AC2DDA5529D7140F002C667F /* AddAreaCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAreaCoordinator.swift; sourceTree = "<group>"; };
 		AC364FDB299CEEA5005C93E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailViewModel.swift; sourceTree = "<group>"; };
+		AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailCoordinator.swift; sourceTree = "<group>"; };
 		AC7A7175285A259700BB0802 /* FountainMapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainMapAnnotation.swift; sourceTree = "<group>"; };
 		AC891459285A2B6B00D57CCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC89145B285A2B6D00D57CCF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -106,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				ACCFBE462816030900319CCB /* FountainDetailScreen.swift */,
+				AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */,
+				AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */,
 			);
 			path = FountainDetail;
 			sourceTree = "<group>";
@@ -251,6 +257,8 @@
 				ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */,
 				ACB4962D292E7126003BE70B /* AddAreaViewModel.swift in Sources */,
 				AC2DDA5429D713D0002C667F /* AreaPreviewModal.swift in Sources */,
+				AC4B038929D72B83008946C9 /* FountainDetailCoordinator.swift in Sources */,
+				AC4B038729D72AA3008946C9 /* FountainDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
