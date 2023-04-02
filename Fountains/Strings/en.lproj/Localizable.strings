@@ -3,6 +3,23 @@
 "general.close" = "Close";
 "general.delete" = "Delete";
 
+// App Info
+"app_info_label_title" = "Open App Info";
+"app_info_title" = "App Info";
+"app_info_website_title" = "Website";
+"app_info_website_content" = "Learn more";
+"app_info_developer_title" = "Developer";
+"app_info_developer_content" = "Mario Nachbaur";
+"app_info_app_version_title" = "App version";
+
+// Fountain List
+
+"areas_list_title" = "Locations";
+"areas_list_add_button" = "Add";
+"areas_list_add_button_description" = "Add location";
+"areas_list_empty_title" = "No locations";
+"areas_list_empty_description" = "Add a location first.";
+
 // Fountain Detail
 
 "fountain_detail_fallback_title" = "Fountain";

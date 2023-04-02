@@ -3,8 +3,7 @@ import MapKit
 import SwiftUI
 
 struct MapScreen: View {
-    @StateObject private var viewModel = MapViewModel()
-
+    @ObservedObject var viewModel: MapViewModel
     let area: Area
 
     var body: some View {
@@ -18,13 +17,13 @@ struct MapScreen: View {
             ToolbarItem {
                 if viewModel.isLoading {
                     ProgressView().progressViewStyle(.circular)
+                } else {
+                    Button {
+                        viewModel.route = .appInfo
+                    } label: {
+                        AppInfoLabel()
+                    }
                 }
-            }
-        }
-        .sheet(item: $viewModel.route) { route in
-            switch route {
-            case let .fountain(fountain):
-                FountainDetailCoordinator(fountain: fountain)
             }
         }
         .task {

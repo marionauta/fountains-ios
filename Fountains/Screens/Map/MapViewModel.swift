@@ -17,7 +17,7 @@ final class MapViewModel: ObservableObject {
             longitudeDelta: 0.03
         )
     )
-    @Published public var route: Route?
+    @Published public var route: MapCoordinator.Route?
 
     @MainActor
     public func load(from area: Area) async {
@@ -34,14 +34,5 @@ final class MapViewModel: ObservableObject {
 }
 
 extension MapViewModel {
-    enum Route: Identifiable {
-        case fountain(Fountain)
 
-        var id: AnyHashable {
-            switch self {
-            case let .fountain(fountain):
-                return fountain.id
-            }
-        }
-    }
 }

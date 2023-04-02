@@ -8,7 +8,7 @@ final class AreaListViewModel: ObservableObject {
     private let deleteAreaUseCase = DeleteAreaUseCase()
 
     @Published var areas: [Area] = []
-    @Published var isAddingAreas = false
+    @Published var route: AreaListCoordinator.Route?
 
     public func load() {
         cancellables = .init()
@@ -16,7 +16,15 @@ final class AreaListViewModel: ObservableObject {
     }
 
     func addArea() {
-        isAddingAreas = true
+        route = .addArea
+    }
+
+    func openAppInfo() {
+        route = .info
+    }
+
+    func closeModals() {
+        route = nil
     }
 
     func deleteArea(areaId: Area.ID) {

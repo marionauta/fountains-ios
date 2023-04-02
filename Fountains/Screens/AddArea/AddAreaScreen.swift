@@ -50,11 +50,7 @@ struct AddAreaScreen: View {
             }
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Label("Cancel", systemImage: "xmark")
-                    }
+                    CloseButton(dismiss: dismiss)
                 }
             }
             .navigationTitle("Add location")
