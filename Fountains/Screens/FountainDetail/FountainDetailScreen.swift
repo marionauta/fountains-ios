@@ -50,11 +50,7 @@ struct FountainDetailScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .cancellationAction) {
-                Button {
-                    dismiss()
-                } label: {
-                    Label("general.close", systemImage: "xmark")
-                }
+                CloseButton(dismiss: dismiss)
             }
         }
         .task {
@@ -67,6 +63,6 @@ struct FountainDetailScreen: View {
     }
 
     var somethingWrongUrl: URL {
-        URL(string: "https://aguapp.nachbaur.dev/help/corregir?lat=\(fountain.location.latitude)&lng=\(fountain.location.longitude)")!
+        URL(string: "\(KnownUris.help(slug: "corregir").absoluteString)?lat=\(fountain.location.latitude)&lng=\(fountain.location.longitude)")!
     }
 }

@@ -10,7 +10,7 @@ struct AddAreaCoordinator: View {
                 NavigationView {
                     AreaPreviewModal(area: area) {
                         viewModel.storeArea {
-                            listViewModel.isAddingAreas = false
+                            listViewModel.closeModals()
                         }
                     }
                 }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct AreaListScreen: View {
-    @StateObject private var viewModel = AreaListViewModel()
+    @ObservedObject var viewModel: AreaListViewModel
 
     var body: some View {
         NavigationView {
@@ -12,17 +12,21 @@ struct AreaListScreen: View {
                     AreaList(viewModel: viewModel)
                 }
             }
-            .navigationTitle("Locations")
+            .navigationTitle("areas_list_title")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        viewModel.openAppInfo()
+                    } label: {
+                        AppInfoLabel()
+                    }
+                }
                 ToolbarItem {
-                    Button("Add", action: viewModel.addArea)
+                    Button("areas_list_add_button", action: viewModel.addArea)
+                        .accessibilityHint(Text("areas_list_add_button_description"))
                 }
             }
-        }
-        .sheet(isPresented: $viewModel.isAddingAreas) {
-            AddAreaCoordinator()
-                .environmentObject(viewModel)
         }
         .onAppear {
             viewModel.load()
@@ -33,9 +37,9 @@ struct AreaListScreen: View {
 private struct EmptyAreaList: View {
     var body: some View {
         VStack {
-            Text("No locations")
+            Text("areas_list_empty_title")
                 .font(.title)
-            Text("Add a location first.")
+            Text("areas_list_empty_description")
         }
     }
 }
@@ -47,7 +51,7 @@ private struct AreaList: View {
         List {
             ForEach(viewModel.areas) { area in
                 NavigationLink(area.trimmedDisplayName) {
-                    MapScreen(area: area)
+                    MapCoordinator(area: area)
                 }
                 .swipeActions {
                     Button("general.delete", role: .destructive) {
