@@ -152,9 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				ACCE471329D732C2008167D6 /* Views */,
+				AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */,
 				ACCFBE462816030900319CCB /* FountainDetailScreen.swift */,
 				AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */,
-				AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */,
 			);
 			path = FountainDetail;
 			sourceTree = "<group>";

@@ -20,6 +20,6 @@ extension Fountain {
 
 extension Fountain.Properties {
     public enum Value: String {
-        case undefined, no, limited, yes
+        case unknown, no, limited, yes
     }
 }

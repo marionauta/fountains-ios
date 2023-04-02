@@ -4,17 +4,20 @@ struct AddAreaScreen: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: AddAreaViewModel
 
+    @FocusState private var queryFocused
+
     var body: some View {
         NavigationView {
             VStack {
                 HStack {
-                    TextField("Berlin, London...", text: $viewModel.query)
+                    TextField("areas_add_query_placeholder", text: $viewModel.query)
                         .textFieldStyle(.roundedBorder)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
                         .keyboardType(.URL)
+                        .focused($queryFocused)
 
-                    Button("Search") {
+                    Button("areas_add_search_button") {
                         Task {
                             await viewModel.searchForAreas()
                         }
@@ -31,7 +34,7 @@ struct AddAreaScreen: View {
                     Spacer()
 
                 } else if !viewModel.discoveredAreas.isEmpty {
-                    Text("Results")
+                    Text("areas_add_search_results_title")
                         .font(.headline)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding([.top, .horizontal])
@@ -53,8 +56,11 @@ struct AddAreaScreen: View {
                     CloseButton(dismiss: dismiss)
                 }
             }
-            .navigationTitle("Add location")
+            .navigationTitle("areas_add_title")
             .navigationBarTitleDisplayMode(.inline)
+        }
+        .onAppear {
+            queryFocused = true
         }
     }
 }

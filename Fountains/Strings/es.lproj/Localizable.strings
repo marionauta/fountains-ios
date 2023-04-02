@@ -3,6 +3,13 @@
 "general.close" = "Cerrar";
 "general.delete" = "Borrar";
 
+// Property Value
+
+"property_value_no" = "No";
+"property_value_limited" = "Limitado";
+"property_value_yes" = "Sí";
+"property_value_unknown" = "Desconocido";
+
 // App Info
 "app_info_label_title" = "Abrir información de la app";
 "app_info_title" = "Información de la app";
@@ -12,13 +19,21 @@
 "app_info_developer_content" = "Mario Nachbaur";
 "app_info_app_version_title" = "Versión de la app";
 
-// Fountain List
+// Areas List
 
 "areas_list_title" = "Ubicaciones";
 "areas_list_add_button" = "Añadir";
 "areas_list_add_button_description" = "Añadir ubicación";
 "areas_list_empty_title" = "Sin ubicaciones";
 "areas_list_empty_description" = "Añade una ubicación primero.";
+
+// Areas Add
+
+"areas_add_title" = "Añadir ubicación";
+"areas_add_add_button" = "Añadir";
+"areas_add_search_button" = "Buscar";
+"areas_add_query_placeholder" = "Sevilla, España";
+"areas_add_search_results_title" = "Resultados";
 
 // Fountain Detail
 
