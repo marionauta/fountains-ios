@@ -24,13 +24,13 @@ struct FountainDetailScreen: View {
             FountainPropertyRow(
                 name: "fountain_detail_bottle_title",
                 description: "fountain_detail_bottle_description",
-                value: fountain.properties.bottle.rawValue
+                value: fountain.properties.bottle.title
             )
 
             FountainPropertyRow(
                 name: "fountain_detail_wheelchair_title",
                 description: "fountain_detail_wheelchair_description",
-                value: fountain.properties.wheelchair.rawValue
+                value: fountain.properties.wheelchair.title
             )
 
             if let checkDate = fountain.properties.checkDate {
@@ -64,5 +64,20 @@ struct FountainDetailScreen: View {
 
     var somethingWrongUrl: URL {
         URL(string: "\(KnownUris.help(slug: "corregir").absoluteString)?lat=\(fountain.location.latitude)&lng=\(fountain.location.longitude)")!
+    }
+}
+
+private extension Fountain.Properties.Value {
+    var title: LocalizedStringKey {
+        switch self {
+        case .unknown:
+            return "property_value_unknown"
+        case .no:
+            return "property_value_no"
+        case .limited:
+            return "property_value_limited"
+        case .yes:
+            return "property_value_yes"
+        }
     }
 }

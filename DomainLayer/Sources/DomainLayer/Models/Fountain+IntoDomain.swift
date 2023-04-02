@@ -16,8 +16,8 @@ extension FountainDto: IntoDomain {
 extension FountainPropertiesDto: IntoDomain {
     func intoDomain() -> Fountain.Properties {
         Fountain.Properties(
-            bottle: Fountain.Properties.Value(rawValue: bottle) ?? .undefined,
-            wheelchair: Fountain.Properties.Value(rawValue: wheelchair) ?? .undefined,
+            bottle: Fountain.Properties.Value(rawValue: bottle) ?? .unknown,
+            wheelchair: Fountain.Properties.Value(rawValue: wheelchair) ?? .unknown,
             mapillaryId: mapillaryId,
             checkDate: checkDate.flatMap {
                 DateFormatter.forCheckDate.date(from: $0)

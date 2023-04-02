@@ -19,7 +19,7 @@ struct AreaPreviewModal: View {
         }
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
-                Button("Add", action: onAdd)
+                Button("areas_add_add_button", action: onAdd)
             }
         }
     }

@@ -3,6 +3,13 @@
 "general.close" = "Close";
 "general.delete" = "Delete";
 
+// Property Value
+
+"property_value_no" = "No";
+"property_value_limited" = "Limited";
+"property_value_yes" = "Yes";
+"property_value_unknown" = "Unknown";
+
 // App Info
 "app_info_label_title" = "Open App Info";
 "app_info_title" = "App Info";
@@ -12,13 +19,21 @@
 "app_info_developer_content" = "Mario Nachbaur";
 "app_info_app_version_title" = "App version";
 
-// Fountain List
+// Areas List
 
 "areas_list_title" = "Locations";
 "areas_list_add_button" = "Add";
 "areas_list_add_button_description" = "Add location";
 "areas_list_empty_title" = "No locations";
 "areas_list_empty_description" = "Add a location first.";
+
+// Areas Add
+
+"areas_add_title" = "Add location";
+"areas_add_add_button" = "Add";
+"areas_add_search_button" = "Search";
+"areas_add_query_placeholder" = "Berlin, Germany";
+"areas_add_search_results_title" = "Results";
 
 // Fountain Detail
 
