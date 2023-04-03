@@ -5,7 +5,7 @@ public struct GetFountainsUseCase {
 
     public init() {}
 
-    public func execute(area: Area) async -> [Fountain] {
+    public func execute(area: Area) async -> FountainResponse? {
         await repository.all(area: area)
     }
 }

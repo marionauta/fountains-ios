@@ -5,8 +5,7 @@ struct FountainRepository {
     private let dataSource = FountainDataSource()
 
     @MainActor
-    func all(area: Area) async -> [Fountain] {
-        let fountains = try? await dataSource.all(areaId: area.osmAreaId)
-        return fountains?.fountains.intoDomain() ?? []
+    func all(area: Area) async -> FountainResponse? {
+        return try? await dataSource.all(areaId: area.osmAreaId)?.intoDomain()
     }
 }

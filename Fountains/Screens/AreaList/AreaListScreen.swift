@@ -22,7 +22,7 @@ struct AreaListScreen: View {
                         AppInfoLabel()
                     }
                 }
-                ToolbarItem {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button("areas_list_add_button", action: viewModel.addArea)
                         .accessibilityHint(Text("areas_list_add_button_description"))
                 }
