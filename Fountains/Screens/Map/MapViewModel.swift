@@ -3,6 +3,7 @@ import CommonLayer
 import Foundation
 import DomainLayer
 import MapKit
+import SwiftUI
 
 final class MapViewModel: ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
@@ -17,6 +18,7 @@ final class MapViewModel: ObservableObject {
         origin: .init(CLLocationCoordinate2D(latitude: 0, longitude: 0)),
         size: .init(width: 1_500, height: 1_500)
     )
+    @Published public var trackingMode: MapUserTrackingMode = .none
     @Published public var route: MapCoordinator.Route?
 
     @MainActor

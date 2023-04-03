@@ -1,3 +1,4 @@
+import CoreLocationUI
 import DomainLayer
 import MapKit
 import SwiftUI
@@ -7,7 +8,12 @@ struct MapScreen: View {
     let area: Area
 
     var body: some View {
-        Map(mapRect: $viewModel.mapRect, annotationItems: viewModel.visibleFountains) { fountain in
+        Map(
+            mapRect: $viewModel.mapRect,
+            showsUserLocation: true,
+            userTrackingMode: $viewModel.trackingMode,
+            annotationItems: viewModel.visibleFountains
+        ) { fountain in
             MapAnnotation(coordinate: fountain.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
                 Image("marker")
                     .onTapGesture {
@@ -16,6 +22,18 @@ struct MapScreen: View {
             }
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
+        .overlay(alignment: .bottomTrailing) {
+            LocationButton {
+                viewModel.trackingMode = .follow
+            }
+            .disabled(viewModel.trackingMode == .follow)
+            .labelStyle(.iconOnly)
+            .foregroundColor(.white)
+            .tint(Color("AccentColor"))
+            .cornerRadius(8)
+            .padding(.trailing, 16)
+            .padding(.bottom, 32)
+        }
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack(spacing: 4) {
