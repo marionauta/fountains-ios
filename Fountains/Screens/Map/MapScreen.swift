@@ -7,10 +7,14 @@ struct MapScreen: View {
     let area: Area
 
     var body: some View {
-        FountainMap(coordinateRegion: $viewModel.region, annotationItems: viewModel.fountains) { annotation in
-            guard let fountain = annotation as? Fountain else { return }
-            viewModel.openDetail(for: fountain)
-        }
+        Map(mapRect: $viewModel.mapRect, annotationItems: viewModel.visibleFountains, annotationContent: { fountain in
+            MapAnnotation(coordinate: fountain.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
+                Image("marker")
+                    .onTapGesture {
+                        viewModel.openDetail(for: fountain)
+                    }
+            }
+        })
         .edgesIgnoringSafeArea([.horizontal, .bottom])
         .navigationTitle(area.trimmedDisplayName)
         .toolbar {
@@ -30,18 +34,4 @@ struct MapScreen: View {
             await viewModel.load(from: area)
         }
     }
-}
-
-extension Fountain: FountainMapAnnotation {
-    var annotationId: AnyHashable { id }
-
-    var coordinate: CLLocationCoordinate2D { location.coordinate }
-
-    var clusteringIdentifier: String? { "fountain" }
-
-    var glyphImage: UIImage? { UIImage(named: "marker") }
-
-    var tintColor: UIColor? { UIColor(named: "MarkerColor") }
-
-    var foregroundTintColor: UIColor? { .white }
 }
