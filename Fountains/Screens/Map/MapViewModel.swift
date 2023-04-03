@@ -9,7 +9,8 @@ final class MapViewModel: ObservableObject {
     private let fountainsUseCase = GetFountainsUseCase()
     private let feedbackGenerator = UISelectionFeedbackGenerator()
 
-    private var fountains: [Fountain] = []
+    @Published var lastUpdated: Date?
+    @Published private var fountains: [Fountain] = []
     @Published private(set) var visibleFountains: [Fountain] = []
     @Published private(set) var isLoading: Bool = true
     @Published public var mapRect = MKMapRect(
@@ -23,7 +24,10 @@ final class MapViewModel: ObservableObject {
         isLoading = true
         mapRect.origin = MKMapPoint(area.location.coordinate)
         setupBindings()
-        fountains = await fountainsUseCase.execute(area: area)
+        if let response = await fountainsUseCase.execute(area: area) {
+            fountains = response.fountains
+            lastUpdated = response.lastUpdated
+        }
         isLoading = false
     }
 
@@ -34,9 +38,9 @@ final class MapViewModel: ObservableObject {
 
     private func setupBindings() {
         cancellables = []
-        $mapRect
-            .debounce(for: .milliseconds(100), scheduler: DispatchQueue.main)
-            .map { [weak self] rect in self?.fountains.filter { rect.contains($0.point) } ?? [] }
+        Publishers.CombineLatest($mapRect, $fountains)
+            .debounce(for: .milliseconds(50), scheduler: DispatchQueue.main)
+            .map { rect, fountains in fountains.filter { rect.contains($0.point) } }
             .subscribe(on: DispatchQueue.main)
             .assign(to: \.visibleFountains, on: self)
             .store(in: &cancellables)
