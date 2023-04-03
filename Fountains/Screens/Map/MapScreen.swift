@@ -39,9 +39,9 @@ extension Fountain: FountainMapAnnotation {
 
     var clusteringIdentifier: String? { "fountain" }
 
-    var glyphImage: UIImage? { UIImage(systemName: "drop.circle.fill") }
+    var glyphImage: UIImage? { UIImage(named: "marker") }
 
-    var tintColor: UIColor? { UIColor(Color.blue) }
+    var tintColor: UIColor? { UIColor(named: "MarkerColor") }
 
     var foregroundTintColor: UIColor? { .white }
 }
