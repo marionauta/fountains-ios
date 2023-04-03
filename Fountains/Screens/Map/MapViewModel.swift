@@ -13,8 +13,8 @@ final class MapViewModel: ObservableObject {
     @Published public var region = MKCoordinateRegion(
         center: .init(latitude: 0, longitude: 0),
         span: MKCoordinateSpan(
-            latitudeDelta: 0.03,
-            longitudeDelta: 0.03
+            latitudeDelta: 0.01,
+            longitudeDelta: 0.01
         )
     )
     @Published public var route: MapCoordinator.Route?
@@ -31,8 +31,4 @@ final class MapViewModel: ObservableObject {
         feedbackGenerator.selectionChanged()
         route = .fountain(fountain)
     }
-}
-
-extension MapViewModel {
-
 }

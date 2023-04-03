@@ -45,7 +45,12 @@ struct FountainMap: UIViewRepresentable {
         view.mapType = .standard
         view.showsUserLocation = true
         view.userTrackingMode = .follow
-
+        if #available(iOS 16.0, *) {
+            let configuration = MKStandardMapConfiguration()
+            configuration.pointOfInterestFilter = .excludingAll
+            configuration.showsTraffic = false
+            view.preferredConfiguration = configuration
+        }
         if region.center != view.region.center || region.span != view.region.span {
             view.setRegion(region, animated: false)
         }
