@@ -6,7 +6,7 @@ struct AppInfoScreen: View {
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
-        VStack {
+        List {
             Link(destination: KnownUris.website) {
                 AppInfoRow(title: "app_info_website_title", description: "app_info_website_content")
             }
@@ -19,9 +19,8 @@ struct AppInfoScreen: View {
                 title: "app_info_app_version_title",
                 description: Bundle.main.fullVersionString
             )
-
-            Spacer()
         }
+        .listStyle(.insetGrouped)
         .navigationTitle("app_info_title")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
@@ -47,19 +46,13 @@ private struct AppInfoRow: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(title)
-                        .foregroundColor(.primary)
-                    Text(description)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-                .padding(16)
-                Spacer()
-            }
-            Divider()
+        VStack(alignment: .leading, spacing: 2) {
+            Text(title)
+                .foregroundColor(.primary)
+            Text(description)
+                .font(.caption)
+                .foregroundColor(.secondary)
         }
+        .padding(.vertical, 2)
     }
 }
