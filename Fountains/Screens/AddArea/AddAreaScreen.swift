@@ -41,8 +41,17 @@ struct AddAreaScreen: View {
 
                     List {
                         ForEach(viewModel.discoveredAreas) { area in
-                            Button(area.name) {
+                            Button {
                                 viewModel.selectedArea = area
+                            } label: {
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text(area.name)
+                                        .font(.subheadline)
+                                    Text("ID: \(area.osmAreaId.formatted(.number.grouping(.never)))")
+                                        .font(.caption.monospaced())
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding(.vertical, 2)
                             }
                         }
                     }

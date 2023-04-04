@@ -3,6 +3,8 @@ import DomainLayer
 import SwiftUI
 
 struct AreaPreviewModal: View {
+    @Environment(\.dismiss) private var dismiss
+
     let area: Area
     let onAdd: () -> Void
 
@@ -18,6 +20,9 @@ struct AreaPreviewModal: View {
                 .disabled(true)
         }
         .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                CloseButton(dismiss: dismiss)
+            }
             ToolbarItem(placement: .confirmationAction) {
                 Button("areas_add_add_button", action: onAdd)
             }

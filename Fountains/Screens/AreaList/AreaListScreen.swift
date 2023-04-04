@@ -50,8 +50,17 @@ private struct AreaList: View {
     var body: some View {
         List {
             ForEach(viewModel.areas) { area in
-                NavigationLink(area.trimmedDisplayName) {
+                NavigationLink {
                     MapCoordinator(area: area)
+                } label: {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(area.trimmedDisplayName)
+                            .font(.subheadline)
+                        Text(area.name)
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding(.vertical, 2)
                 }
                 .swipeActions {
                     Button("general.delete", role: .destructive) {
