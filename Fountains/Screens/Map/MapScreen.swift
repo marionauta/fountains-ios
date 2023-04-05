@@ -41,6 +41,7 @@ struct MapScreen: View {
                     if let lastUpdated = viewModel.lastUpdated {
                         Text(lastUpdated.formatted(date: .abbreviated, time: .shortened))
                             .font(.caption)
+                            .foregroundColor(.secondary)
                     }
                 }
             }
