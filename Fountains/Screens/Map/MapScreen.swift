@@ -8,17 +8,21 @@ struct MapScreen: View {
     let area: Area
 
     var body: some View {
-        Map(
-            mapRect: $viewModel.mapRect,
-            showsUserLocation: true,
-            userTrackingMode: $viewModel.trackingMode,
-            annotationItems: viewModel.visibleFountains
-        ) { fountain in
-            MapAnnotation(coordinate: fountain.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
-                Image("marker")
-                    .onTapGesture {
-                        viewModel.openDetail(for: fountain)
-                    }
+        VStack(spacing: 0) {
+            Spacer(minLength: 10)
+            AdView()
+            Map(
+                mapRect: $viewModel.mapRect,
+                showsUserLocation: true,
+                userTrackingMode: $viewModel.trackingMode,
+                annotationItems: viewModel.visibleFountains
+            ) { fountain in
+                MapAnnotation(coordinate: fountain.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
+                    Image("marker")
+                        .onTapGesture {
+                            viewModel.openDetail(for: fountain)
+                        }
+                }
             }
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])

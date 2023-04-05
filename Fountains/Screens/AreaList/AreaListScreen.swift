@@ -37,9 +37,12 @@ struct AreaListScreen: View {
 private struct EmptyAreaList: View {
     var body: some View {
         VStack {
+            AdView()
+            Spacer()
             Text("areas_list_empty_title")
                 .font(.title)
             Text("areas_list_empty_description")
+            Spacer()
         }
     }
 }
@@ -49,6 +52,10 @@ private struct AreaList: View {
 
     var body: some View {
         List {
+            Section {
+                AdView()
+            }
+
             ForEach(viewModel.areas) { area in
                 NavigationLink {
                     MapCoordinator(area: area)
