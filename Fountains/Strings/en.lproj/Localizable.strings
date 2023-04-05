@@ -18,6 +18,9 @@
 "app_info_developer_title" = "Developer";
 "app_info_developer_content" = "Mario Nachbaur";
 "app_info_app_version_title" = "App version";
+"app_info_easteregg_title" = "Deez";
+"app_info_easteregg_content" = "Deez nuts";
+"app_info_easteregg_ok" = "Ok";
 
 // Areas List
 

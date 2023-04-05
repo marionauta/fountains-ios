@@ -18,6 +18,9 @@
 "app_info_developer_title" = "Desarrollador";
 "app_info_developer_content" = "Mario Nachbaur";
 "app_info_app_version_title" = "Versión de la app";
+"app_info_easteregg_title" = "Tonto";
+"app_info_easteregg_content" = "Tonto el que lo lea";
+"app_info_easteregg_ok" = "Leído";
 
 // Areas List
 

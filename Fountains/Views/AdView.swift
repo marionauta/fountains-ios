@@ -3,15 +3,20 @@ import GoogleMobileAds
 import SwiftUI
 
 struct AdView: View {
+    enum Constants {
+        static let adsHiddenKey = "ADSHIDDEN.\(Bundle.main.buildNumber)"
+    }
+
     enum Stage {
         case loading, loaded, error
     }
 
+    @AppStorage(Constants.adsHiddenKey) private var areAdsHidden: Bool = false
     @State private var stage: Stage = .loading
     @State private var height: CGFloat = 80
 
     var body: some View {
-        if stage == .error {
+        if stage == .error || areAdsHidden {
             EmptyView()
         } else {
             ZStack {

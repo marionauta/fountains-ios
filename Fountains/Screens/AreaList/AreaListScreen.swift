@@ -52,10 +52,7 @@ private struct AreaList: View {
 
     var body: some View {
         List {
-            Section {
-                AdView()
-            }
-
+            AdView()
             ForEach(viewModel.areas) { area in
                 NavigationLink {
                     MapCoordinator(area: area)

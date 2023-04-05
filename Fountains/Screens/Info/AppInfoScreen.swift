@@ -3,6 +3,8 @@ import DomainLayer
 import SwiftUI
 
 struct AppInfoScreen: View {
+    @State private var isEasterShown: Bool = false
+    @AppStorage(AdView.Constants.adsHiddenKey) private var areAdsHidden: Bool = false
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -19,6 +21,9 @@ struct AppInfoScreen: View {
                 title: "app_info_app_version_title",
                 description: Bundle.main.fullVersionString
             )
+            .onTapGesture(count: 50) {
+                isEasterShown = true
+            }
         }
         .listStyle(.insetGrouped)
         .navigationTitle("app_info_title")
@@ -27,6 +32,15 @@ struct AppInfoScreen: View {
             ToolbarItem(placement: .cancellationAction) {
                 CloseButton(dismiss: dismiss)
             }
+        }
+        .alert(isPresented: $isEasterShown) {
+            Alert(
+                title: Text("app_info_easteregg_title"),
+                message: Text("app_info_easteregg_content"),
+                dismissButton: .default(Text("app_info_easteregg_ok")) {
+                areAdsHidden.toggle()
+                isEasterShown = false
+            })
         }
     }
 }
@@ -54,5 +68,7 @@ private struct AppInfoRow: View {
                 .foregroundColor(.secondary)
         }
         .padding(.vertical, 2)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 }
