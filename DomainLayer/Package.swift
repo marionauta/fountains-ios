@@ -9,17 +9,22 @@ let package = Package(
         .library(
             name: "DomainLayer",
             targets: ["DomainLayer"]),
+        .library(
+            name: "WaterFountains",
+            targets: ["WaterFountains"]),
     ],
     dependencies: [
         .package(name: "CommonLayer", path: "../CommonLayer"),
-        .package(name: "DataLayer", path: "../DataLayer"),
     ],
     targets: [
         .target(
             name: "DomainLayer",
             dependencies: [
                 .byName(name: "CommonLayer"),
-                .product(name: "WaterFountains", package: "DataLayer"),
+                .byName(name: "WaterFountains")
             ]),
+        .binaryTarget(
+            name: "WaterFountains",
+            path: "../../android/WaterFountains/build/XCFrameworks/release/WaterFountains.xcframework"),
     ]
 )

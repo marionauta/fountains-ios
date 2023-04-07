@@ -70,7 +70,6 @@
 		ACCE471429D73335008167D6 /* FountainPropertyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainPropertyRow.swift; sourceTree = "<group>"; };
 		ACCF53C82815D58400D62A53 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		ACCF53CC2815E6CE00D62A53 /* DataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataLayer; sourceTree = "<group>"; };
 		ACCFBE462816030900319CCB /* FountainDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailScreen.swift; sourceTree = "<group>"; };
 		ACE290952815D0F6002B0BD8 /* Fountains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fountains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE290982815D0F6002B0BD8 /* FountainsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainsApp.swift; sourceTree = "<group>"; };
@@ -190,7 +189,6 @@
 			isa = PBXGroup;
 			children = (
 				ACEE77CE2815F06400340A88 /* CommonLayer */,
-				ACCF53CC2815E6CE00D62A53 /* DataLayer */,
 				ACE290A62815D227002B0BD8 /* DomainLayer */,
 				ACE290972815D0F6002B0BD8 /* Fountains */,
 				ACE290962815D0F6002B0BD8 /* Products */,
