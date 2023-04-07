@@ -38,6 +38,10 @@
 "areas_add_query_placeholder" = "Sevilla, España";
 "areas_add_search_results_title" = "Resultados";
 
+// Map
+
+"map_center_on_map" = "Centrar en el mapa";
+
 // Fountain Detail
 
 "fountain_detail_fallback_title" = "Fuente";

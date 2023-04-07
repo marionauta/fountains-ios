@@ -5,10 +5,11 @@ import DomainLayer
 import MapKit
 import SwiftUI
 
-final class MapViewModel: ObservableObject {
+final class MapViewModel: NSObject, ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     private let fountainsUseCase = GetFountainsUseCase()
     private let feedbackGenerator = UISelectionFeedbackGenerator()
+    private let locationManager = CLLocationManager()
 
     @Published var lastUpdated: Date?
     @Published private var fountains: [Fountain] = []
@@ -33,6 +34,21 @@ final class MapViewModel: ObservableObject {
         isLoading = false
     }
 
+    @MainActor
+    public func requestLocationAndCenter() {
+        guard [.authorizedAlways, .authorizedWhenInUse].contains(locationManager.authorizationStatus) else {
+            locationManager.delegate = self
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        centerOnUserLocation()
+    }
+
+    @MainActor
+    private func centerOnUserLocation() {
+        trackingMode = .follow
+    }
+
     public func openDetail(for fountain: Fountain) {
         feedbackGenerator.selectionChanged()
         route = .fountain(fountain)
@@ -46,6 +62,19 @@ final class MapViewModel: ObservableObject {
             .subscribe(on: DispatchQueue.main)
             .assign(to: \.visibleFountains, on: self)
             .store(in: &cancellables)
+    }
+}
+
+extension MapViewModel: CLLocationManagerDelegate {
+    @MainActor
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        locationManagerDidChangeAuthorization(manager)
+    }
+
+    @MainActor
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        guard [.authorizedAlways, .authorizedWhenInUse].contains(manager.authorizationStatus) else { return }
+        centerOnUserLocation()
     }
 }
 

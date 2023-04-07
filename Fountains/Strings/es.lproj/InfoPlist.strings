@@ -1,2 +1,3 @@
 "CFBundleName" = "Water Finder";
 "CFBundleDisplayName" = "AguApp";
+"NSLocationWhenInUseUsageDescription"= "Para centrar el mapa en tu ubicación";

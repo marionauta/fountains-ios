@@ -27,16 +27,19 @@ struct MapScreen: View {
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
         .overlay(alignment: .bottomTrailing) {
-            LocationButton {
-                viewModel.trackingMode = .follow
+            Button {
+                viewModel.requestLocationAndCenter()
+            } label: {
+                Label("map_center_on_map", systemImage: "location")
             }
             .disabled(viewModel.trackingMode == .follow)
             .labelStyle(.iconOnly)
             .foregroundColor(.white)
-            .tint(Color("AccentColor"))
+            .padding(12)
+            .background(Color("AccentColor"))
             .cornerRadius(8)
-            .padding(.trailing, 16)
-            .padding(.bottom, 32)
+            .padding(.trailing, 12)
+            .padding(.bottom, 40)
         }
         .toolbar {
             ToolbarItem(placement: .principal) {

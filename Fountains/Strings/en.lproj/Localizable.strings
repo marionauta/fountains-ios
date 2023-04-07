@@ -38,6 +38,10 @@
 "areas_add_query_placeholder" = "Berlin, Germany";
 "areas_add_search_results_title" = "Results";
 
+// Map
+
+"map_center_on_map" = "Center on map";
+
 // Fountain Detail
 
 "fountain_detail_fallback_title" = "Fountain";
