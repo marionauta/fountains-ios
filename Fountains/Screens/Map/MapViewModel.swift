@@ -25,7 +25,7 @@ final class MapViewModel: NSObject, ObservableObject {
     @MainActor
     public func load(from area: Area) async {
         isLoading = true
-        mapRect.origin = MKMapPoint(area.location.coordinate)
+        mapRect.setCenter(area.location.coordinate)
         setupBindings()
         if let response = await fountainsUseCase.execute(area: area) {
             fountains = response.fountains
@@ -83,4 +83,14 @@ extension MapViewModel: CLLocationManagerDelegate {
 
 private extension Fountain {
     var point: MKMapPoint { MKMapPoint(location.coordinate) }
+}
+
+private extension MKMapRect {
+    mutating func setCenter(_ center: CLLocationCoordinate2D) {
+        setCenter(MKMapPoint(center))
+    }
+
+    mutating func setCenter(_ center: MKMapPoint) {
+        self.origin = MKMapPoint(x: center.x - (width / 2), y: center.y - (height / 2))
+    }
 }
