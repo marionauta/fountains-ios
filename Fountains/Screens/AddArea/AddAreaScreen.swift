@@ -14,7 +14,6 @@ struct AddAreaScreen: View {
                         .textFieldStyle(.roundedBorder)
                         .autocorrectionDisabled()
                         .textInputAutocapitalization(.never)
-                        .keyboardType(.URL)
                         .focused($queryFocused)
 
                     Button("areas_add_search_button") {
