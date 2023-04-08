@@ -17,7 +17,7 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published private(set) var isLoading: Bool = true
     @Published public var mapRect = MKMapRect(
         origin: .init(CLLocationCoordinate2D(latitude: 0, longitude: 0)),
-        size: .init(width: 1_500, height: 1_500)
+        size: .init(width: 15_000, height: 15_000)
     )
     @Published public var trackingMode: MapUserTrackingMode = .none
     @Published public var route: MapCoordinator.Route?
@@ -47,6 +47,9 @@ final class MapViewModel: NSObject, ObservableObject {
     @MainActor
     private func centerOnUserLocation() {
         trackingMode = .follow
+        if min(mapRect.size.width, mapRect.size.height) > 2_000 {
+            mapRect.size = .init(width: 1_500, height: 1_500)
+        }
     }
 
     public func openDetail(for fountain: Fountain) {
