@@ -5,7 +5,6 @@ import SwiftUI
 
 struct MapScreen: View {
     @ObservedObject var viewModel: MapViewModel
-    let area: Area
 
     var body: some View {
         VStack(spacing: 0) {
@@ -15,7 +14,7 @@ struct MapScreen: View {
                 mapRect: $viewModel.mapRect,
                 showsUserLocation: true,
                 userTrackingMode: $viewModel.trackingMode,
-                annotationItems: viewModel.visibleFountains
+                annotationItems: viewModel.fountains
             ) { fountain in
                 MapAnnotation(coordinate: fountain.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
                     Image("marker")
@@ -41,10 +40,19 @@ struct MapScreen: View {
             .padding(.trailing, 12)
             .padding(.bottom, 40)
         }
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button {
+                    viewModel.route = .appInfo
+                } label: {
+                    AppInfoLabel()
+                }
+            }
+
             ToolbarItem(placement: .principal) {
                 VStack(spacing: 4) {
-                    Text(area.trimmedDisplayName)
+                    Text("app_name")
                     if let lastUpdated = viewModel.lastUpdated {
                         Text(lastUpdated.formatted(date: .abbreviated, time: .shortened))
                             .font(.caption)
@@ -53,20 +61,14 @@ struct MapScreen: View {
                 }
             }
 
-            ToolbarItem {
+            ToolbarItem(placement: .navigationBarTrailing) {
                 if viewModel.isLoading {
                     ProgressView().progressViewStyle(.circular)
-                } else {
-                    Button {
-                        viewModel.route = .appInfo
-                    } label: {
-                        AppInfoLabel()
-                    }
                 }
             }
         }
         .task {
-            await viewModel.load(from: area)
+            await viewModel.load(from: nil)
         }
     }
 }
