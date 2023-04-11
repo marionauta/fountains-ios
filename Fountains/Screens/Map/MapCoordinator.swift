@@ -17,17 +17,18 @@ struct MapCoordinator: View {
     }
 
     @StateObject private var viewModel = MapViewModel()
-    public let area: Area
 
     var body: some View {
-        MapScreen(viewModel: viewModel, area: area)
-            .sheet(item: $viewModel.route) { route in
-                switch route {
-                case .appInfo:
-                    AppInfoCoordinator()
-                case let .fountain(fountain):
-                    FountainDetailCoordinator(fountain: fountain)
-                }
+        NavigationView {
+            MapScreen(viewModel: viewModel)
+        }
+        .sheet(item: $viewModel.route) { route in
+            switch route {
+            case .appInfo:
+                AppInfoCoordinator()
+            case let .fountain(fountain):
+                FountainDetailCoordinator(fountain: fountain)
             }
+        }
     }
 }

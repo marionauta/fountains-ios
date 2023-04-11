@@ -11,9 +11,8 @@ final class MapViewModel: NSObject, ObservableObject {
     private let feedbackGenerator = UISelectionFeedbackGenerator()
     private let locationManager = CLLocationManager()
 
-    @Published var lastUpdated: Date?
-    @Published private var fountains: [Fountain] = []
-    @Published private(set) var visibleFountains: [Fountain] = []
+    @Published private(set) var lastUpdated: Date?
+    @Published private(set) var fountains: [Fountain] = []
     @Published private(set) var isLoading: Bool = true
     @Published public var mapRect = MKMapRect(
         origin: .init(CLLocationCoordinate2D(latitude: 0, longitude: 0)),
@@ -23,11 +22,13 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published public var route: MapCoordinator.Route?
 
     @MainActor
-    public func load(from area: Area) async {
+    public func load(from bounds: MKMapRect?) async {
+        guard let bounds else {
+            setupBindings()
+            return
+        }
         isLoading = true
-        mapRect.setCenter(area.location.coordinate)
-        setupBindings()
-        if let response = await fountainsUseCase.execute(area: area) {
+        if let response = await fountainsUseCase(northEast: bounds.northEast, southWest: bounds.southWest) {
             fountains = response.fountains
             lastUpdated = response.lastUpdated
         }
@@ -59,11 +60,14 @@ final class MapViewModel: NSObject, ObservableObject {
 
     private func setupBindings() {
         cancellables = []
-        Publishers.CombineLatest($mapRect, $fountains)
+        $mapRect
             .debounce(for: .milliseconds(50), scheduler: DispatchQueue.main)
-            .map { rect, fountains in fountains.filter { rect.contains($0.point) } }
             .subscribe(on: DispatchQueue.main)
-            .assign(to: \.visibleFountains, on: self)
+            .sink { [weak self] rect in
+                Task { [weak self] in
+                    await self?.load(from: rect)
+                }
+            }
             .store(in: &cancellables)
     }
 }
@@ -92,5 +96,19 @@ private extension MKMapRect {
 
     mutating func setCenter(_ center: MKMapPoint) {
         self.origin = MKMapPoint(x: center.x - (width / 2), y: center.y - (height / 2))
+    }
+}
+
+private extension MKMapRect {
+    var northEast: MKMapPoint {
+        var base = origin
+        base.x += width
+        return base
+    }
+
+    var southWest: MKMapPoint {
+        var base = origin
+        base.y += height
+        return base
     }
 }

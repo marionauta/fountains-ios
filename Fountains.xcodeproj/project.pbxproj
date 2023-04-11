@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC2DDA5429D713D0002C667F /* AreaPreviewModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2DDA5329D713D0002C667F /* AreaPreviewModal.swift */; };
-		AC2DDA5629D7140F002C667F /* AddAreaCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2DDA5529D7140F002C667F /* AddAreaCoordinator.swift */; };
 		AC33C28C29DC782100102883 /* Pulse in Frameworks */ = {isa = PBXBuildFile; productRef = AC33C28B29DC782100102883 /* Pulse */; };
 		AC33C28E29DC782100102883 /* PulseUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC33C28D29DC782100102883 /* PulseUI */; };
 		AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */; };
@@ -21,17 +19,12 @@
 		AC4B038929D72B83008946C9 /* FountainDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */; };
 		AC4FF8C229D98177003B41BF /* AppInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C129D98177003B41BF /* AppInfoCoordinator.swift */; };
 		AC4FF8C429D98186003B41BF /* AppInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C329D98186003B41BF /* AppInfoScreen.swift */; };
-		AC4FF8C629D981C4003B41BF /* AreaListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C529D981C4003B41BF /* AreaListCoordinator.swift */; };
 		AC4FF8C829D984B2003B41BF /* AppInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */; };
 		AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CA29D9887B003B41BF /* CloseButton.swift */; };
 		AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */; };
 		AC74535329E5750700EBF911 /* Roadmap in Frameworks */ = {isa = PBXBuildFile; productRef = AC74535229E5750700EBF911 /* Roadmap */; };
 		AC74535629E576DE00EBF911 /* RoadmapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74535529E576DE00EBF911 /* RoadmapCoordinator.swift */; };
 		AC891458285A2B6B00D57CCF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC89145A285A2B6B00D57CCF /* Localizable.strings */; };
-		ACB4962B292E6CD3003BE70B /* AddAreaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962A292E6CD3003BE70B /* AddAreaScreen.swift */; };
-		ACB4962D292E7126003BE70B /* AddAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962C292E7126003BE70B /* AddAreaViewModel.swift */; };
-		ACB49630292E79B1003BE70B /* AreaListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962F292E79B1003BE70B /* AreaListScreen.swift */; };
-		ACB49632292E7CB7003BE70B /* AreaListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB49631292E7CB7003BE70B /* AreaListViewModel.swift */; };
 		ACC8E2E229DB41DD00B92C86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */; };
 		ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCE471429D73335008167D6 /* FountainPropertyRow.swift */; };
 		ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACCF53C52815D52500D62A53 /* DomainLayer */; };
@@ -46,8 +39,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC2DDA5329D713D0002C667F /* AreaPreviewModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaPreviewModal.swift; sourceTree = "<group>"; };
-		AC2DDA5529D7140F002C667F /* AddAreaCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAreaCoordinator.swift; sourceTree = "<group>"; };
 		AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
 		AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		AC33C29429DC7BEE00102883 /* PulseViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewModifier.swift; sourceTree = "<group>"; };
@@ -58,17 +49,12 @@
 		AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailCoordinator.swift; sourceTree = "<group>"; };
 		AC4FF8C129D98177003B41BF /* AppInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoCoordinator.swift; sourceTree = "<group>"; };
 		AC4FF8C329D98186003B41BF /* AppInfoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoScreen.swift; sourceTree = "<group>"; };
-		AC4FF8C529D981C4003B41BF /* AreaListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListCoordinator.swift; sourceTree = "<group>"; };
 		AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoLabel.swift; sourceTree = "<group>"; };
 		AC4FF8CA29D9887B003B41BF /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		AC74535529E576DE00EBF911 /* RoadmapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapCoordinator.swift; sourceTree = "<group>"; };
 		AC891459285A2B6B00D57CCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC89145B285A2B6D00D57CCF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
-		ACB4962A292E6CD3003BE70B /* AddAreaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAreaScreen.swift; sourceTree = "<group>"; };
-		ACB4962C292E7126003BE70B /* AddAreaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAreaViewModel.swift; sourceTree = "<group>"; };
-		ACB4962F292E79B1003BE70B /* AreaListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListScreen.swift; sourceTree = "<group>"; };
-		ACB49631292E7CB7003BE70B /* AreaListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaListViewModel.swift; sourceTree = "<group>"; };
 		ACC8E2E329DB41DD00B92C86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACC8E2E529DB41E300B92C86 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACCE471429D73335008167D6 /* FountainPropertyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainPropertyRow.swift; sourceTree = "<group>"; };
@@ -148,27 +134,6 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
-		ACB49629292E6CBE003BE70B /* AddArea */ = {
-			isa = PBXGroup;
-			children = (
-				AC2DDA5529D7140F002C667F /* AddAreaCoordinator.swift */,
-				ACB4962A292E6CD3003BE70B /* AddAreaScreen.swift */,
-				ACB4962C292E7126003BE70B /* AddAreaViewModel.swift */,
-				AC2DDA5329D713D0002C667F /* AreaPreviewModal.swift */,
-			);
-			path = AddArea;
-			sourceTree = "<group>";
-		};
-		ACB4962E292E7996003BE70B /* AreaList */ = {
-			isa = PBXGroup;
-			children = (
-				AC4FF8C529D981C4003B41BF /* AreaListCoordinator.swift */,
-				ACB4962F292E79B1003BE70B /* AreaListScreen.swift */,
-				ACB49631292E7CB7003BE70B /* AreaListViewModel.swift */,
-			);
-			path = AreaList;
-			sourceTree = "<group>";
-		};
 		ACCE471329D732C2008167D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,8 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				AC4FF8C029D9813D003B41BF /* Info */,
-				ACB49629292E6CBE003BE70B /* AddArea */,
-				ACB4962E292E7996003BE70B /* AreaList */,
 				ACCFBE45281602E500319CCB /* FountainDetail */,
 				ACEE77CC2815EC0200340A88 /* Map */,
 				AC74535429E576C700EBF911 /* Roadmap */,
@@ -341,23 +304,16 @@
 				AC4FF8C229D98177003B41BF /* AppInfoCoordinator.swift in Sources */,
 				ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */,
 				ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */,
-				AC2DDA5629D7140F002C667F /* AddAreaCoordinator.swift in Sources */,
-				ACB49632292E7CB7003BE70B /* AreaListViewModel.swift in Sources */,
 				AC4FF8C429D98186003B41BF /* AppInfoScreen.swift in Sources */,
 				AC33C29529DC7BEE00102883 /* PulseViewModifier.swift in Sources */,
 				ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */,
 				ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */,
 				AC74535629E576DE00EBF911 /* RoadmapCoordinator.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
-				ACB49630292E79B1003BE70B /* AreaListScreen.swift in Sources */,
-				ACB4962B292E6CD3003BE70B /* AddAreaScreen.swift in Sources */,
 				AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */,
 				ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */,
 				AC33C29329DC7B9500102883 /* UIWindow+Extensions.swift in Sources */,
-				AC4FF8C629D981C4003B41BF /* AreaListCoordinator.swift in Sources */,
 				AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */,
-				ACB4962D292E7126003BE70B /* AddAreaViewModel.swift in Sources */,
-				AC2DDA5429D713D0002C667F /* AreaPreviewModal.swift in Sources */,
 				AC4B038929D72B83008946C9 /* FountainDetailCoordinator.swift in Sources */,
 				AC45685C29DD7C58009CAD02 /* AdView.swift in Sources */,
 				ACF96E1429E58A4100F71F20 /* ContentRow.swift in Sources */,
