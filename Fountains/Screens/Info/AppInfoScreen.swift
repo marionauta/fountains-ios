@@ -9,15 +9,23 @@ struct AppInfoScreen: View {
 
     var body: some View {
         List {
+            Section {
+                NavigationLink {
+                    RoadmapCoordinator()
+                } label: {
+                    ContentRow(title: "roadmap_title", description: "roadmap_subtitle")
+                }
+            }
+
             Link(destination: KnownUris.website) {
-                AppInfoRow(title: "app_info_website_title", description: "app_info_website_content")
+                ContentRow(title: "app_info_website_title", description: "app_info_website_content")
             }
 
             Link(destination: KnownUris.developer) {
-                AppInfoRow(title: "app_info_developer_title", description: "app_info_developer_content")
+                ContentRow(title: "app_info_developer_title", description: "app_info_developer_content")
             }
 
-            AppInfoRow(
+            ContentRow(
                 title: "app_info_app_version_title",
                 description: Bundle.main.fullVersionString
             )
@@ -42,33 +50,5 @@ struct AppInfoScreen: View {
                 isEasterShown = false
             })
         }
-    }
-}
-
-private struct AppInfoRow: View {
-    let title: LocalizedStringKey
-    let description: LocalizedStringKey
-
-    init(title: LocalizedStringKey, description: LocalizedStringKey) {
-        self.title = title
-        self.description = description
-    }
-
-    init(title: LocalizedStringKey, description: String) {
-        self.title = title
-        self.description = LocalizedStringKey(description)
-    }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 2) {
-            Text(title)
-                .foregroundColor(.primary)
-            Text(description)
-                .font(.caption)
-                .foregroundColor(.secondary)
-        }
-        .padding(.vertical, 2)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .contentShape(Rectangle())
     }
 }

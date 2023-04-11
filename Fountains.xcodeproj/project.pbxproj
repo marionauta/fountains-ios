@@ -42,6 +42,7 @@
 		ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE290982815D0F6002B0BD8 /* FountainsApp.swift */; };
 		ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2909A2815D0F6002B0BD8 /* ContentView.swift */; };
 		ACE2909D2815D0F7002B0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */; };
+		ACF96E1429E58A4100F71F20 /* ContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF96E1329E58A4100F71F20 /* ContentRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACE290A62815D227002B0BD8 /* DomainLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DomainLayer; sourceTree = "<group>"; };
 		ACEE77CE2815F06400340A88 /* CommonLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonLayer; sourceTree = "<group>"; };
+		ACF96E1329E58A4100F71F20 /* ContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				AC45685B29DD7C58009CAD02 /* AdView.swift */,
 				AC4FF8CA29D9887B003B41BF /* CloseButton.swift */,
+				ACF96E1329E58A4100F71F20 /* ContentRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				AC2DDA5429D713D0002C667F /* AreaPreviewModal.swift in Sources */,
 				AC4B038929D72B83008946C9 /* FountainDetailCoordinator.swift in Sources */,
 				AC45685C29DD7C58009CAD02 /* AdView.swift in Sources */,
+				ACF96E1429E58A4100F71F20 /* ContentRow.swift in Sources */,
 				AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */,
 				AC4FF8C829D984B2003B41BF /* AppInfoLabel.swift in Sources */,
 				AC4B038729D72AA3008946C9 /* FountainDetailViewModel.swift in Sources */,

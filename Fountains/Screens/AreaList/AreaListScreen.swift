@@ -57,14 +57,10 @@ private struct AreaList: View {
                 NavigationLink {
                     MapCoordinator(area: area)
                 } label: {
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(area.trimmedDisplayName)
-                            .font(.subheadline)
-                        Text(area.name)
-                            .font(.caption)
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(.vertical, 2)
+                    ContentRow(
+                        title: area.trimmedDisplayName,
+                        description: area.name
+                    )
                 }
                 .swipeActions {
                     Button("general.delete", role: .destructive) {
@@ -72,7 +68,16 @@ private struct AreaList: View {
                     }
                 }
             }
-
+            Section {
+                NavigationLink {
+                    RoadmapCoordinator()
+                } label: {
+                    ContentRow(
+                        title: "roadmap_title",
+                        description: "roadmap_subtitle"
+                    )
+                }
+            }
         }
         .listStyle(.insetGrouped)
     }
