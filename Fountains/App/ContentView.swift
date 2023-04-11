@@ -2,8 +2,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        AreaListCoordinator()
+        ApplicationCoordinator()
             .withAdmob()
             .withPulse()
+    }
+}
+
+private struct ApplicationCoordinator: View {
+    var body: some View {
+        TabView {
+            AreaListCoordinator()
+            RoadmapCoordinator()
+        }
     }
 }

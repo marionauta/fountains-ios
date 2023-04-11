@@ -52,3 +52,7 @@
 "fountain_detail_check_date_title" = "Last checked";
 "fountain_detail_check_date_description" = "The last time someone checked this water fountain.";
 "fountain_detail_something_wrong_button" = "Something wrong?";
+
+// Roadmap
+
+"roadmap_title" = "Features";

@@ -52,3 +52,7 @@
 "fountain_detail_check_date_title" = "Comprobado";
 "fountain_detail_check_date_description" = "La  última vez que alguien comprobó esta fuente.";
 "fountain_detail_something_wrong_button" = "¿Algún error?";
+
+// Roadmap
+
+"roadmap_title" = "Vota";

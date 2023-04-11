@@ -25,6 +25,8 @@
 		AC4FF8C829D984B2003B41BF /* AppInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */; };
 		AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CA29D9887B003B41BF /* CloseButton.swift */; };
 		AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */; };
+		AC74535329E5750700EBF911 /* Roadmap in Frameworks */ = {isa = PBXBuildFile; productRef = AC74535229E5750700EBF911 /* Roadmap */; };
+		AC74535629E576DE00EBF911 /* RoadmapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74535529E576DE00EBF911 /* RoadmapCoordinator.swift */; };
 		AC891458285A2B6B00D57CCF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AC89145A285A2B6B00D57CCF /* Localizable.strings */; };
 		ACB4962B292E6CD3003BE70B /* AddAreaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962A292E6CD3003BE70B /* AddAreaScreen.swift */; };
 		ACB4962D292E7126003BE70B /* AddAreaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB4962C292E7126003BE70B /* AddAreaViewModel.swift */; };
@@ -59,6 +61,7 @@
 		AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoLabel.swift; sourceTree = "<group>"; };
 		AC4FF8CA29D9887B003B41BF /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
+		AC74535529E576DE00EBF911 /* RoadmapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapCoordinator.swift; sourceTree = "<group>"; };
 		AC891459285A2B6B00D57CCF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC89145B285A2B6D00D57CCF /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ACB4962A292E6CD3003BE70B /* AddAreaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAreaScreen.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 				AC45685A29DD7851009CAD02 /* GoogleMobileAds in Frameworks */,
 				AC33C28E29DC782100102883 /* PulseUI in Frameworks */,
 				ACD2756D2816DA8D007B70FB /* CommonLayer in Frameworks */,
+				AC74535329E5750700EBF911 /* Roadmap in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +126,14 @@
 				AC4FF8CA29D9887B003B41BF /* CloseButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		AC74535429E576C700EBF911 /* Roadmap */ = {
+			isa = PBXGroup;
+			children = (
+				AC74535529E576DE00EBF911 /* RoadmapCoordinator.swift */,
+			);
+			path = Roadmap;
 			sourceTree = "<group>";
 		};
 		AC7A7177285A2B1C00BB0802 /* Strings */ = {
@@ -170,6 +182,7 @@
 				ACB4962E292E7996003BE70B /* AreaList */,
 				ACCFBE45281602E500319CCB /* FountainDetail */,
 				ACEE77CC2815EC0200340A88 /* Map */,
+				AC74535429E576C700EBF911 /* Roadmap */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -259,6 +272,7 @@
 				AC33C28B29DC782100102883 /* Pulse */,
 				AC33C28D29DC782100102883 /* PulseUI */,
 				AC45685929DD7851009CAD02 /* GoogleMobileAds */,
+				AC74535229E5750700EBF911 /* Roadmap */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -292,6 +306,7 @@
 			packageReferences = (
 				AC33C28A29DC782100102883 /* XCRemoteSwiftPackageReference "Pulse" */,
 				AC45685329DD75EC009CAD02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				AC74535129E5750700EBF911 /* XCRemoteSwiftPackageReference "Roadmap" */,
 			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
 			projectDirPath = "";
@@ -329,6 +344,7 @@
 				AC33C29529DC7BEE00102883 /* PulseViewModifier.swift in Sources */,
 				ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */,
 				ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */,
+				AC74535629E576DE00EBF911 /* RoadmapCoordinator.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
 				ACB49630292E79B1003BE70B /* AreaListScreen.swift in Sources */,
 				ACB4962B292E6CD3003BE70B /* AddAreaScreen.swift in Sources */,
@@ -602,6 +618,14 @@
 				version = 10.3.0;
 			};
 		};
+		AC74535129E5750700EBF911 /* XCRemoteSwiftPackageReference "Roadmap" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AvdLee/Roadmap.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -619,6 +643,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC45685329DD75EC009CAD02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
 			productName = GoogleMobileAds;
+		};
+		AC74535229E5750700EBF911 /* Roadmap */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC74535129E5750700EBF911 /* XCRemoteSwiftPackageReference "Roadmap" */;
+			productName = Roadmap;
 		};
 		ACCF53C52815D52500D62A53 /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -11,6 +11,9 @@ struct AreaListCoordinator: View {
     
     var body: some View {
         AreaListScreen(viewModel: viewModel)
+            .tabItem {
+                Label("areas_list_title", systemImage: "map")
+            }
             .sheet(item: $viewModel.route) { route in
                 switch route {
                 case .addArea:
