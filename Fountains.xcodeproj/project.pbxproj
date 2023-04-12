@@ -145,8 +145,8 @@
 		ACCF53C72815D52F00D62A53 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				AC4FF8C029D9813D003B41BF /* Info */,
 				ACCFBE45281602E500319CCB /* FountainDetail */,
+				AC4FF8C029D9813D003B41BF /* Info */,
 				ACEE77CC2815EC0200340A88 /* Map */,
 				AC74535429E576C700EBF911 /* Roadmap */,
 			);

@@ -7,7 +7,8 @@ import SwiftUI
 
 final class MapViewModel: NSObject, ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
-    private let fountainsUseCase = GetFountainsUseCase()
+    private let getLocationNameUseCase = GetLocationNameUseCase()
+    private let getFountainsUseCase = GetFountainsUseCase()
     private let feedbackGenerator = UISelectionFeedbackGenerator()
     private let locationManager = CLLocationManager()
 
@@ -29,19 +30,16 @@ final class MapViewModel: NSObject, ObservableObject {
             return
         }
         isLoading = true
-        if let response = await fountainsUseCase(northEast: bounds.northEast, southWest: bounds.southWest) {
+        if let response = await getFountainsUseCase(northEast: bounds.northEast, southWest: bounds.southWest) {
             fountains = response.fountains
             lastUpdated = response.lastUpdated
         }
         isLoading = false
     }
 
-    private func getAreaName(from coordinates: CLLocationCoordinate2D) {
-        let location = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
-        CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, _ in
-            guard let placemark = placemarks?.first else { return }
-            self?.areaName = placemark.locality
-        }
+    @MainActor
+    private func getAreaName(from coordinate: CLLocationCoordinate2D) async {
+        areaName = await getLocationNameUseCase(coordinate)
     }
 
     @MainActor
@@ -83,7 +81,11 @@ final class MapViewModel: NSObject, ObservableObject {
         $mapRect
             .throttle(for: .seconds(5), scheduler: DispatchQueue.main, latest: true)
             .subscribe(on: DispatchQueue.main)
-            .sink { [weak self] rect in self?.getAreaName(from: rect.center.coordinate) }
+            .sink { [weak self] rect in
+                Task { [weak self] in
+                    await self?.getAreaName(from: rect.center.coordinate)
+                }
+            }
             .store(in: &cancellables)
     }
 }
