@@ -16,6 +16,7 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published private(set) var lastUpdated: Date?
     @Published private(set) var fountains: [Fountain] = []
     @Published private(set) var isLoading: Bool = true
+    @Published private(set) var isTooFarAway: Bool = false
     @Published public var mapRect = MKMapRect(
         origin: .init(CLLocationCoordinate2D(latitude: 0, longitude: 0)),
         size: .init(width: 15_000, height: 15_000)
@@ -30,9 +31,15 @@ final class MapViewModel: NSObject, ObservableObject {
             return
         }
         isLoading = true
-        if let response = await getFountainsUseCase(northEast: bounds.northEast, southWest: bounds.southWest) {
+        switch await getFountainsUseCase(northEast: bounds.northEast, southWest: bounds.southWest) {
+        case .failure(.tooFarAway):
+            isTooFarAway = true
+        case let .success(.some(response)):
+            isTooFarAway = false
             fountains = response.fountains
             lastUpdated = response.lastUpdated
+        case .success(.none):
+            isTooFarAway = false
         }
         isLoading = false
     }

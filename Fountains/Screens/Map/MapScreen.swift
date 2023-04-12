@@ -26,18 +26,29 @@ struct MapScreen: View {
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
         .overlay(alignment: .bottomTrailing) {
-            Button {
-                viewModel.requestLocationAndCenter()
-            } label: {
-                Label("map_center_on_map", systemImage: "location")
+            HStack(alignment: .bottom) {
+                if viewModel.isTooFarAway {
+                    Text("map_too_far_away")
+                        .multilineTextAlignment(.center)
+                        .padding(12)
+                        .frame(maxWidth: .infinity)
+                        .foregroundColor(.white)
+                        .background(Color.black.opacity(0.75))
+                        .cornerRadius(8)
+                }
+                Button {
+                    viewModel.requestLocationAndCenter()
+                } label: {
+                    Label("map_center_on_map", systemImage: "location")
+                }
+                .disabled(viewModel.trackingMode == .follow)
+                .labelStyle(.iconOnly)
+                .foregroundColor(.white)
+                .padding(12)
+                .background(Color("AccentColor"))
+                .cornerRadius(8)
             }
-            .disabled(viewModel.trackingMode == .follow)
-            .labelStyle(.iconOnly)
-            .foregroundColor(.white)
-            .padding(12)
-            .background(Color("AccentColor"))
-            .cornerRadius(8)
-            .padding(.trailing, 12)
+            .padding(.horizontal, 12)
             .padding(.bottom, 40)
         }
         .navigationBarTitleDisplayMode(.inline)

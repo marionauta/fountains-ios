@@ -41,6 +41,7 @@
 // Map
 
 "map_center_on_map" = "Centrar en el mapa";
+"map_too_far_away" = "Demasiado lejos.\nHaz zoom, por favor.";
 
 // Fountain Detail
 
