@@ -7,7 +7,7 @@ struct FountainRepository {
 
     @MainActor
     func inside(northEast: Location, southWest: Location) async -> FountainResponse? {
-        Task { @MainActor in
+        Task.detached { @MainActor in
             try? await storedDataSource.deleteAll()
         }
         return try? await dataSource.inside(

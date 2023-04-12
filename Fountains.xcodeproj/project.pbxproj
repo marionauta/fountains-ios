@@ -209,9 +209,9 @@
 		ACEE77CC2815EC0200340A88 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */,
 				ACCF53C82815D58400D62A53 /* MapScreen.swift */,
 				ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */,
-				AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";

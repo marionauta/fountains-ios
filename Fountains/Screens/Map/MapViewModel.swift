@@ -11,6 +11,7 @@ final class MapViewModel: NSObject, ObservableObject {
     private let feedbackGenerator = UISelectionFeedbackGenerator()
     private let locationManager = CLLocationManager()
 
+    @Published private(set) var areaName: String?
     @Published private(set) var lastUpdated: Date?
     @Published private(set) var fountains: [Fountain] = []
     @Published private(set) var isLoading: Bool = true
@@ -35,11 +36,21 @@ final class MapViewModel: NSObject, ObservableObject {
         isLoading = false
     }
 
+    private func getAreaName(from coordinates: CLLocationCoordinate2D) {
+        let location = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, _ in
+            guard let placemark = placemarks?.first else { return }
+            self?.areaName = placemark.locality
+        }
+    }
+
     @MainActor
-    public func requestLocationAndCenter() {
+    public func requestLocationAndCenter(requestIfneeded: Bool = true) {
         guard [.authorizedAlways, .authorizedWhenInUse].contains(locationManager.authorizationStatus) else {
-            locationManager.delegate = self
-            locationManager.requestWhenInUseAuthorization()
+            if requestIfneeded {
+                locationManager.delegate = self
+                locationManager.requestWhenInUseAuthorization()
+            }
             return
         }
         centerOnUserLocation()
@@ -69,6 +80,11 @@ final class MapViewModel: NSObject, ObservableObject {
                 }
             }
             .store(in: &cancellables)
+        $mapRect
+            .throttle(for: .seconds(5), scheduler: DispatchQueue.main, latest: true)
+            .subscribe(on: DispatchQueue.main)
+            .sink { [weak self] rect in self?.getAreaName(from: rect.center.coordinate) }
+            .store(in: &cancellables)
     }
 }
 
@@ -90,12 +106,13 @@ private extension Fountain {
 }
 
 private extension MKMapRect {
-    mutating func setCenter(_ center: CLLocationCoordinate2D) {
-        setCenter(MKMapPoint(center))
-    }
-
-    mutating func setCenter(_ center: MKMapPoint) {
-        self.origin = MKMapPoint(x: center.x - (width / 2), y: center.y - (height / 2))
+    var center: MKMapPoint {
+        set {
+            origin = MKMapPoint(x: newValue.x - width / 2, y: newValue.y - height / 2)
+        }
+        get {
+            MKMapPoint(x: origin.x + (width / 2), y: origin.y + height / 2)
+        }
     }
 }
 

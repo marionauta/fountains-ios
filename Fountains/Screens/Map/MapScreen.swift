@@ -49,10 +49,11 @@ struct MapScreen: View {
                     AppInfoLabel()
                 }
             }
-
             ToolbarItem(placement: .principal) {
                 VStack(spacing: 4) {
-                    Text("app_name")
+                    if let areaName = viewModel.areaName {
+                        Text(areaName)
+                    }
                     if let lastUpdated = viewModel.lastUpdated {
                         Text(lastUpdated.formatted(date: .abbreviated, time: .shortened))
                             .font(.caption)
@@ -60,7 +61,6 @@ struct MapScreen: View {
                     }
                 }
             }
-
             ToolbarItem(placement: .navigationBarTrailing) {
                 if viewModel.isLoading {
                     ProgressView().progressViewStyle(.circular)
@@ -68,6 +68,7 @@ struct MapScreen: View {
             }
         }
         .task {
+            viewModel.requestLocationAndCenter(requestIfneeded: false)
             await viewModel.load(from: nil)
         }
     }
