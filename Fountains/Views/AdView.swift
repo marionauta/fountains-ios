@@ -5,6 +5,7 @@ import SwiftUI
 struct AdView: View {
     enum Constants {
         static let adsHiddenKey = "ADSHIDDEN.\(Bundle.main.buildNumber)"
+        static let defaultHeight: CGFloat = 60
     }
 
     enum Stage {
@@ -13,7 +14,7 @@ struct AdView: View {
 
     @AppStorage(Constants.adsHiddenKey) private var areAdsHidden: Bool = false
     @State private var stage: Stage = .loading
-    @State private var height: CGFloat = 80
+    @State private var height: CGFloat = Constants.defaultHeight
 
     var body: some View {
         if stage == .error || areAdsHidden {
@@ -51,7 +52,7 @@ struct BannerView: UIViewControllerRepresentable {
 
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
         guard stage != .error else { return }
-        bannerView.adSize = GADInlineAdaptiveBannerAdSizeWithWidthAndMaxHeight(width, 80)
+        bannerView.adSize = GADInlineAdaptiveBannerAdSizeWithWidthAndMaxHeight(width, AdView.Constants.defaultHeight)
         bannerView.load(GADRequest())
     }
 
@@ -59,7 +60,7 @@ struct BannerView: UIViewControllerRepresentable {
         Coordinator(self)
     }
 
-    class Coordinator: NSObject, GADBannerViewDelegate {
+    final class Coordinator: NSObject, GADBannerViewDelegate {
         let parent: BannerView
 
         init(_ parent: BannerView) {
