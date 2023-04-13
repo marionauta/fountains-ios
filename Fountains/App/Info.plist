@@ -7,7 +7,7 @@
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>To center the map around you</string>
+	<string>Your location is used to show you nearby drinking fountains</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>

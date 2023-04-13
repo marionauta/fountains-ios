@@ -1,3 +1,3 @@
 "CFBundleName" = "Water Finder";
 "CFBundleDisplayName" = "Water Finder";
-"NSLocationWhenInUseUsageDescription" = "To center the map around you";
+"NSLocationWhenInUseUsageDescription" = "Your location is used to show you nearby drinking fountains";
