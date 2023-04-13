@@ -22,6 +22,7 @@ struct MapCoordinator: View {
         NavigationView {
             MapScreen(viewModel: viewModel)
         }
+        .navigationViewStyle(.stack)
         .sheet(item: $viewModel.route) { route in
             switch route {
             case .appInfo:
