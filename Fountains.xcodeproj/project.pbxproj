@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2E1EC129F016B800829B50 /* NotchBrandViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2E1EC029F016B800829B50 /* NotchBrandViewModifier.swift */; };
 		AC33C28C29DC782100102883 /* Pulse in Frameworks */ = {isa = PBXBuildFile; productRef = AC33C28B29DC782100102883 /* Pulse */; };
 		AC33C28E29DC782100102883 /* PulseUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC33C28D29DC782100102883 /* PulseUI */; };
 		AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC2E1EC029F016B800829B50 /* NotchBrandViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchBrandViewModifier.swift; sourceTree = "<group>"; };
 		AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
 		AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		AC33C29429DC7BEE00102883 /* PulseViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewModifier.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				AC45685629DD77D1009CAD02 /* AdmobViewModifier.swift */,
 				AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */,
+				AC2E1EC029F016B800829B50 /* NotchBrandViewModifier.swift */,
 				AC33C29429DC7BEE00102883 /* PulseViewModifier.swift */,
 			);
 			path = Modifiers;
@@ -320,6 +323,7 @@
 				AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */,
 				AC4FF8C829D984B2003B41BF /* AppInfoLabel.swift in Sources */,
 				AC4B038729D72AA3008946C9 /* FountainDetailViewModel.swift in Sources */,
+				AC2E1EC129F016B800829B50 /* NotchBrandViewModifier.swift in Sources */,
 				AC45685729DD77D1009CAD02 /* AdmobViewModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
