@@ -63,7 +63,7 @@ struct FountainDetailScreen: View {
     }
 
     var somethingWrongUrl: URL {
-        URL(string: "\(KnownUris.help(slug: "corregir").absoluteString)?lat=\(fountain.location.latitude)&lng=\(fountain.location.longitude)")!
+        URL(string: "\(KnownUris.help(slug: "corregir").absoluteString)&lat=\(fountain.location.latitude)&lng=\(fountain.location.longitude)")!
     }
 }
 
