@@ -28,6 +28,15 @@
       }
     },
     {
+      "identity" : "notchlogokit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marionauta/NotchLogoKit",
+      "state" : {
+        "branch" : "main",
+        "revision" : "68b86f3369aa621ab42a13525324b717dc1af93a"
+      }
+    },
+    {
       "identity" : "promises",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/promises.git",
