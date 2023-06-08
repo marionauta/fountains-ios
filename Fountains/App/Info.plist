@@ -216,5 +216,18 @@
 		<key>UISceneConfigurations</key>
 		<dict/>
 	</dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeMail</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>mn.openlocations.reportBugOrIssue</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>BUGORISSUE_SHORTCUT_ITEM_TITLE</string>
+			<key>UIApplicationShortcutItemSubtitle</key>
+			<string>BUGORISSUE_SHORTCUT_ITEM_SUBTITLE</string>
+		</dict>
+	</array>
 </dict>
 </plist>

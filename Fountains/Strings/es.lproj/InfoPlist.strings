@@ -1,3 +1,5 @@
 "CFBundleName" = "Water Finder";
 "CFBundleDisplayName" = "AguApp";
 "NSLocationWhenInUseUsageDescription"= "Tu ubicación se usa para mostrarte fuentes cercanas";
+"BUGORISSUE_SHORTCUT_ITEM_TITLE" = "🐛 ¿Bugs u otro problema?";
+"BUGORISSUE_SHORTCUT_ITEM_SUBTITLE" = "Toca para enviarnos un email";
