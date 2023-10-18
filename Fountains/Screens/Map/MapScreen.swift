@@ -17,10 +17,9 @@ struct MapScreen: View {
                 annotationItems: viewModel.fountains
             ) { fountain in
                 MapAnnotation(coordinate: fountain.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
-                    Image(.marker)
-                        .onTapGesture {
-                            viewModel.openDetail(for: fountain)
-                        }
+                    MapFountainMarker {
+                        viewModel.openDetail(for: fountain)
+                    }
                 }
             }
         }
