@@ -17,7 +17,7 @@ struct MapScreen: View {
                 annotationItems: viewModel.fountains
             ) { fountain in
                 MapAnnotation(coordinate: fountain.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
-                    Image("marker")
+                    Image(.marker)
                         .onTapGesture {
                             viewModel.openDetail(for: fountain)
                         }
@@ -45,7 +45,7 @@ struct MapScreen: View {
                 .labelStyle(.iconOnly)
                 .foregroundColor(.white)
                 .padding(12)
-                .background(Color("AccentColor"))
+                .background(Color.accentColor)
                 .cornerRadius(8)
             }
             .padding(.horizontal, 12)
