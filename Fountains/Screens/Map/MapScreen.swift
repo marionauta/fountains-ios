@@ -10,6 +10,7 @@ struct MapScreen: View {
         VStack(spacing: 0) {
             Spacer(minLength: 10)
             AdView()
+            NeedsLocationBannerView(isLocationEnabled: viewModel.isLocationEnabled)
             Map(
                 mapRect: $viewModel.mapRect,
                 showsUserLocation: true,

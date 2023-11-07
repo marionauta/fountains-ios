@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC2D614C2AFA4B4600594061 /* NeedsLocationBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */; };
 		AC33C28C29DC782100102883 /* Pulse in Frameworks */ = {isa = PBXBuildFile; productRef = AC33C28B29DC782100102883 /* Pulse */; };
 		AC33C28E29DC782100102883 /* PulseUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC33C28D29DC782100102883 /* PulseUI */; };
 		AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsLocationBannerView.swift; sourceTree = "<group>"; };
 		AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
 		AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		AC33C29429DC7BEE00102883 /* PulseViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseViewModifier.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				AC45685B29DD7C58009CAD02 /* AdView.swift */,
 				AC4FF8CA29D9887B003B41BF /* CloseButton.swift */,
 				ACF96E1329E58A4100F71F20 /* ContentRow.swift */,
+				AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */,
 				AC4B038929D72B83008946C9 /* FountainDetailCoordinator.swift in Sources */,
 				AC45685C29DD7C58009CAD02 /* AdView.swift in Sources */,
+				AC2D614C2AFA4B4600594061 /* NeedsLocationBannerView.swift in Sources */,
 				ACF96E1429E58A4100F71F20 /* ContentRow.swift in Sources */,
 				AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */,
 				AC4FF8C829D984B2003B41BF /* AppInfoLabel.swift in Sources */,

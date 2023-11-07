@@ -44,6 +44,7 @@
 
 "map_center_on_map" = "Center on map";
 "map_too_far_away" = "Too far away.\nPlease zoom in.";
+"map_location_disabled" = "Location services are disabled. Enable it to center you on the map.";
 
 // Fountain Detail
 

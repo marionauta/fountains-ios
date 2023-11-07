@@ -21,6 +21,10 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published public var trackingMode: MapUserTrackingMode = .none
     @Published public var route: MapCoordinator.Route?
 
+    public var isLocationEnabled: Bool {
+        return [.authorizedAlways, .authorizedWhenInUse].contains(locationManager.authorizationStatus)
+    }
+    
     @MainActor
     public func load(from bounds: MKMapRect?) async {
         guard let bounds else {
@@ -48,7 +52,7 @@ final class MapViewModel: NSObject, ObservableObject {
 
     @MainActor
     public func requestLocationAndCenter(requestIfneeded: Bool = true) {
-        guard [.authorizedAlways, .authorizedWhenInUse].contains(locationManager.authorizationStatus) else {
+        guard isLocationEnabled else {
             if requestIfneeded {
                 locationManager.delegate = self
                 locationManager.requestWhenInUseAuthorization()

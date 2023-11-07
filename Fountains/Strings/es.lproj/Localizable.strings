@@ -44,6 +44,7 @@
 
 "map_center_on_map" = "Centrar en el mapa";
 "map_too_far_away" = "Demasiado lejos.\nHaz zoom, por favor.";
+"map_location_disabled" = "Los servicios de ubicación están deshabilitados. Habilitalos para centrarte en el mapa.";
 
 // Fountain Detail
 

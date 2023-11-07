@@ -17,6 +17,9 @@ struct AdView: View {
     @State private var height: CGFloat = Constants.defaultHeight
 
     var body: some View {
+        #if DEBUG
+        EmptyView()
+        #else
         if stage == .error || areAdsHidden {
             EmptyView()
         } else {
@@ -31,6 +34,7 @@ struct AdView: View {
                 .frame(height: height)
             }
         }
+        #endif
     }
 }
 
