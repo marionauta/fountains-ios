@@ -11,7 +11,7 @@ public struct GetFountainsUseCase {
     public init() {}
 
     public func callAsFunction(northEast: MKMapPoint, southWest: MKMapPoint) async -> Result<FountainResponse?, FountainError> {
-        guard northEast.distance(to: southWest) < 5_000 else { return .failure(.tooFarAway) }
+        guard northEast.distance(to: southWest) < 15_000 else { return .failure(.tooFarAway) }
         let result = await repository.inside(northEast: northEast.intoDomain(), southWest: southWest.intoDomain())
         return .success(result)
     }
