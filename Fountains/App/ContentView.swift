@@ -6,6 +6,5 @@ struct ContentView: View {
         MapCoordinator()
             .withNotchLogo("app_name", imageName: "marker", backgroundColor: .accentColor)
             .withAdmob()
-            .withPulse()
     }
 }

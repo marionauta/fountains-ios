@@ -46,15 +46,6 @@
       }
     },
     {
-      "identity" : "pulse",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kean/Pulse",
-      "state" : {
-        "revision" : "40acf8dc87d0856aedc0b8e9111f8880e5c154bf",
-        "version" : "3.5.5"
-      }
-    },
-    {
       "identity" : "roadmap",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/AvdLee/Roadmap.git",
