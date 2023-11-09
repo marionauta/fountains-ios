@@ -10,7 +10,7 @@ struct MapScreen: View {
         VStack(spacing: 0) {
             Spacer(minLength: 10)
             AdView()
-            NeedsLocationBannerView(isLocationEnabled: viewModel.isLocationEnabled)
+            NeedsLocationBannerView(isLocationEnabled: viewModel.hideLocationBanner)
             Map(
                 mapRect: $viewModel.mapRect,
                 showsUserLocation: true,
@@ -26,27 +26,32 @@ struct MapScreen: View {
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
         .overlay(alignment: .bottomTrailing) {
-            HStack(alignment: .bottom) {
-                if viewModel.isTooFarAway {
-                    Text("map_too_far_away")
-                        .multilineTextAlignment(.center)
-                        .padding(12)
-                        .frame(maxWidth: .infinity)
-                        .foregroundColor(.white)
-                        .background(Color.black.opacity(0.75))
-                        .cornerRadius(8)
-                }
+            HStack(alignment: .center) {
+                Text("map_too_far_away")
+                    .multilineTextAlignment(.center)
+                    .padding(12)
+                    .frame(maxWidth: .infinity)
+                    .foregroundColor(.white)
+                    .background(Color.black.opacity(0.75))
+                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                    .opacity(viewModel.isTooFarAway ? 1 : 0)
+                    .animation(.easeInOut, value: viewModel.isTooFarAway)
+                let centerButtonDisabled = viewModel.trackingMode == .follow
                 Button {
                     viewModel.requestLocationAndCenter()
                 } label: {
                     Label("map_center_on_map", systemImage: "location")
+                        .font(.title)
                 }
-                .disabled(viewModel.trackingMode == .follow)
                 .labelStyle(.iconOnly)
                 .foregroundColor(.white)
-                .padding(12)
+                .padding(16)
                 .background(Color.accentColor)
-                .cornerRadius(8)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+                .opacity(centerButtonDisabled ? 0 : 1)
+                .scaleEffect(centerButtonDisabled ? .zero : CGSize(width: 1, height: 1))
+                .disabled(centerButtonDisabled)
+                .animation(.easeInOut, value: centerButtonDisabled)
             }
             .padding(.horizontal, 12)
             .padding(.bottom, 40)

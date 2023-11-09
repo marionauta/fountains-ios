@@ -21,6 +21,10 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published public var trackingMode: MapUserTrackingMode = .none
     @Published public var route: MapCoordinator.Route?
 
+    public var hideLocationBanner: Bool {
+        return isLocationEnabled || locationManager.authorizationStatus == .notDetermined
+    }
+    
     public var isLocationEnabled: Bool {
         return [.authorizedAlways, .authorizedWhenInUse].contains(locationManager.authorizationStatus)
     }

@@ -12,6 +12,11 @@ struct NeedsLocationBannerView: View {
                 .padding(16)
                 .foregroundStyle(Color.white)
                 .background(Color.black)
+                .onTapGesture {
+                    if let appSettings = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(appSettings)
+                    }
+                }
         }
     }
 }
