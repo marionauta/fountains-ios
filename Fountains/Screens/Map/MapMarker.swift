@@ -39,20 +39,20 @@ private extension MapClusterMarker {
     }
 }
 
-func clusterize(mapRect: MKMapRect, fountains: [Fountain]) -> [MapMarker] {
+func clusterize(mapRect: MKMapRect, fountains: [Fountain], hSplits: Int = 9, vSplits: Int = 9) -> [MapMarker] {
     let hStart = mapRect.northWest.coordinate.longitude + 360
     let hEnd = mapRect.northEast.coordinate.longitude + 360
     let vStart = mapRect.northWest.coordinate.latitude
     let vEnd = mapRect.southWest.coordinate.latitude
     let horizontalSpan = hEnd - hStart
-    let hStep = horizontalSpan / 9
+    let hStep = horizontalSpan / Double(hSplits)
     let verticalSpan = vEnd - vStart
-    let vStep = verticalSpan / 9
+    let vStep = verticalSpan / Double(hSplits)
     var dictionary: Dictionary<MapClusterMarker.Key, [Fountain]> = [:]
     for fountain in fountains {
-        xLoop: for xx in 0..<9 {
+        xLoop: for xx in 0..<hSplits {
             let x = Double(xx)
-            for yy in 0..<9 {
+            for yy in 0..<vSplits {
                 let y = Double(yy)
                 let lon = fountain.location.longitude + 360
                 if lon >= (hStart + (hStep * x)) && lon <= (hStart + (hStep * (x + 1))) {
