@@ -15,6 +15,7 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published private(set) var areaName: String?
     @Published private(set) var lastUpdated: Date?
     @Published private(set) var fountains: [Fountain] = []
+    @Published private(set) var markers: [MapMarker] = []
     @Published private(set) var isLoading: Bool = true
     @Published private(set) var isTooFarAway: Bool = false
     @Published public var mapRect = MKMapRect.world
@@ -92,6 +93,7 @@ final class MapViewModel: NSObject, ObservableObject {
             }
             .store(in: &cancellables)
         $mapRect
+            .debounce(for: .milliseconds(50), scheduler: DispatchQueue.main)
             .throttle(for: .seconds(5), scheduler: DispatchQueue.main, latest: true)
             .subscribe(on: DispatchQueue.main)
             .sink { [weak self] rect in
@@ -100,6 +102,15 @@ final class MapViewModel: NSObject, ObservableObject {
                 }
             }
             .store(in: &cancellables)
+
+        Publishers.CombineLatest(
+            $mapRect.debounce(for: .milliseconds(50), scheduler: DispatchQueue.main),
+            $fountains.removeDuplicates()
+        )
+        .map { mapRect, fountains in clusterize(mapRect: mapRect, fountains: fountains) }
+        .removeDuplicates()
+        .assign(to: \.markers, on: self)
+        .store(in: &cancellables)
     }
 }
 
@@ -131,12 +142,14 @@ private extension MKMapRect {
     }
 }
 
-private extension MKMapRect {
+extension MKMapRect {
     var northEast: MKMapPoint {
         var base = origin
         base.x += width
         return base
     }
+
+    var northWest: MKMapPoint { origin }
 
     var southWest: MKMapPoint {
         var base = origin

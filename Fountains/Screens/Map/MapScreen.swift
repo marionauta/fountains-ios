@@ -15,11 +15,19 @@ struct MapScreen: View {
                 mapRect: $viewModel.mapRect,
                 showsUserLocation: true,
                 userTrackingMode: $viewModel.trackingMode,
-                annotationItems: viewModel.fountains
-            ) { fountain in
-                MapAnnotation(coordinate: fountain.location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
-                    MapFountainMarker {
-                        viewModel.openDetail(for: fountain)
+                annotationItems: viewModel.markers
+            ) { marker in
+                MapAnnotation(coordinate: marker.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
+                    switch marker {
+                    case let .cluster(cluster):
+                        MapClusterMarker(count: cluster.count) {
+                            // TODO: zoom a bit
+                        }
+                    case let .fountain(fountain):
+                        MapFountainMarker {
+                            viewModel.openDetail(for: fountain)
+                        }
+                        .animateAccessible()
                     }
                 }
             }

@@ -2,7 +2,7 @@ import CommonLayer
 import Foundation
 import CommonLayer
 
-public struct Fountain: Identifiable {
+public struct Fountain: Equatable, Identifiable {
     public let id: Identifier<Self>
     public let name: String
     public let location: Location
@@ -10,7 +10,7 @@ public struct Fountain: Identifiable {
 }
 
 extension Fountain {
-    public struct Properties {
+    public struct Properties: Equatable {
         public let bottle: Value
         public let wheelchair: Value
         public let mapillaryId: String?
