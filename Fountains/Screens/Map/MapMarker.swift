@@ -71,11 +71,27 @@ func clusterize(mapRect: MKMapRect, fountains: [Fountain]) -> [MapMarker] {
     return dictionary.values.compactMap { fountains -> MapMarker? in
         if fountains.count > 1 {
             let first = fountains.first!
-            return .cluster(.init(id: first.id.value, location: fountains.first!.location, count: fountains.count))
+            let center = centerpoint(of: fountains.map(\.location))!
+            return .cluster(.init(id: first.id.value, location: center, count: fountains.count))
         } else if let first = fountains.first {
             return .fountain(first)
         } else  {
             return nil
         }
     }
+}
+
+private func centerpoint(of locations: [Location]) -> Location? {
+    guard !locations.isEmpty else { return nil }
+    var minLat = 90.0
+    var maxLat = -90.0
+    var minLon = 180.0
+    var maxLon = -180.0
+    for location in locations {
+        if location.latitude  < minLat { minLat = location.latitude }
+        if location.latitude  > maxLat { maxLat = location.latitude }
+        if location.longitude < minLon { minLon = location.longitude }
+        if location.longitude > maxLon { maxLon = location.longitude }
+    }
+    return Location(latitude: (minLat + maxLat) / 2, longitude: (minLon + maxLon) / 2)
 }

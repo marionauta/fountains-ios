@@ -81,6 +81,13 @@ final class MapViewModel: NSObject, ObservableObject {
         route = .fountain(fountain)
     }
 
+    public func zoomABit(on coordinate: CLLocationCoordinate2D) {
+        withAnimation {
+            mapRect.size = .init(width: mapRect.size.width * 0.5, height: mapRect.size.height * 0.5)
+            mapRect.center = .init(coordinate)
+        }
+    }
+
     private func setupBindings() {
         cancellables = []
         $mapRect

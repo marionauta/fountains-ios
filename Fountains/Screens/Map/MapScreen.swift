@@ -21,7 +21,7 @@ struct MapScreen: View {
                     switch marker {
                     case let .cluster(cluster):
                         MapClusterMarker(count: cluster.count) {
-                            // TODO: zoom a bit
+                            viewModel.zoomABit(on: marker.coordinate)
                         }
                     case let .fountain(fountain):
                         MapFountainMarker {
