@@ -9,13 +9,9 @@ struct ContentRow: View {
         self.description = description
     }
 
+    @_disfavoredOverload
     init(title: LocalizedStringKey, description: String) {
         self.title = title
-        self.description = LocalizedStringKey(description)
-    }
-
-    init(title: String, description: String) {
-        self.title = LocalizedStringKey(title)
         self.description = LocalizedStringKey(description)
     }
 

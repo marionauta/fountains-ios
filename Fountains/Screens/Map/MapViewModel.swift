@@ -8,10 +8,10 @@ import SwiftUI
 final class MapViewModel: NSObject, ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     private let getLocationNameUseCase = GetLocationNameUseCase()
-    private let getFountainsUseCase = GetFountainsUseCase()
     private let feedbackGenerator = UISelectionFeedbackGenerator()
     private let locationManager = CLLocationManager()
 
+    @AppStorage(AppInfoScreen.Constants.mapDistanceKey) private var maxMapDistance: Double = 15_000
     @Published private(set) var areaName: String?
     @Published private(set) var lastUpdated: Date?
     @Published private(set) var fountains: [Fountain] = []
@@ -36,6 +36,7 @@ final class MapViewModel: NSObject, ObservableObject {
             return
         }
         isLoading = true
+        let getFountainsUseCase = GetFountainsUseCase(maxDistance: maxMapDistance)
         switch await getFountainsUseCase(northEast: bounds.northEast, southWest: bounds.southWest) {
         case .failure(.tooFarAway):
             isTooFarAway = true

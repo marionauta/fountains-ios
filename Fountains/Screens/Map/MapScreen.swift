@@ -58,13 +58,6 @@ struct MapScreen: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    viewModel.route = .appInfo
-                } label: {
-                    AppInfoLabel()
-                }
-            }
             ToolbarItem(placement: .principal) {
                 VStack(spacing: 4) {
                     if let areaName = viewModel.areaName {
@@ -80,6 +73,13 @@ struct MapScreen: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 if viewModel.isLoading {
                     ProgressView().progressViewStyle(.circular)
+                }
+            }
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    viewModel.route = .appInfo
+                } label: {
+                    AppInfoLabel()
                 }
             }
         }
