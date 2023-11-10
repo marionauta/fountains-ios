@@ -516,13 +516,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Too far away.\nPlease zoom in."
+            "value" : "Too far away. Please zoom in or edit zoom in settings."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Demasiado lejos.\nHaz zoom, por favor."
+            "value" : "Demasiado lejos. Haz zoom o edita el zoom en los ajustes, por favor."
           }
         }
       }

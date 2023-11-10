@@ -28,9 +28,9 @@ struct MapScreen: View {
         .overlay(alignment: .bottomTrailing) {
             HStack(alignment: .center) {
                 Text("map_too_far_away")
-                    .multilineTextAlignment(.center)
+                    .multilineTextAlignment(.leading)
                     .padding(12)
-                    .frame(maxWidth: .infinity)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .foregroundColor(.white)
                     .background(Color.black.opacity(0.75))
                     .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
