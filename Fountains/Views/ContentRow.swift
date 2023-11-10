@@ -15,6 +15,12 @@ struct ContentRow: View {
         self.description = LocalizedStringKey(description)
     }
 
+    @_disfavoredOverload
+    init(title: String, description: String) {
+        self.title = LocalizedStringKey(title)
+        self.description = LocalizedStringKey(description)
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(title)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC1D6BA62AFE33F200A88F7B /* AppInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D6BA52AFE33F200A88F7B /* AppInfoViewModel.swift */; };
+		AC1D6BA92AFE340000A88F7B /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = AC1D6BA82AFE340000A88F7B /* AppsShowcase */; };
 		AC238EB72AFE2289006B2390 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AC238EB62AFE2288006B2390 /* Localizable.xcstrings */; };
 		AC2D614C2AFA4B4600594061 /* NeedsLocationBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */; };
 		AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC1D6BA42AFE336200A88F7B /* AppsShowcase */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AppsShowcase; sourceTree = "<group>"; };
+		AC1D6BA52AFE33F200A88F7B /* AppInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewModel.swift; sourceTree = "<group>"; };
 		AC238EB62AFE2288006B2390 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsLocationBannerView.swift; sourceTree = "<group>"; };
 		AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
@@ -84,6 +88,7 @@
 				AC45685A29DD7851009CAD02 /* GoogleMobileAds in Frameworks */,
 				ACD2756D2816DA8D007B70FB /* CommonLayer in Frameworks */,
 				AC74535329E5750700EBF911 /* Roadmap in Frameworks */,
+				AC1D6BA92AFE340000A88F7B /* AppsShowcase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +110,7 @@
 				AC4FF8C129D98177003B41BF /* AppInfoCoordinator.swift */,
 				AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */,
 				AC4FF8C329D98186003B41BF /* AppInfoScreen.swift */,
+				AC1D6BA52AFE33F200A88F7B /* AppInfoViewModel.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 		ACE2908C2815D0F6002B0BD8 = {
 			isa = PBXGroup;
 			children = (
+				AC1D6BA42AFE336200A88F7B /* AppsShowcase */,
 				ACEE77CE2815F06400340A88 /* CommonLayer */,
 				ACE290A62815D227002B0BD8 /* DomainLayer */,
 				ACE290972815D0F6002B0BD8 /* Fountains */,
@@ -244,6 +251,7 @@
 				AC45685929DD7851009CAD02 /* GoogleMobileAds */,
 				AC74535229E5750700EBF911 /* Roadmap */,
 				AC4C185829F13E9100226FDE /* NotchLogoKit */,
+				AC1D6BA82AFE340000A88F7B /* AppsShowcase */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -316,6 +324,7 @@
 				ACE425A02ADFF1A800241FE0 /* MapFountainMarker.swift in Sources */,
 				AC74535629E576DE00EBF911 /* RoadmapCoordinator.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
+				AC1D6BA62AFE33F200A88F7B /* AppInfoViewModel.swift in Sources */,
 				AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */,
 				ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */,
 				AC33C29329DC7B9500102883 /* UIWindow+Extensions.swift in Sources */,
@@ -592,6 +601,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AC1D6BA82AFE340000A88F7B /* AppsShowcase */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AppsShowcase;
+		};
 		AC45685929DD7851009CAD02 /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AC45685329DD75EC009CAD02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;

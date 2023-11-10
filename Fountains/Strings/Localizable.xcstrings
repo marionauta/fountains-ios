@@ -34,6 +34,22 @@
         }
       }
     },
+    "app_info_apps_showcase_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "More apps"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otras apps"
+          }
+        }
+      }
+    },
     "app_info_developer_content" : {
       "extractionState" : "manual",
       "localizations" : {

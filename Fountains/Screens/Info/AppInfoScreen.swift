@@ -10,6 +10,7 @@ struct AppInfoScreen: View {
         static let mapDistanceRange = minMapDistance...maxMapDistance
     }
 
+    @ObservedObject private var viewModel = AppInfoViewModel()
     @State private var isEasterShown: Bool = false
     @AppStorage(AdView.Constants.adsHiddenKey) private var areAdsHidden: Bool = false
     @AppStorage(Constants.mapDistanceKey) private var mapMaxDistance: Double = 15_000
@@ -55,6 +56,16 @@ struct AppInfoScreen: View {
                     isEasterShown = true
                 }
             }
+
+            if !viewModel.apps.isEmpty {
+                Section("app_info_apps_showcase_title") {
+                    ForEach(viewModel.apps) { app in
+                        Link(destination: app.url) {
+                            ContentRow(title: app.name, description: app.tagline)
+                        }
+                    }
+                }
+            }
         }
         .listStyle(.insetGrouped)
         .navigationTitle("app_info_title")
@@ -72,6 +83,9 @@ struct AppInfoScreen: View {
                 areAdsHidden.toggle()
                 isEasterShown = false
             })
+        }
+        .task {
+            await viewModel.load()
         }
     }
 }
