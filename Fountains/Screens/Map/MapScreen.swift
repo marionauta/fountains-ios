@@ -26,7 +26,7 @@ struct MapScreen: View {
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
         .overlay(alignment: .bottomTrailing) {
-            HStack(alignment: .center) {
+            HStack(alignment: .bottom) {
                 Text("map_too_far_away")
                     .multilineTextAlignment(.leading)
                     .padding(12)
