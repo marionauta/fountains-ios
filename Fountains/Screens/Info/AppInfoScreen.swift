@@ -31,13 +31,6 @@ struct AppInfoScreen: View {
                     }
                 }
             }
-            Section {
-                NavigationLink {
-                    RoadmapCoordinator()
-                } label: {
-                    ContentRow(title: "roadmap_title", description: "roadmap_subtitle")
-                }
-            }
 
             Section("app_info_about_section") {
                 Link(destination: KnownUris.website) {
