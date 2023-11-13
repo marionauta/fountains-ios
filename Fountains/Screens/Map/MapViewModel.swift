@@ -114,8 +114,13 @@ final class MapViewModel: NSObject, ObservableObject {
             $mapRect.debounce(for: .milliseconds(50), scheduler: DispatchQueue.main),
             $fountains.removeDuplicates()
         )
-        .map { mapRect, fountains in clusterize(mapRect: mapRect, fountains: fountains) }
+        .map { mapRect, fountains in
+            let splits = UIScreen.main.bounds.width / 30
+            let proximity = mapRect.northEast.distance(to: mapRect.northWest) / splits
+            return clusterize(fountains: fountains, proximity: proximity * 1.2)
+        }
         .removeDuplicates()
+        .subscribe(on: DispatchQueue.main)
         .assign(to: \.markers, on: self)
         .store(in: &cancellables)
     }

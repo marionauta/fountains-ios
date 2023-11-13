@@ -5,8 +5,11 @@ import MapKit
 
 struct MapMarkerCluster: Equatable, Identifiable {
     let id: String
-    let location: Location
-    let count: Int
+    var fountains: [Fountain]
+
+    var coordinate: CLLocationCoordinate2D {
+        return centerpoint(of: fountains.map(\.location))?.coordinate ?? .init()
+    }
 }
 
 enum MapMarker: Equatable, Identifiable {
@@ -24,9 +27,9 @@ enum MapMarker: Equatable, Identifiable {
 
     var coordinate: CLLocationCoordinate2D {
         switch self {
-        case .cluster(let cluster):
-            return cluster.location.coordinate
-        case .fountain(let fountain):
+        case let .cluster(cluster):
+            return cluster.coordinate
+        case let .fountain(fountain):
             return fountain.location.coordinate
         }
     }
@@ -39,46 +42,31 @@ private extension MapClusterMarker {
     }
 }
 
-func clusterize(mapRect: MKMapRect, fountains: [Fountain], hSplits: Int = 9, vSplits: Int = 9) -> [MapMarker] {
-    let hStart = mapRect.northWest.coordinate.longitude + 360
-    let hEnd = mapRect.northEast.coordinate.longitude + 360
-    let vStart = mapRect.northWest.coordinate.latitude
-    let vEnd = mapRect.southWest.coordinate.latitude
-    let horizontalSpan = hEnd - hStart
-    let hStep = horizontalSpan / Double(hSplits)
-    let verticalSpan = vEnd - vStart
-    let vStep = verticalSpan / Double(hSplits)
-    var dictionary: Dictionary<MapClusterMarker.Key, [Fountain]> = [:]
-    for fountain in fountains {
-        xLoop: for xx in 0..<hSplits {
-            let x = Double(xx)
-            for yy in 0..<vSplits {
-                let y = Double(yy)
-                let lon = fountain.location.longitude + 360
-                if lon >= (hStart + (hStep * x)) && lon <= (hStart + (hStep * (x + 1))) {
-                    let lat = fountain.location.latitude
-                    if lat <= (vStart + (vStep * y)) && lat > (vStart + (vStep * (y + 1))) {
-                        let key = MapClusterMarker.Key(x: x, y: y)
-                        var list = dictionary[key] ?? []
-                        list.append(fountain)
-                        dictionary[key] = list
-                        break xLoop
-                    }
+func clusterize(fountains: [Fountain], proximity: Double) -> [MapMarker] {
+    var markers: [MapMarker] = []
+    fountainsLoop: for fountain in fountains {
+        for index in 0..<markers.count {
+            switch markers[index] {
+            case let .fountain(old_fountain):
+                if MKMapPoint(fountain.location.coordinate).distance(to: .init(old_fountain.location.coordinate)) < proximity {
+                    let cluster = MapMarker.cluster(.init(id: old_fountain.id.value, fountains: [old_fountain, fountain]))
+                    markers.remove(at: index)
+                    markers.insert(cluster, at: index)
+                    continue fountainsLoop
+                }
+            case let .cluster(cluster):
+                if MKMapPoint(fountain.location.coordinate).distance(to: .init(cluster.coordinate)) < proximity {
+                    var cluster = cluster
+                    cluster.fountains.append(fountain)
+                    markers.remove(at: index)
+                    markers.insert(.cluster(cluster), at: index)
+                    continue fountainsLoop
                 }
             }
         }
+        markers.append(.fountain(fountain))
     }
-    return dictionary.values.compactMap { fountains -> MapMarker? in
-        if fountains.count > 1 {
-            let first = fountains.first!
-            let center = centerpoint(of: fountains.map(\.location))!
-            return .cluster(.init(id: first.id.value, location: center, count: fountains.count))
-        } else if let first = fountains.first {
-            return .fountain(first)
-        } else  {
-            return nil
-        }
-    }
+    return markers
 }
 
 private func centerpoint(of locations: [Location]) -> Location? {

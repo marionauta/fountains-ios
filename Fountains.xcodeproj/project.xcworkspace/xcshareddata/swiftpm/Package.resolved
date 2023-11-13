@@ -1,77 +1,79 @@
 {
-  "pins" : [
-    {
-      "identity" : "googleappmeasurement",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/google/GoogleAppMeasurement.git",
-      "state" : {
-        "revision" : "04351180d4c757c6c16127cb57b685fff9ef260b",
-        "version" : "10.6.0"
+  "object": {
+    "pins": [
+      {
+        "package": "GoogleAppMeasurement",
+        "repositoryURL": "https://github.com/google/GoogleAppMeasurement.git",
+        "state": {
+          "branch": null,
+          "revision": "04351180d4c757c6c16127cb57b685fff9ef260b",
+          "version": "10.6.0"
+        }
+      },
+      {
+        "package": "GoogleUtilities",
+        "repositoryURL": "https://github.com/google/GoogleUtilities.git",
+        "state": {
+          "branch": null,
+          "revision": "871d43135925cde39ef7421d8723ce47edfdcc39",
+          "version": "7.11.1"
+        }
+      },
+      {
+        "package": "nanopb",
+        "repositoryURL": "https://github.com/firebase/nanopb.git",
+        "state": {
+          "branch": null,
+          "revision": "819d0a2173aff699fb8c364b6fb906f7cdb1a692",
+          "version": "2.30909.0"
+        }
+      },
+      {
+        "package": "NotchLogoKit",
+        "repositoryURL": "https://github.com/marionauta/NotchLogoKit",
+        "state": {
+          "branch": "main",
+          "revision": "68b86f3369aa621ab42a13525324b717dc1af93a",
+          "version": null
+        }
+      },
+      {
+        "package": "Promises",
+        "repositoryURL": "https://github.com/google/promises.git",
+        "state": {
+          "branch": null,
+          "revision": "ec957ccddbcc710ccc64c9dcbd4c7006fcf8b73a",
+          "version": "2.2.0"
+        }
+      },
+      {
+        "package": "Roadmap",
+        "repositoryURL": "https://github.com/AvdLee/Roadmap.git",
+        "state": {
+          "branch": "main",
+          "revision": "a9bcad4250052e926151f405cca4a6c917e99df9",
+          "version": null
+        }
+      },
+      {
+        "package": "GoogleMobileAds",
+        "repositoryURL": "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
+        "state": {
+          "branch": null,
+          "revision": "886501bfff8bd8cc22899de2c1779e479c96f9ff",
+          "version": "10.3.0"
+        }
+      },
+      {
+        "package": "GoogleUserMessagingPlatform",
+        "repositoryURL": "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
+        "state": {
+          "branch": null,
+          "revision": "3b924ce3313a5fd2fc6a8dc889a8c38f76890fe3",
+          "version": "2.0.0"
+        }
       }
-    },
-    {
-      "identity" : "googleutilities",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/google/GoogleUtilities.git",
-      "state" : {
-        "revision" : "871d43135925cde39ef7421d8723ce47edfdcc39",
-        "version" : "7.11.1"
-      }
-    },
-    {
-      "identity" : "nanopb",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/firebase/nanopb.git",
-      "state" : {
-        "revision" : "819d0a2173aff699fb8c364b6fb906f7cdb1a692",
-        "version" : "2.30909.0"
-      }
-    },
-    {
-      "identity" : "notchlogokit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/marionauta/NotchLogoKit",
-      "state" : {
-        "branch" : "main",
-        "revision" : "68b86f3369aa621ab42a13525324b717dc1af93a"
-      }
-    },
-    {
-      "identity" : "promises",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/google/promises.git",
-      "state" : {
-        "revision" : "ec957ccddbcc710ccc64c9dcbd4c7006fcf8b73a",
-        "version" : "2.2.0"
-      }
-    },
-    {
-      "identity" : "roadmap",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/AvdLee/Roadmap.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "a9bcad4250052e926151f405cca4a6c917e99df9"
-      }
-    },
-    {
-      "identity" : "swift-package-manager-google-mobile-ads",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
-      "state" : {
-        "revision" : "886501bfff8bd8cc22899de2c1779e479c96f9ff",
-        "version" : "10.3.0"
-      }
-    },
-    {
-      "identity" : "swift-package-manager-google-user-messaging-platform",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
-      "state" : {
-        "revision" : "3b924ce3313a5fd2fc6a8dc889a8c38f76890fe3",
-        "version" : "2.0.0"
-      }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }
