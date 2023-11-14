@@ -3,73 +3,79 @@ import DomainLayer
 import Foundation
 import MapKit
 
-struct MapMarkerCluster: Equatable, Identifiable {
-    let id: String
-    var fountains: [Fountain]
+protocol WithCoordinate {
+    var coordinate: CLLocationCoordinate2D { get }
+}
 
-    var coordinate: CLLocationCoordinate2D {
-        return centerpoint(of: fountains.map(\.location))?.coordinate ?? .init()
+typealias MapSingle = WithCoordinate & Equatable & Identifiable
+
+extension WithCoordinate {
+    func distance(to other: any WithCoordinate) -> Double {
+        MKMapPoint(coordinate).distance(to: MKMapPoint(other.coordinate))
     }
 }
 
-enum MapMarker: Equatable, Identifiable {
-    case cluster(MapMarkerCluster)
-    case fountain(Fountain)
+struct MapCluster<Single: MapSingle>: Equatable, Identifiable, WithCoordinate {
+    let id: Single.ID
+    var singles: [Single]
 
-    var id: String {
+    var coordinate: CLLocationCoordinate2D {
+        return centerpoint(of: singles.map(\.coordinate)) ?? .init()
+    }
+}
+
+enum MapMarker<Single: MapSingle>: Equatable, Identifiable, WithCoordinate {
+    case single(Single)
+    case cluster(MapCluster<Single>)
+
+    var id: Single.ID {
         switch self {
+        case let .single(single):
+            return single.id
         case let .cluster(cluster):
             return cluster.id
-        case let .fountain(fountain):
-            return fountain.id.value
         }
     }
 
     var coordinate: CLLocationCoordinate2D {
         switch self {
+        case let .single(single):
+            return single.coordinate
         case let .cluster(cluster):
             return cluster.coordinate
-        case let .fountain(fountain):
-            return fountain.location.coordinate
+        }
+    }
+
+    func joining(other: Single) -> MapMarker {
+        switch self {
+        case let .single(single):
+            return .cluster(MapCluster(id: single.id, singles: [single, other]))
+        case let .cluster(cluster):
+            var cluster = cluster
+            cluster.singles.append(other)
+            return .cluster(cluster)
         }
     }
 }
 
-private extension MapClusterMarker {
-    struct Key: Hashable {
-        let x: Double
-        let y: Double
-    }
-}
-
-func clusterize(fountains: [Fountain], proximity: Double) -> [MapMarker] {
-    var markers: [MapMarker] = []
-    fountainsLoop: for fountain in fountains {
+func clusterize<Single: MapSingle>(_ singles: [Single], proximity: Double) -> [MapMarker<Single>] {
+    var markers: [MapMarker<Single>] = []
+    singlesLoop: for new_single in singles {
         for index in 0..<markers.count {
-            switch markers[index] {
-            case let .fountain(old_fountain):
-                if MKMapPoint(fountain.location.coordinate).distance(to: .init(old_fountain.location.coordinate)) < proximity {
-                    let cluster = MapMarker.cluster(.init(id: old_fountain.id.value, fountains: [old_fountain, fountain]))
-                    markers.remove(at: index)
-                    markers.insert(cluster, at: index)
-                    continue fountainsLoop
-                }
-            case let .cluster(cluster):
-                if MKMapPoint(fountain.location.coordinate).distance(to: .init(cluster.coordinate)) < proximity {
-                    var cluster = cluster
-                    cluster.fountains.append(fountain)
-                    markers.remove(at: index)
-                    markers.insert(.cluster(cluster), at: index)
-                    continue fountainsLoop
-                }
+            let marker = markers[index]
+            if new_single.distance(to: marker) < proximity {
+                let cluster = marker.joining(other: new_single)
+                markers.remove(at: index)
+                markers.insert(cluster, at: index)
+                continue singlesLoop
             }
         }
-        markers.append(.fountain(fountain))
+        markers.append(.single(new_single))
     }
     return markers
 }
 
-private func centerpoint(of locations: [Location]) -> Location? {
+private func centerpoint(of locations: [CLLocationCoordinate2D]) -> CLLocationCoordinate2D? {
     guard !locations.isEmpty else { return nil }
     var minLat = 90.0
     var maxLat = -90.0
@@ -81,5 +87,5 @@ private func centerpoint(of locations: [Location]) -> Location? {
         if location.longitude < minLon { minLon = location.longitude }
         if location.longitude > maxLon { maxLon = location.longitude }
     }
-    return Location(latitude: (minLat + maxLat) / 2, longitude: (minLon + maxLon) / 2)
+    return CLLocationCoordinate2D(latitude: (minLat + maxLat) / 2, longitude: (minLon + maxLon) / 2)
 }

@@ -20,14 +20,13 @@ struct MapScreen: View {
                 MapAnnotation(coordinate: marker.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
                     switch marker {
                     case let .cluster(cluster):
-                        MapClusterMarker(count: cluster.fountains.count) {
+                        MapClusterMarker(count: cluster.singles.count) {
                             viewModel.zoomABit(on: marker.coordinate)
                         }
-                    case let .fountain(fountain):
+                    case let .single(fountain):
                         MapFountainMarker {
                             viewModel.openDetail(for: fountain)
                         }
-                        .animateAccessible()
                     }
                 }
             }

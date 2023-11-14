@@ -12,10 +12,11 @@ final class MapViewModel: NSObject, ObservableObject {
     private let locationManager = CLLocationManager()
 
     @AppStorage(AppInfoScreen.Constants.mapDistanceKey) private var maxMapDistance: Double = 15_000
+    @AppStorage(AppInfoScreen.Constants.mapClusteringKey) private var mapMarkerClustering: Bool = true
     @Published private(set) var areaName: String?
     @Published private(set) var lastUpdated: Date?
     @Published private(set) var fountains: [Fountain] = []
-    @Published private(set) var markers: [MapMarker] = []
+    @Published private(set) var markers: [MapMarker<Fountain>] = []
     @Published private(set) var isLoading: Bool = true
     @Published private(set) var isTooFarAway: Bool = false
     @Published public var mapRect = MKMapRect.world
@@ -114,10 +115,11 @@ final class MapViewModel: NSObject, ObservableObject {
             $mapRect.debounce(for: .milliseconds(50), scheduler: DispatchQueue.main),
             $fountains.removeDuplicates()
         )
-        .map { mapRect, fountains in
+        .map { [weak self] mapRect, fountains -> [MapMarker<Fountain>] in
+            guard let self, self.mapMarkerClustering else { return fountains.map { .single($0) } }
             let splits = UIScreen.main.bounds.width / 30
             let proximity = mapRect.northEast.distance(to: mapRect.northWest) / splits
-            return clusterize(fountains: fountains, proximity: proximity * 1.2)
+            return clusterize(fountains, proximity: proximity * 1.2)
         }
         .removeDuplicates()
         .subscribe(on: DispatchQueue.main)
@@ -137,6 +139,10 @@ extension MapViewModel: CLLocationManagerDelegate {
         guard [.authorizedAlways, .authorizedWhenInUse].contains(manager.authorizationStatus) else { return }
         centerOnUserLocation()
     }
+}
+
+extension Fountain: WithCoordinate {
+    var coordinate: CLLocationCoordinate2D { location.coordinate }
 }
 
 private extension Fountain {

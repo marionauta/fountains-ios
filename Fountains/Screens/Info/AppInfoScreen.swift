@@ -4,6 +4,7 @@ import SwiftUI
 
 struct AppInfoScreen: View {
     enum Constants {
+        static let mapClusteringKey: String = "mapClusteringEnabled"
         static let mapDistanceKey: String = "mapMaxDistanceInMeters"
         static let minMapDistance: Double = 5_000
         static let maxMapDistance: Double = 50_000
@@ -14,6 +15,7 @@ struct AppInfoScreen: View {
     @State private var isEasterShown: Bool = false
     @AppStorage(AdView.Constants.adsHiddenKey) private var areAdsHidden: Bool = false
     @AppStorage(Constants.mapDistanceKey) private var mapMaxDistance: Double = 15_000
+    @AppStorage(Constants.mapClusteringKey) private var mapMarkerClustering: Bool = true
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -30,6 +32,10 @@ struct AppInfoScreen: View {
                         Text(Measurement(value: Constants.maxMapDistance, unit: UnitLength.meters).formatted())
                     }
                 }
+                Toggle(isOn: $mapMarkerClustering) {
+                    ContentRow(title: "app_info_map_clustering_title", description: "app_info_map_clustering_content")
+                }
+                .tint(.accentColor)
             }
 
             Section("app_info_about_section") {

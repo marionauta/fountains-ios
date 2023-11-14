@@ -149,6 +149,38 @@
         }
       }
     },
+    "app_info_map_clustering_content" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Experimental feature"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Funcionalidad experimental"
+          }
+        }
+      }
+    },
+    "app_info_map_clustering_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map clustering"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agrupación de marcadores"
+          }
+        }
+      }
+    },
     "app_info_max_distance_description" : {
       "localizations" : {
         "en" : {
