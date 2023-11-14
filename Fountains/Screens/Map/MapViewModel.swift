@@ -119,7 +119,7 @@ final class MapViewModel: NSObject, ObservableObject {
             guard let self, self.mapMarkerClustering else { return fountains.map { .single($0) } }
             let splits = UIScreen.main.bounds.width / 30
             let proximity = mapRect.northEast.distance(to: mapRect.northWest) / splits
-            return clusterize(fountains, proximity: proximity * 1.2)
+            return clusterize(fountains, proximity: proximity * 1.2, bounds: mapRect)
         }
         .removeDuplicates()
         .subscribe(on: DispatchQueue.main)

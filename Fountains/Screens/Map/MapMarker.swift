@@ -58,9 +58,10 @@ enum MapMarker<Single: MapSingle>: Equatable, Identifiable, WithCoordinate {
     }
 }
 
-func clusterize<Single: MapSingle>(_ singles: [Single], proximity: Double) -> [MapMarker<Single>] {
+func clusterize<Single: MapSingle>(_ singles: [Single], proximity: Double, bounds: MKMapRect?) -> [MapMarker<Single>] {
     var markers: [MapMarker<Single>] = []
     singlesLoop: for new_single in singles {
+        if let bounds, !bounds.contains(MKMapPoint(new_single.coordinate)) { continue }
         for index in 0..<markers.count {
             let marker = markers[index]
             if new_single.distance(to: marker) < proximity {
