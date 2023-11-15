@@ -116,8 +116,10 @@ final class MapViewModel: NSObject, ObservableObject {
             $fountains.removeDuplicates()
         )
         .map { [weak self] mapRect, fountains -> [MapMarker<Fountain>] in
-            guard let self, self.mapMarkerClustering else { return fountains.map { .single($0) } }
-            let splits = UIScreen.main.bounds.width / 30
+            guard let self, self.mapMarkerClustering,
+                  let windowBounds = UIApplication.shared.keyWindow?.bounds ?? UIApplication.shared.screen?.bounds
+            else { return fountains.map { .single($0) } }
+            let splits = windowBounds.width / 30
             let proximity = mapRect.northEast.distance(to: mapRect.northWest) / splits
             return clusterize(fountains, proximity: proximity * 1.2, bounds: mapRect)
         }
@@ -174,4 +176,17 @@ extension MKMapRect {
         base.y += height
         return base
     }
+}
+
+private extension UIApplication {
+    var windowScene: UIWindowScene? {
+        return connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .compactMap { $0 as? UIWindowScene }
+            .first
+    }
+
+    var screen: UIScreen? { windowScene?.screen }
+
+    var keyWindow: UIWindow? { windowScene?.windows.first(where: \.isKeyWindow) }
 }
