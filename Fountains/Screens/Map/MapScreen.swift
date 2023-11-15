@@ -11,25 +11,7 @@ struct MapScreen: View {
             Spacer(minLength: 10)
             AdView()
             NeedsLocationBannerView(isLocationEnabled: viewModel.hideLocationBanner)
-            Map(
-                mapRect: $viewModel.mapRect,
-                showsUserLocation: true,
-                userTrackingMode: $viewModel.trackingMode,
-                annotationItems: viewModel.markers
-            ) { marker in
-                MapAnnotation(coordinate: marker.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
-                    switch marker {
-                    case let .cluster(cluster):
-                        MapClusterMarker(count: cluster.singles.count) {
-                            viewModel.zoomABit(on: marker.coordinate)
-                        }
-                    case let .single(fountain):
-                        MapFountainMarker {
-                            viewModel.openDetail(for: fountain)
-                        }
-                    }
-                }
-            }
+            MapView(viewModel: viewModel)
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
         .overlay(alignment: .bottomTrailing) {
@@ -43,6 +25,7 @@ struct MapScreen: View {
                     .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                     .opacity(viewModel.isTooFarAway ? 1 : 0)
                     .animation(.easeInOut, value: viewModel.isTooFarAway)
+                    .allowsHitTesting(false)
                 let centerButtonDisabled = viewModel.trackingMode == .follow
                 Button {
                     viewModel.requestLocationAndCenter()
@@ -94,5 +77,46 @@ struct MapScreen: View {
             viewModel.requestLocationAndCenter(requestIfneeded: false)
             await viewModel.load(from: nil)
         }
+    }
+}
+
+private struct MapView: View {
+    @ObservedObject var viewModel: MapViewModel
+
+    var body: some View {
+        Map(
+            mapRect: $viewModel.mapRect,
+            showsUserLocation: true,
+            userTrackingMode: $viewModel.trackingMode,
+            annotationItems: viewModel.markers
+        ) { marker in
+            MapAnnotation(coordinate: marker.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
+                switch marker {
+                case let .cluster(cluster):
+                    MapClusterMarker(count: cluster.singles.count) {
+                        viewModel.zoomABit(on: marker.coordinate)
+                    }
+                case let .single(fountain):
+                    MapFountainMarker {
+                        viewModel.openDetail(for: fountain)
+                    }
+                }
+            }
+        }
+        .clipShape(RoundedRectangle(cornerRadius: UIScreen.main.displayCornerRadius * 0.75, style: .continuous))
+        .shadow(radius: 2)
+    }
+}
+
+private extension UIScreen {
+    /// Key used to retrieve the display corner radius value
+    private static let cornerRadiusKey: String = {
+        let components = ["Radius", "Corner", "display", "_"]
+        return components.reversed().joined()
+    }()
+
+    /// Returns the display corner radius, or a default value of 0 if unavailable
+    var displayCornerRadius: CGFloat {
+        return value(forKey: Self.cornerRadiusKey) as? CGFloat ?? 0
     }
 }

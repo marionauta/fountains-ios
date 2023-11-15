@@ -20,8 +20,10 @@ struct MapClusterMarker: View {
 
     var body: some View {
         Text(String(count))
+            .minimumScaleFactor(0.5)
             .foregroundStyle(Color.white)
-            .frame(width: 25, height: 25)
+            .padding(2)
+            .frame(width: 25, height: 25, alignment: .center)
             .background(Color(.marker))
             .clipShape(Circle())
             .padding(1.5)
