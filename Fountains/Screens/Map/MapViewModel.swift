@@ -26,11 +26,11 @@ final class MapViewModel: NSObject, ObservableObject {
     public var hideLocationBanner: Bool {
         return isLocationEnabled || locationManager.authorizationStatus == .notDetermined
     }
-    
+
     public var isLocationEnabled: Bool {
         return [.authorizedAlways, .authorizedWhenInUse].contains(locationManager.authorizationStatus)
     }
-    
+
     @MainActor
     public func load(from bounds: MKMapRect?) async {
         guard let bounds else {
@@ -153,11 +153,11 @@ private extension Fountain {
 
 private extension MKMapRect {
     var center: MKMapPoint {
-        set {
-            origin = MKMapPoint(x: newValue.x - width / 2, y: newValue.y - height / 2)
-        }
         get {
             MKMapPoint(x: origin.x + (width / 2), y: origin.y + height / 2)
+        }
+        set {
+            origin = MKMapPoint(x: newValue.x - width / 2, y: newValue.y - height / 2)
         }
     }
 }

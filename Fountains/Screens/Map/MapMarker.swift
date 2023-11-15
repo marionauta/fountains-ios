@@ -60,18 +60,18 @@ enum MapMarker<Single: MapSingle>: Equatable, Identifiable, WithCoordinate {
 
 func clusterize<Single: MapSingle>(_ singles: [Single], proximity: Double, bounds: MKMapRect?) -> [MapMarker<Single>] {
     var markers: [MapMarker<Single>] = []
-    singlesLoop: for new_single in singles {
-        if let bounds, !bounds.contains(MKMapPoint(new_single.coordinate)) { continue }
+    singlesLoop: for newSingle in singles {
+        if let bounds, !bounds.contains(MKMapPoint(newSingle.coordinate)) { continue }
         for index in 0..<markers.count {
             let marker = markers[index]
-            if new_single.distance(to: marker) < proximity {
-                let cluster = marker.joining(other: new_single)
+            if newSingle.distance(to: marker) < proximity {
+                let cluster = marker.joining(other: newSingle)
                 markers.remove(at: index)
                 markers.insert(cluster, at: index)
                 continue singlesLoop
             }
         }
-        markers.append(.single(new_single))
+        markers.append(.single(newSingle))
     }
     return markers
 }

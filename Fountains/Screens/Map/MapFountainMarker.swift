@@ -4,7 +4,7 @@ import SwiftUI
 
 struct MapFountainMarker: View {
     let onTap: () -> Void
-    
+
     var body: some View {
         Image(.marker)
             .background(Color.white)

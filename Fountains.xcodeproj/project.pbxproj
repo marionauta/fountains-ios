@@ -233,6 +233,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				ACCE78702B05369700F12B6B /* PBXTargetDependency */,
 			);
 			name = Fountains;
 			packageProductDependencies = (
@@ -274,6 +275,7 @@
 			packageReferences = (
 				AC45685329DD75EC009CAD02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */,
+				ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */,
 			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
 			projectDirPath = "";
@@ -330,6 +332,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ACCE78702B05369700F12B6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = ACCE786F2B05369700F12B6B /* SwiftLintPlugin */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */ = {
@@ -578,6 +587,14 @@
 				kind = branch;
 			};
 		};
+		ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = exactVersion;
+				version = 0.54.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -594,6 +611,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */;
 			productName = NotchLogoKit;
+		};
+		ACCE786F2B05369700F12B6B /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
 		};
 		ACCF53C52815D52500D62A53 /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -2,7 +2,7 @@ import SwiftUI
 
 struct NeedsLocationBannerView: View {
     let isLocationEnabled: Bool
-    
+
     var body: some View {
         if isLocationEnabled {
             EmptyView()
