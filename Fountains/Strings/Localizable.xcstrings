@@ -623,40 +623,6 @@
           }
         }
       }
-    },
-    "roadmap_subtitle" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "It's easy"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Es fácil"
-          }
-        }
-      }
-    },
-    "roadmap_title" : {
-      "comment" : "Roadmap",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vote for new features"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vota nuevas funcionalidades"
-          }
-        }
-      }
     }
   },
   "version" : "1.0"

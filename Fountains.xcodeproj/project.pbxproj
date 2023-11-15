@@ -24,8 +24,6 @@
 		AC4FF8C829D984B2003B41BF /* AppInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */; };
 		AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CA29D9887B003B41BF /* CloseButton.swift */; };
 		AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */; };
-		AC74535329E5750700EBF911 /* Roadmap in Frameworks */ = {isa = PBXBuildFile; productRef = AC74535229E5750700EBF911 /* Roadmap */; };
-		AC74535629E576DE00EBF911 /* RoadmapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC74535529E576DE00EBF911 /* RoadmapCoordinator.swift */; };
 		ACC8E2E229DB41DD00B92C86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */; };
 		ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCE471429D73335008167D6 /* FountainPropertyRow.swift */; };
 		ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACCF53C52815D52500D62A53 /* DomainLayer */; };
@@ -60,7 +58,6 @@
 		AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoLabel.swift; sourceTree = "<group>"; };
 		AC4FF8CA29D9887B003B41BF /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
-		AC74535529E576DE00EBF911 /* RoadmapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadmapCoordinator.swift; sourceTree = "<group>"; };
 		ACC8E2E329DB41DD00B92C86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACC8E2E529DB41E300B92C86 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACCE471429D73335008167D6 /* FountainPropertyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainPropertyRow.swift; sourceTree = "<group>"; };
@@ -89,7 +86,6 @@
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
 				AC45685A29DD7851009CAD02 /* GoogleMobileAds in Frameworks */,
 				ACD2756D2816DA8D007B70FB /* CommonLayer in Frameworks */,
-				AC74535329E5750700EBF911 /* Roadmap in Frameworks */,
 				AC1D6BA92AFE340000A88F7B /* AppsShowcase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,14 +124,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		AC74535429E576C700EBF911 /* Roadmap */ = {
-			isa = PBXGroup;
-			children = (
-				AC74535529E576DE00EBF911 /* RoadmapCoordinator.swift */,
-			);
-			path = Roadmap;
-			sourceTree = "<group>";
-		};
 		AC7A7177285A2B1C00BB0802 /* Strings */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +147,6 @@
 				ACCFBE45281602E500319CCB /* FountainDetail */,
 				AC4FF8C029D9813D003B41BF /* Info */,
 				ACEE77CC2815EC0200340A88 /* Map */,
-				AC74535429E576C700EBF911 /* Roadmap */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -252,7 +239,6 @@
 				ACCF53C52815D52500D62A53 /* DomainLayer */,
 				ACD2756C2816DA8D007B70FB /* CommonLayer */,
 				AC45685929DD7851009CAD02 /* GoogleMobileAds */,
-				AC74535229E5750700EBF911 /* Roadmap */,
 				AC4C185829F13E9100226FDE /* NotchLogoKit */,
 				AC1D6BA82AFE340000A88F7B /* AppsShowcase */,
 			);
@@ -287,7 +273,6 @@
 			mainGroup = ACE2908C2815D0F6002B0BD8;
 			packageReferences = (
 				AC45685329DD75EC009CAD02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
-				AC74535129E5750700EBF911 /* XCRemoteSwiftPackageReference "Roadmap" */,
 				AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */,
 			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
@@ -326,7 +311,6 @@
 				ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */,
 				ACF53A9E2A32283B00D8BC78 /* SceneDelegate.swift in Sources */,
 				ACE425A02ADFF1A800241FE0 /* MapFountainMarker.swift in Sources */,
-				AC74535629E576DE00EBF911 /* RoadmapCoordinator.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
 				AC1D6BA62AFE33F200A88F7B /* AppInfoViewModel.swift in Sources */,
 				AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */,
@@ -594,14 +578,6 @@
 				kind = branch;
 			};
 		};
-		AC74535129E5750700EBF911 /* XCRemoteSwiftPackageReference "Roadmap" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AvdLee/Roadmap.git";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -618,11 +594,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */;
 			productName = NotchLogoKit;
-		};
-		AC74535229E5750700EBF911 /* Roadmap */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AC74535129E5750700EBF911 /* XCRemoteSwiftPackageReference "Roadmap" */;
-			productName = Roadmap;
 		};
 		ACCF53C52815D52500D62A53 /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;

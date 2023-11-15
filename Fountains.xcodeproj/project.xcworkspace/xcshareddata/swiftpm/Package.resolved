@@ -47,15 +47,6 @@
         }
       },
       {
-        "package": "Roadmap",
-        "repositoryURL": "https://github.com/AvdLee/Roadmap.git",
-        "state": {
-          "branch": "main",
-          "revision": "a9bcad4250052e926151f405cca4a6c917e99df9",
-          "version": null
-        }
-      },
-      {
         "package": "GoogleMobileAds",
         "repositoryURL": "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
         "state": {
