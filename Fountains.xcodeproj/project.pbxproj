@@ -576,7 +576,7 @@
 			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
 			requirement = {
 				kind = exactVersion;
-				version = 10.3.0;
+				version = 10.13.0;
 			};
 		};
 		AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */ = {
