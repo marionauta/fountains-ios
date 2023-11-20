@@ -1,4 +1,3 @@
-import CoreLocationUI
 import DomainLayer
 import MapKit
 import SwiftUI

@@ -2,6 +2,7 @@ import Combine
 import CommonLayer
 import Foundation
 import DomainLayer
+import MapCluster
 import MapKit
 import SwiftUI
 
@@ -16,7 +17,7 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published private(set) var areaName: String?
     @Published private(set) var lastUpdated: Date?
     @Published private(set) var fountains: [Fountain] = []
-    @Published private(set) var markers: [MapMarker<Fountain>] = []
+    @Published private(set) var markers: [ClusterizableMarker<Fountain>] = []
     @Published private(set) var isLoading: Bool = true
     @Published private(set) var isTooFarAway: Bool = false
     @Published public var mapRect = MKMapRect.world
@@ -115,13 +116,13 @@ final class MapViewModel: NSObject, ObservableObject {
             $mapRect.debounce(for: .milliseconds(50), scheduler: DispatchQueue.main),
             $fountains.removeDuplicates()
         )
-        .map { [weak self] mapRect, fountains -> [MapMarker<Fountain>] in
+        .map { [weak self] mapRect, fountains -> [ClusterizableMarker<Fountain>] in
             guard let self, self.mapMarkerClustering,
                   let windowBounds = UIApplication.shared.keyWindow?.bounds ?? UIApplication.shared.screen?.bounds
             else { return fountains.map { .single($0) } }
             let splits = windowBounds.width / 30
             let proximity = mapRect.northEast.distance(to: mapRect.northWest) / splits
-            return clusterize(fountains, proximity: proximity * 1.2, bounds: mapRect)
+            return MapCluster.clusterize(fountains, proximity: proximity * 1.2, bounds: mapRect)
         }
         .removeDuplicates()
         .subscribe(on: DispatchQueue.main)
@@ -144,7 +145,7 @@ extension MapViewModel: CLLocationManagerDelegate {
 }
 
 extension Fountain: WithCoordinate {
-    var coordinate: CLLocationCoordinate2D { location.coordinate }
+    public var coordinate: CLLocationCoordinate2D { location.coordinate }
 }
 
 private extension Fountain {

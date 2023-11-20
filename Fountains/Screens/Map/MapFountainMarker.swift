@@ -1,4 +1,5 @@
 import DomainLayer
+import MapCluster
 import MapKit
 import SwiftUI
 
@@ -19,17 +20,8 @@ struct MapClusterMarker: View {
     let onTap: () -> Void
 
     var body: some View {
-        Text(String(count))
-            .minimumScaleFactor(0.5)
-            .foregroundStyle(Color.white)
-            .padding(2)
-            .frame(width: 25, height: 25, alignment: .center)
-            .background(Color(.marker))
-            .clipShape(Circle())
-            .padding(1.5)
-            .background(Color.white)
-            .clipShape(Circle())
-            .shadow(color: .black.opacity(0.5), radius: 2, y: 2)
+        DefaultClusterView(count: count)
+            .tint(Color(.marker))
             .onTapGesture(perform: onTap)
     }
 }

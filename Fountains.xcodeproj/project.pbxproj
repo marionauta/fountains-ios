@@ -13,6 +13,7 @@
 		AC2D614C2AFA4B4600594061 /* NeedsLocationBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */; };
 		AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */; };
 		AC33C29329DC7B9500102883 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */; };
+		AC3AC5412B092A8000B9294A /* MapCluster in Frameworks */ = {isa = PBXBuildFile; productRef = AC3AC5402B092A8000B9294A /* MapCluster */; };
 		AC45685729DD77D1009CAD02 /* AdmobViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45685629DD77D1009CAD02 /* AdmobViewModifier.swift */; };
 		AC45685A29DD7851009CAD02 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AC45685929DD7851009CAD02 /* GoogleMobileAds */; };
 		AC45685C29DD7C58009CAD02 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45685B29DD7C58009CAD02 /* AdView.swift */; };
@@ -31,7 +32,6 @@
 		ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */; };
 		ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFBE462816030900319CCB /* FountainDetailScreen.swift */; };
 		ACD2756D2816DA8D007B70FB /* CommonLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACD2756C2816DA8D007B70FB /* CommonLayer */; };
-		ACD614352AFEA7F100BAD42B /* MapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD614342AFEA7F100BAD42B /* MapMarker.swift */; };
 		ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE290982815D0F6002B0BD8 /* FountainsApp.swift */; };
 		ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2909A2815D0F6002B0BD8 /* ContentView.swift */; };
 		ACE2909D2815D0F7002B0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */; };
@@ -49,6 +49,7 @@
 		AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
 		AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		AC364FDB299CEEA5005C93E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC3AC53E2B09297900B9294A /* MapCluster */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MapCluster; path = ../../MapCluster; sourceTree = "<group>"; };
 		AC45685629DD77D1009CAD02 /* AdmobViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobViewModifier.swift; sourceTree = "<group>"; };
 		AC45685B29DD7C58009CAD02 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailViewModel.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		ACCF53C82815D58400D62A53 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		ACCFBE462816030900319CCB /* FountainDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailScreen.swift; sourceTree = "<group>"; };
-		ACD614342AFEA7F100BAD42B /* MapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarker.swift; sourceTree = "<group>"; };
 		ACE290952815D0F6002B0BD8 /* Fountains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fountains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE290982815D0F6002B0BD8 /* FountainsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainsApp.swift; sourceTree = "<group>"; };
 		ACE2909A2815D0F6002B0BD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC3AC5412B092A8000B9294A /* MapCluster in Frameworks */,
 				AC4C185929F13E9100226FDE /* NotchLogoKit in Frameworks */,
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
 				AC45685A29DD7851009CAD02 /* GoogleMobileAds in Frameworks */,
@@ -165,6 +166,7 @@
 		ACE2908C2815D0F6002B0BD8 = {
 			isa = PBXGroup;
 			children = (
+				AC3AC53E2B09297900B9294A /* MapCluster */,
 				AC1D6BA42AFE336200A88F7B /* AppsShowcase */,
 				ACEE77CE2815F06400340A88 /* CommonLayer */,
 				ACE290A62815D227002B0BD8 /* DomainLayer */,
@@ -212,7 +214,6 @@
 			children = (
 				AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */,
 				ACE4259F2ADFF1A800241FE0 /* MapFountainMarker.swift */,
-				ACD614342AFEA7F100BAD42B /* MapMarker.swift */,
 				ACCF53C82815D58400D62A53 /* MapScreen.swift */,
 				ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */,
 			);
@@ -242,6 +243,7 @@
 				AC45685929DD7851009CAD02 /* GoogleMobileAds */,
 				AC4C185829F13E9100226FDE /* NotchLogoKit */,
 				AC1D6BA82AFE340000A88F7B /* AppsShowcase */,
+				AC3AC5402B092A8000B9294A /* MapCluster */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -304,7 +306,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACD614352AFEA7F100BAD42B /* MapMarker.swift in Sources */,
 				AC4FF8C229D98177003B41BF /* AppInfoCoordinator.swift in Sources */,
 				ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */,
 				ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */,
@@ -601,6 +602,10 @@
 		AC1D6BA82AFE340000A88F7B /* AppsShowcase */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppsShowcase;
+		};
+		AC3AC5402B092A8000B9294A /* MapCluster */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MapCluster;
 		};
 		AC45685929DD7851009CAD02 /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
