@@ -117,12 +117,10 @@ final class MapViewModel: NSObject, ObservableObject {
             $fountains.removeDuplicates()
         )
         .map { [weak self] mapRect, fountains -> [ClusterizableMarker<Fountain>] in
-            guard let self, self.mapMarkerClustering,
-                  let windowBounds = UIApplication.shared.keyWindow?.bounds ?? UIApplication.shared.screen?.bounds
-            else { return fountains.map { .single($0) } }
-            let splits = windowBounds.width / 30
-            let proximity = mapRect.northEast.distance(to: mapRect.northWest) / splits
-            return MapCluster.clusterize(fountains, proximity: proximity * 1.2, bounds: mapRect)
+            guard let self, self.mapMarkerClustering else {
+                return fountains.map { .single($0) }
+            }
+            return MapCluster.clusterize(fountains, markerSize: 30, bounds: mapRect)
         }
         .removeDuplicates()
         .subscribe(on: DispatchQueue.main)
