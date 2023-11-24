@@ -38,24 +38,7 @@ struct AppInfoScreen: View {
                 .tint(.accentColor)
             }
 
-            Section("app_info_about_section") {
-                Link(destination: KnownUris.website) {
-                    ContentRow(title: "app_info_website_title", description: "app_info_website_content")
-                }
-
-                Link(destination: KnownUris.developer) {
-                    ContentRow(title: "app_info_developer_title", description: "app_info_developer_content")
-                }
-
-                ContentRow(
-                    title: "app_info_app_version_title",
-                    description: Bundle.main.fullVersionString
-                )
-                .onTapGesture(count: 50) {
-                    isEasterShown = true
-                }
-            }
-
+            aboutSection
             showcasedAppsSection
         }
         .listStyle(.insetGrouped)
@@ -77,6 +60,27 @@ struct AppInfoScreen: View {
         }
         .task {
             await viewModel.load()
+        }
+    }
+
+    @ViewBuilder
+    private var aboutSection: some View {
+        Section("app_info_about_section") {
+            Link(destination: KnownUris.website) {
+                ContentRow(title: "app_info_website_title", description: "app_info_website_content")
+            }
+
+            Link(destination: KnownUris.developer) {
+                ContentRow(title: "app_info_developer_title", description: "app_info_developer_content")
+            }
+
+            ContentRow(
+                title: "app_info_app_version_title",
+                description: Bundle.main.fullVersionString
+            )
+            .onTapGesture(count: 50) {
+                isEasterShown = true
+            }
         }
     }
 
