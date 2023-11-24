@@ -2,7 +2,7 @@ import AppsShowcase
 import Foundation
 
 final class AppInfoViewModel: ObservableObject {
-    @Published private(set) internal var apps: [App] = []
+    @Published private(set) internal var apps: [ShowcasedApp] = []
 
     @MainActor
     internal func load() async {

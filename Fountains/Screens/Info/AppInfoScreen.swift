@@ -56,15 +56,7 @@ struct AppInfoScreen: View {
                 }
             }
 
-            if !viewModel.apps.isEmpty {
-                Section("app_info_apps_showcase_title") {
-                    ForEach(viewModel.apps) { app in
-                        Link(destination: app.url) {
-                            ContentRow(title: app.name, description: app.tagline)
-                        }
-                    }
-                }
-            }
+            showcasedAppsSection
         }
         .listStyle(.insetGrouped)
         .navigationTitle("app_info_title")
@@ -85,6 +77,19 @@ struct AppInfoScreen: View {
         }
         .task {
             await viewModel.load()
+        }
+    }
+
+    @ViewBuilder
+    private var showcasedAppsSection: some View {
+        if !viewModel.apps.isEmpty {
+            Section("app_info_apps_showcase_title") {
+                ForEach(viewModel.apps) { app in
+                    Link(destination: app.url) {
+                        ContentRow(title: app.name, description: app.tagline)
+                    }
+                }
+            }
         }
     }
 }
