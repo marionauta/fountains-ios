@@ -1,5 +1,6 @@
 import CommonLayer
 import DomainLayer
+import HelperKit
 import SwiftUI
 
 struct AppInfoScreen: View {

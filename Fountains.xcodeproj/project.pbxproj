@@ -25,6 +25,7 @@
 		AC4FF8C829D984B2003B41BF /* AppInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */; };
 		AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CA29D9887B003B41BF /* CloseButton.swift */; };
 		AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */; };
+		ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACADD55D2B12215B001D1CD1 /* HelperKit */; };
 		ACB6DB112B1120AF0038CAF0 /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = ACB6DB102B1120AF0038CAF0 /* AppsShowcase */; };
 		ACC8E2E229DB41DD00B92C86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */; };
 		ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCE471429D73335008167D6 /* FountainPropertyRow.swift */; };
@@ -83,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC3AC5412B092A8000B9294A /* MapCluster in Frameworks */,
+				ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */,
 				ACB6DB112B1120AF0038CAF0 /* AppsShowcase in Frameworks */,
 				AC4C185929F13E9100226FDE /* NotchLogoKit in Frameworks */,
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
@@ -135,6 +137,13 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
+		ACADD5592B120F67001D1CD1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ACCE471329D732C2008167D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +181,7 @@
 				ACE290A62815D227002B0BD8 /* DomainLayer */,
 				ACE290972815D0F6002B0BD8 /* Fountains */,
 				ACE290962815D0F6002B0BD8 /* Products */,
+				ACADD5592B120F67001D1CD1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,6 +255,7 @@
 				AC1D6BA82AFE340000A88F7B /* AppsShowcase */,
 				AC3AC5402B092A8000B9294A /* MapCluster */,
 				ACB6DB102B1120AF0038CAF0 /* AppsShowcase */,
+				ACADD55D2B12215B001D1CD1 /* HelperKit */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -280,6 +291,7 @@
 				AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */,
 				ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				ACB6DB0F2B1120AF0038CAF0 /* XCRemoteSwiftPackageReference "apps-showcase-list" */,
+				ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */,
 			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
 			projectDirPath = "";
@@ -590,6 +602,14 @@
 				kind = branch;
 			};
 		};
+		ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marionauta/HelperKit";
+			requirement = {
+				kind = exactVersion;
+				version = 0.9.0;
+			};
+		};
 		ACB6DB0F2B1120AF0038CAF0 /* XCRemoteSwiftPackageReference "apps-showcase-list" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marionauta/apps-showcase-list";
@@ -626,6 +646,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */;
 			productName = NotchLogoKit;
+		};
+		ACADD55D2B12215B001D1CD1 /* HelperKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */;
+			productName = HelperKit;
 		};
 		ACB6DB102B1120AF0038CAF0 /* AppsShowcase */ = {
 			isa = XCSwiftPackageProductDependency;

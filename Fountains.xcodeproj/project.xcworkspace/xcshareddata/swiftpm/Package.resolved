@@ -46,6 +46,15 @@
       }
     },
     {
+      "identity" : "helperkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marionauta/HelperKit",
+      "state" : {
+        "revision" : "6df3d0a1b55f42acf1bd6b51822f782469f84cea",
+        "version" : "0.9.0"
+      }
+    },
+    {
       "identity" : "nanopb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/nanopb.git",

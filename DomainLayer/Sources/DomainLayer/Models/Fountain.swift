@@ -1,9 +1,9 @@
 import CommonLayer
+import HelperKit
 import Foundation
-import CommonLayer
 
 public struct Fountain: Equatable, Identifiable {
-    public let id: Identifier<Self>
+    public let id: Identifier<Self, String>
     public let name: String
     public let location: Location
     public let properties: Properties
