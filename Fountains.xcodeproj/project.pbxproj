@@ -25,6 +25,7 @@
 		AC4FF8C829D984B2003B41BF /* AppInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */; };
 		AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CA29D9887B003B41BF /* CloseButton.swift */; };
 		AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */; };
+		AC54D0472B13781E00785512 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54D0462B13781E00785512 /* MapView.swift */; };
 		ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACADD55D2B12215B001D1CD1 /* HelperKit */; };
 		ACB6DB112B1120AF0038CAF0 /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = ACB6DB102B1120AF0038CAF0 /* AppsShowcase */; };
 		ACC8E2E229DB41DD00B92C86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */; };
@@ -60,6 +61,7 @@
 		AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoLabel.swift; sourceTree = "<group>"; };
 		AC4FF8CA29D9887B003B41BF /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
+		AC54D0462B13781E00785512 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		ACC8E2E329DB41DD00B92C86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACC8E2E529DB41E300B92C86 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACCE471429D73335008167D6 /* FountainPropertyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainPropertyRow.swift; sourceTree = "<group>"; };
@@ -137,13 +139,6 @@
 			path = Strings;
 			sourceTree = "<group>";
 		};
-		ACADD5592B120F67001D1CD1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		ACCE471329D732C2008167D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +176,6 @@
 				ACE290A62815D227002B0BD8 /* DomainLayer */,
 				ACE290972815D0F6002B0BD8 /* Fountains */,
 				ACE290962815D0F6002B0BD8 /* Products */,
-				ACADD5592B120F67001D1CD1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,6 +220,7 @@
 				ACE4259F2ADFF1A800241FE0 /* MapFountainMarker.swift */,
 				ACCF53C82815D58400D62A53 /* MapScreen.swift */,
 				ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */,
+				AC54D0462B13781E00785512 /* MapView.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -321,6 +316,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4FF8C229D98177003B41BF /* AppInfoCoordinator.swift in Sources */,
+				AC54D0472B13781E00785512 /* MapView.swift in Sources */,
 				ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */,
 				ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */,
 				AC4FF8C429D98186003B41BF /* AppInfoScreen.swift in Sources */,
