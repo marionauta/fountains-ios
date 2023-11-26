@@ -13,7 +13,6 @@
 		AC2D614C2AFA4B4600594061 /* NeedsLocationBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */; };
 		AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */; };
 		AC33C29329DC7B9500102883 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */; };
-		AC3AC5412B092A8000B9294A /* MapCluster in Frameworks */ = {isa = PBXBuildFile; productRef = AC3AC5402B092A8000B9294A /* MapCluster */; };
 		AC45685729DD77D1009CAD02 /* AdmobViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45685629DD77D1009CAD02 /* AdmobViewModifier.swift */; };
 		AC45685A29DD7851009CAD02 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AC45685929DD7851009CAD02 /* GoogleMobileAds */; };
 		AC45685C29DD7C58009CAD02 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45685B29DD7C58009CAD02 /* AdView.swift */; };
@@ -26,6 +25,7 @@
 		AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CA29D9887B003B41BF /* CloseButton.swift */; };
 		AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */; };
 		AC54D0472B13781E00785512 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54D0462B13781E00785512 /* MapView.swift */; };
+		AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */ = {isa = PBXBuildFile; productRef = AC7A72D72B13A5CC008AB25C /* MapCluster */; };
 		ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACADD55D2B12215B001D1CD1 /* HelperKit */; };
 		ACB6DB112B1120AF0038CAF0 /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = ACB6DB102B1120AF0038CAF0 /* AppsShowcase */; };
 		ACC8E2E229DB41DD00B92C86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */; };
@@ -51,7 +51,6 @@
 		AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
 		AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		AC364FDB299CEEA5005C93E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC3AC53E2B09297900B9294A /* MapCluster */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = MapCluster; path = ../../MapCluster; sourceTree = "<group>"; };
 		AC45685629DD77D1009CAD02 /* AdmobViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdmobViewModifier.swift; sourceTree = "<group>"; };
 		AC45685B29DD7C58009CAD02 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
 		AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailViewModel.swift; sourceTree = "<group>"; };
@@ -85,9 +84,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC3AC5412B092A8000B9294A /* MapCluster in Frameworks */,
 				ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */,
 				ACB6DB112B1120AF0038CAF0 /* AppsShowcase in Frameworks */,
+				AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */,
 				AC4C185929F13E9100226FDE /* NotchLogoKit in Frameworks */,
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
 				AC45685A29DD7851009CAD02 /* GoogleMobileAds in Frameworks */,
@@ -171,7 +170,6 @@
 		ACE2908C2815D0F6002B0BD8 = {
 			isa = PBXGroup;
 			children = (
-				AC3AC53E2B09297900B9294A /* MapCluster */,
 				ACEE77CE2815F06400340A88 /* CommonLayer */,
 				ACE290A62815D227002B0BD8 /* DomainLayer */,
 				ACE290972815D0F6002B0BD8 /* Fountains */,
@@ -248,9 +246,9 @@
 				AC45685929DD7851009CAD02 /* GoogleMobileAds */,
 				AC4C185829F13E9100226FDE /* NotchLogoKit */,
 				AC1D6BA82AFE340000A88F7B /* AppsShowcase */,
-				AC3AC5402B092A8000B9294A /* MapCluster */,
 				ACB6DB102B1120AF0038CAF0 /* AppsShowcase */,
 				ACADD55D2B12215B001D1CD1 /* HelperKit */,
+				AC7A72D72B13A5CC008AB25C /* MapCluster */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -287,6 +285,7 @@
 				ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				ACB6DB0F2B1120AF0038CAF0 /* XCRemoteSwiftPackageReference "apps-showcase-list" */,
 				ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */,
+				AC7A72D62B13A5CC008AB25C /* XCRemoteSwiftPackageReference "swift-map-cluster" */,
 			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
 			projectDirPath = "";
@@ -598,6 +597,14 @@
 				kind = branch;
 			};
 		};
+		AC7A72D62B13A5CC008AB25C /* XCRemoteSwiftPackageReference "swift-map-cluster" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marionauta/swift-map-cluster";
+			requirement = {
+				kind = revision;
+				revision = 2a44c870ed283db53df1607acc558f8f9c90304b;
+			};
+		};
 		ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marionauta/HelperKit";
@@ -629,10 +636,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = AppsShowcase;
 		};
-		AC3AC5402B092A8000B9294A /* MapCluster */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MapCluster;
-		};
 		AC45685929DD7851009CAD02 /* GoogleMobileAds */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AC45685329DD75EC009CAD02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
@@ -642,6 +645,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */;
 			productName = NotchLogoKit;
+		};
+		AC7A72D72B13A5CC008AB25C /* MapCluster */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC7A72D62B13A5CC008AB25C /* XCRemoteSwiftPackageReference "swift-map-cluster" */;
+			productName = MapCluster;
 		};
 		ACADD55D2B12215B001D1CD1 /* HelperKit */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -100,6 +100,14 @@
       }
     },
     {
+      "identity" : "swift-map-cluster",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marionauta/swift-map-cluster",
+      "state" : {
+        "revision" : "2a44c870ed283db53df1607acc558f8f9c90304b"
+      }
+    },
+    {
       "identity" : "swift-package-manager-google-mobile-ads",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
