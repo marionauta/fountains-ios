@@ -213,8 +213,8 @@
 				AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */,
 				ACE4259F2ADFF1A800241FE0 /* MapFountainMarker.swift */,
 				ACCF53C82815D58400D62A53 /* MapScreen.swift */,
-				ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */,
 				AC54D0462B13781E00785512 /* MapView.swift */,
+				ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";

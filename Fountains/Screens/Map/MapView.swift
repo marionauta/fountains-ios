@@ -25,10 +25,7 @@ private struct MapView17: View {
     @ObservedObject var viewModel: MapViewModel
 
     var body: some View {
-        Map(
-            position: $mapCameraPosition,
-            interactionModes: [.pan, .zoom]
-        ) {
+        Map(position: $mapCameraPosition) {
             ForEach(viewModel.markers) { marker in
                 Annotation(String.empty, coordinate: marker.coordinate, anchor: .center) {
                     switch marker {
@@ -55,6 +52,7 @@ private struct MapView17: View {
         .mapControls {
             if viewModel.isLocationEnabled {
                 MapUserLocationButton()
+                MapCompass()
             }
         }
         .overlay(alignment: .topTrailing) {
