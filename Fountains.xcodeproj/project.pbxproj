@@ -34,7 +34,6 @@
 		ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53C82815D58400D62A53 /* MapScreen.swift */; };
 		ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */; };
 		ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFBE462816030900319CCB /* FountainDetailScreen.swift */; };
-		ACD2756D2816DA8D007B70FB /* CommonLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACD2756C2816DA8D007B70FB /* CommonLayer */; };
 		ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE290982815D0F6002B0BD8 /* FountainsApp.swift */; };
 		ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2909A2815D0F6002B0BD8 /* ContentView.swift */; };
 		ACE2909D2815D0F7002B0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */; };
@@ -73,7 +72,6 @@
 		ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACE290A62815D227002B0BD8 /* DomainLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DomainLayer; sourceTree = "<group>"; };
 		ACE4259F2ADFF1A800241FE0 /* MapFountainMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFountainMarker.swift; sourceTree = "<group>"; };
-		ACEE77CE2815F06400340A88 /* CommonLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CommonLayer; sourceTree = "<group>"; };
 		ACF53A9B2A32281300D8BC78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF53A9D2A32283B00D8BC78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ACF96E1329E58A4100F71F20 /* ContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRow.swift; sourceTree = "<group>"; };
@@ -90,7 +88,6 @@
 				AC4C185929F13E9100226FDE /* NotchLogoKit in Frameworks */,
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
 				AC45685A29DD7851009CAD02 /* GoogleMobileAds in Frameworks */,
-				ACD2756D2816DA8D007B70FB /* CommonLayer in Frameworks */,
 				AC1D6BA92AFE340000A88F7B /* AppsShowcase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,7 +167,6 @@
 		ACE2908C2815D0F6002B0BD8 = {
 			isa = PBXGroup;
 			children = (
-				ACEE77CE2815F06400340A88 /* CommonLayer */,
 				ACE290A62815D227002B0BD8 /* DomainLayer */,
 				ACE290972815D0F6002B0BD8 /* Fountains */,
 				ACE290962815D0F6002B0BD8 /* Products */,
@@ -242,7 +238,6 @@
 			name = Fountains;
 			packageProductDependencies = (
 				ACCF53C52815D52500D62A53 /* DomainLayer */,
-				ACD2756C2816DA8D007B70FB /* CommonLayer */,
 				AC45685929DD7851009CAD02 /* GoogleMobileAds */,
 				AC4C185829F13E9100226FDE /* NotchLogoKit */,
 				AC1D6BA82AFE340000A88F7B /* AppsShowcase */,
@@ -669,10 +664,6 @@
 		ACCF53C52815D52500D62A53 /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DomainLayer;
-		};
-		ACD2756C2816DA8D007B70FB /* CommonLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = CommonLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -13,15 +13,11 @@ let package = Package(
             name: "WaterFountains",
             targets: ["WaterFountains"]),
     ],
-    dependencies: [
-        .package(name: "CommonLayer", path: "../CommonLayer"),
-    ],
     targets: [
         .target(
             name: "DomainLayer",
             dependencies: [
-                .byName(name: "CommonLayer"),
-                .byName(name: "WaterFountains")
+                .byName(name: "WaterFountains"),
             ]),
         .binaryTarget(
             name: "WaterFountains",
