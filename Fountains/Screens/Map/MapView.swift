@@ -14,7 +14,7 @@ struct MapView: View {
                 MapViewLegacy(viewModel: viewModel)
             }
         }
-        .clipShape(RoundedRectangle(cornerRadius: UIScreen.main.displayCornerRadius * 0.75, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
         .shadow(radius: 2)
     }
 }
@@ -25,7 +25,10 @@ private struct MapView17: View {
     @ObservedObject var viewModel: MapViewModel
 
     var body: some View {
-        Map(position: $mapCameraPosition) {
+        Map(
+            position: $mapCameraPosition,
+            interactionModes: [.pan, .zoom]
+        ) {
             ForEach(viewModel.markers) { marker in
                 Annotation(String.empty, coordinate: marker.coordinate, anchor: .center) {
                     switch marker {
@@ -46,11 +49,21 @@ private struct MapView17: View {
                 UserAnnotation()
             }
         }
-        .mapControls {
-            MapUserLocationButton()
-        }
         .onMapCameraChange { context in
             viewModel.mapRect = context.rect
+        }
+        .mapControls {
+            if viewModel.isLocationEnabled {
+                MapUserLocationButton()
+            }
+        }
+        .overlay(alignment: .topTrailing) {
+            if !viewModel.isLocationEnabled {
+                UserLocationButton(isDisabled: true) {
+                    // TODO: Sometimes on iOS +17 the first center doesn't work
+                    viewModel.requestLocationAndCenter()
+                }
+            }
         }
     }
 }
@@ -78,18 +91,42 @@ private struct MapViewLegacy: View {
                 }
             }
         }
+        .overlay(alignment: .topTrailing) {
+            userLocationButton
+        }
+    }
+
+    @ViewBuilder
+    private var userLocationButton: some View {
+        UserLocationButton(isDisabled: viewModel.trackingMode == .follow) {
+            viewModel.requestLocationAndCenter()
+        }
     }
 }
 
-private extension UIScreen {
-    /// Key used to retrieve the display corner radius value
-    private static let cornerRadiusKey: String = {
-        let components = ["Radius", "Corner", "display", "_"]
-        return components.reversed().joined()
-    }()
+private struct UserLocationButton: View {
+    let isDisabled: Bool
+    let requestLocation: () -> Void
 
-    /// Returns the display corner radius, or a default value of 0 if unavailable
-    var displayCornerRadius: CGFloat {
-        return value(forKey: Self.cornerRadiusKey) as? CGFloat ?? 0
+    var body: some View {
+        Button {
+            requestLocation()
+        } label: {
+            Label {
+                Text("map_center_on_map")
+            } icon: {
+                Image(systemName: isDisabled ? "location.fill" : "location")
+                    .resizable()
+                    .frame(width: 18, height: 18)
+                    .animation(.easeInOut, value: isDisabled)
+            }
+        }
+        .labelStyle(.iconOnly)
+        .foregroundColor(.accentColor)
+        .padding(12)
+        .background(Color(UIColor.systemBackground).opacity(0.8))
+        .clipShape(RoundedRectangle(cornerRadius: 11))
+        .shadow(radius: 20)
+        .padding(5)
     }
 }

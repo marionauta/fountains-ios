@@ -14,36 +14,7 @@ struct MapScreen: View {
         }
         .edgesIgnoringSafeArea([.horizontal, .bottom])
         .overlay(alignment: .bottomTrailing) {
-            HStack(alignment: .bottom) {
-                Text("map_too_far_away")
-                    .multilineTextAlignment(.leading)
-                    .padding(12)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(.white)
-                    .background(Color.black.opacity(0.75))
-                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    .opacity(viewModel.isTooFarAway ? 1 : 0)
-                    .animation(.easeInOut, value: viewModel.isTooFarAway)
-                    .allowsHitTesting(false)
-                let centerButtonDisabled = viewModel.trackingMode == .follow
-                Button {
-                    viewModel.requestLocationAndCenter()
-                } label: {
-                    Label("map_center_on_map", systemImage: "location")
-                        .font(.title)
-                }
-                .labelStyle(.iconOnly)
-                .foregroundColor(.white)
-                .padding(16)
-                .background(Color.accentColor)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .opacity(centerButtonDisabled ? 0 : 1)
-                .scaleEffect(centerButtonDisabled ? .zero : CGSize(width: 1, height: 1))
-                .disabled(centerButtonDisabled)
-                .animation(.easeInOut, value: centerButtonDisabled)
-            }
-            .padding(.horizontal, 12)
-            .padding(.bottom, 40)
+            tooFarAwayMessage
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar { toolbarContent }
@@ -51,6 +22,22 @@ struct MapScreen: View {
             viewModel.requestLocationAndCenter(requestIfneeded: false)
             await viewModel.load(from: nil)
         }
+    }
+
+    @ViewBuilder
+    private var tooFarAwayMessage: some View {
+        Text("map_too_far_away")
+            .multilineTextAlignment(.leading)
+            .padding(12)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .foregroundColor(.white)
+            .background(Color.black.opacity(0.75))
+            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+            .opacity(viewModel.isTooFarAway ? 1 : 0)
+            .animation(.easeInOut, value: viewModel.isTooFarAway)
+            .allowsHitTesting(false)
+            .padding(.horizontal, 12)
+            .padding(.bottom, 40)
     }
 
     @ToolbarContentBuilder
