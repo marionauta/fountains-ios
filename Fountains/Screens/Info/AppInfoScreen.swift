@@ -22,8 +22,9 @@ struct AppInfoScreen: View {
         List {
             Section {
                 VStack {
+                    let distance = Measurement(value: mapMaxDistance, unit: UnitLength.meters)
                     ContentRow(
-                        title: "app_info_max_distance_title \(Measurement(value: mapMaxDistance, unit: UnitLength.meters), format: .measurement(width: .abbreviated))",
+                        title: "app_info_max_distance_title \(distance, format: .measurement(width: .abbreviated))",
                         description: "app_info_max_distance_description"
                     )
                     HStack {
