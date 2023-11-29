@@ -1,3 +1,4 @@
+import AppsShowcase
 import DomainLayer
 import HelperKit
 import SwiftUI
@@ -91,7 +92,7 @@ struct AppInfoScreen: View {
             Section("app_info_apps_showcase_title") {
                 ForEach(viewModel.apps) { app in
                     Link(destination: app.url) {
-                        ContentRow(title: app.name, description: app.tagline)
+                        ShowcasedAppRow(app: app)
                     }
                 }
             }
