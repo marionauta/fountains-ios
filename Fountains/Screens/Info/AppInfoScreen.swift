@@ -91,9 +91,7 @@ struct AppInfoScreen: View {
         if !viewModel.apps.isEmpty {
             Section("app_info_apps_showcase_title") {
                 ForEach(viewModel.apps) { app in
-                    Link(destination: app.url) {
-                        ShowcasedAppRow(app: app)
-                    }
+                    ShowcasedAppLink(app: app)
                 }
             }
         }

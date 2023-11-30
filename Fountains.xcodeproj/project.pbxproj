@@ -612,8 +612,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marionauta/apps-showcase-list";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 0.1.0;
 			};
 		};
 		ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */ = {

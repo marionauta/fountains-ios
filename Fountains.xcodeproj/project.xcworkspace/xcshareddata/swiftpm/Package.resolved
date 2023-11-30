@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marionauta/apps-showcase-list",
       "state" : {
-        "branch" : "main",
-        "revision" : "bbc0bcfb7f7a647d49d584d7954d61a4e5c8341a"
+        "revision" : "3986222eeb65aebe478bfb03aaaedc7af0ba8096",
+        "version" : "0.1.0"
       }
     },
     {
