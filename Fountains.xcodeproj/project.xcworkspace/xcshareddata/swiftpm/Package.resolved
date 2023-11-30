@@ -1,12 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "apps-showcase-list",
+      "identity" : "apps-showcase-swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/marionauta/apps-showcase-list",
+      "location" : "https://github.com/marionauta/apps-showcase-swift",
       "state" : {
-        "revision" : "3986222eeb65aebe478bfb03aaaedc7af0ba8096",
-        "version" : "0.1.0"
+        "revision" : "7d6085036d8e8efa99a1521a79d77846118104ce",
+        "version" : "0.1.1"
       }
     },
     {

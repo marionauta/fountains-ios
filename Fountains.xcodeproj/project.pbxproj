@@ -26,8 +26,8 @@
 		AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */; };
 		AC54D0472B13781E00785512 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54D0462B13781E00785512 /* MapView.swift */; };
 		AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */ = {isa = PBXBuildFile; productRef = AC7A72D72B13A5CC008AB25C /* MapCluster */; };
+		ACA92D042B18A9A200AD305A /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = ACA92D032B18A9A200AD305A /* AppsShowcase */; };
 		ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACADD55D2B12215B001D1CD1 /* HelperKit */; };
-		ACB6DB112B1120AF0038CAF0 /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = ACB6DB102B1120AF0038CAF0 /* AppsShowcase */; };
 		ACC8E2E229DB41DD00B92C86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */; };
 		ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCE471429D73335008167D6 /* FountainPropertyRow.swift */; };
 		ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACCF53C52815D52500D62A53 /* DomainLayer */; };
@@ -83,7 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */,
-				ACB6DB112B1120AF0038CAF0 /* AppsShowcase in Frameworks */,
+				ACA92D042B18A9A200AD305A /* AppsShowcase in Frameworks */,
 				AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */,
 				AC4C185929F13E9100226FDE /* NotchLogoKit in Frameworks */,
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
@@ -241,9 +241,9 @@
 				AC45685929DD7851009CAD02 /* GoogleMobileAds */,
 				AC4C185829F13E9100226FDE /* NotchLogoKit */,
 				AC1D6BA82AFE340000A88F7B /* AppsShowcase */,
-				ACB6DB102B1120AF0038CAF0 /* AppsShowcase */,
 				ACADD55D2B12215B001D1CD1 /* HelperKit */,
 				AC7A72D72B13A5CC008AB25C /* MapCluster */,
+				ACA92D032B18A9A200AD305A /* AppsShowcase */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -278,9 +278,9 @@
 				AC45685329DD75EC009CAD02 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 				AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */,
 				ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */,
-				ACB6DB0F2B1120AF0038CAF0 /* XCRemoteSwiftPackageReference "apps-showcase-list" */,
 				ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */,
 				AC7A72D62B13A5CC008AB25C /* XCRemoteSwiftPackageReference "swift-map-cluster" */,
+				ACA92D022B18A9A100AD305A /* XCRemoteSwiftPackageReference "apps-showcase-swift" */,
 			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
 			projectDirPath = "";
@@ -600,20 +600,20 @@
 				revision = 2a44c870ed283db53df1607acc558f8f9c90304b;
 			};
 		};
+		ACA92D022B18A9A100AD305A /* XCRemoteSwiftPackageReference "apps-showcase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marionauta/apps-showcase-swift";
+			requirement = {
+				kind = exactVersion;
+				version = 0.1.1;
+			};
+		};
 		ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marionauta/HelperKit";
 			requirement = {
 				kind = exactVersion;
 				version = 0.9.0;
-			};
-		};
-		ACB6DB0F2B1120AF0038CAF0 /* XCRemoteSwiftPackageReference "apps-showcase-list" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/marionauta/apps-showcase-list";
-			requirement = {
-				kind = exactVersion;
-				version = 0.1.0;
 			};
 		};
 		ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
@@ -646,15 +646,15 @@
 			package = AC7A72D62B13A5CC008AB25C /* XCRemoteSwiftPackageReference "swift-map-cluster" */;
 			productName = MapCluster;
 		};
+		ACA92D032B18A9A200AD305A /* AppsShowcase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACA92D022B18A9A100AD305A /* XCRemoteSwiftPackageReference "apps-showcase-swift" */;
+			productName = AppsShowcase;
+		};
 		ACADD55D2B12215B001D1CD1 /* HelperKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */;
 			productName = HelperKit;
-		};
-		ACB6DB102B1120AF0038CAF0 /* AppsShowcase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ACB6DB0F2B1120AF0038CAF0 /* XCRemoteSwiftPackageReference "apps-showcase-list" */;
-			productName = AppsShowcase;
 		};
 		ACCE786F2B05369700F12B6B /* SwiftLintPlugin */ = {
 			isa = XCSwiftPackageProductDependency;
