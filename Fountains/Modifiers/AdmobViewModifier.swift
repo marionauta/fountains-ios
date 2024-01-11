@@ -12,7 +12,6 @@ private struct AdmobViewModifier: ViewModifier {
         content
             .task {
                 await GADMobileAds.sharedInstance().start()
-                GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [GADSimulatorID]
             }
     }
 }

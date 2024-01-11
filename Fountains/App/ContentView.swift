@@ -1,3 +1,4 @@
+import AdmobSwiftUI
 import NotchLogoKit
 import SwiftUI
 

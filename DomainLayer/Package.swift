@@ -13,10 +13,14 @@ let package = Package(
             name: "WaterFountains",
             targets: ["WaterFountains"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/marionauta/HelperKit", exact: "0.9.0"),
+    ],
     targets: [
         .target(
             name: "DomainLayer",
             dependencies: [
+                .byName(name: "HelperKit"),
                 .byName(name: "WaterFountains"),
             ]),
         .binaryTarget(

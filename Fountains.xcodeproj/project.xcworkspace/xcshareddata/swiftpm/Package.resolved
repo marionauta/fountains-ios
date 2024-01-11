@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "admobswiftui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marionauta/AdmobSwiftUI",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2fe3f9e7d38e5f75ab05151ad6abe088ac5961c9"
+      }
+    },
+    {
       "identity" : "apps-showcase-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marionauta/apps-showcase-swift",
@@ -112,8 +121,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
       "state" : {
-        "revision" : "0cf1f2589641e52c444a3a61470d737efab485fd",
-        "version" : "10.13.0"
+        "revision" : "70516c9e799a366ff90c1a70c09c48f7c076fd8a",
+        "version" : "10.14.0"
       }
     },
     {
