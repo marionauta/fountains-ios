@@ -123,13 +123,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		AC7A7177285A2B1C00BB0802 /* Strings */ = {
+		AC7DF5E22B6FAEE300606B89 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				AC238EB62AFE2288006B2390 /* Localizable.xcstrings */,
 				ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */,
+				AC238EB62AFE2288006B2390 /* Localizable.xcstrings */,
+				ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */,
 			);
-			path = Strings;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		ACCE471329D732C2008167D6 /* Views */ = {
@@ -183,10 +184,9 @@
 			children = (
 				ACEE77CB2815EB6F00340A88 /* App */,
 				AC33C28F29DC7B0900102883 /* Modifiers */,
+				AC7DF5E22B6FAEE300606B89 /* Resources */,
 				ACCF53C72815D52F00D62A53 /* Screens */,
-				AC7A7177285A2B1C00BB0802 /* Strings */,
 				AC4FF8C929D9886C003B41BF /* Views */,
-				ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */,
 			);
 			path = Fountains;
 			sourceTree = "<group>";
@@ -486,9 +486,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fountains/App/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is used to show you nearby drinking fountains";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -523,9 +524,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fountains/App/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is used to show you nearby drinking fountains";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (

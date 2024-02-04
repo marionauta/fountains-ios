@@ -6,8 +6,6 @@
 	<string>ca-app-pub-9776483152926834~2572950534</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Your location is used to show you nearby drinking fountains</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
@@ -217,12 +215,12 @@
 		<dict>
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeMail</string>
-			<key>UIApplicationShortcutItemType</key>
-			<string>mn.openlocations.reportBugOrIssue</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>BUGORISSUE_SHORTCUT_ITEM_TITLE</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>BUGORISSUE_SHORTCUT_ITEM_SUBTITLE</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>BUGORISSUE_SHORTCUT_ITEM_TITLE</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>mn.openlocations.reportBugOrIssue</string>
 		</dict>
 	</array>
 </dict>
