@@ -6,7 +6,7 @@
       "location" : "https://github.com/marionauta/AdmobSwiftUI",
       "state" : {
         "branch" : "main",
-        "revision" : "2fe3f9e7d38e5f75ab05151ad6abe088ac5961c9"
+        "revision" : "4280c26420ef60cf594ea44c9cbe43aab0a12760"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/krzyzanowskim/CryptoSwift.git",
       "state" : {
-        "revision" : "db51c407d3be4a051484a141bf0bff36c43d3b1e",
-        "version" : "1.8.0"
+        "revision" : "7892a123f7e8d0fe62f9f03728b17bbd4f94df5c",
+        "version" : "1.8.1"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "6b332152355c372ace9966d8ee76ed191f97025e",
-        "version" : "10.17.0"
+        "revision" : "ceec9f28dea12b7cf3dabf18b5ed7621c88fd4aa",
+        "version" : "10.20.0"
       }
     },
     {
@@ -78,7 +78,7 @@
       "location" : "https://github.com/marionauta/NotchLogoKit",
       "state" : {
         "branch" : "main",
-        "revision" : "8ca5f5cae02d62cbf5b1f1a086245b962b20a2a8"
+        "revision" : "597fa81cf5e7c7b69d84256cc457c3f3d46218fa"
       }
     },
     {
