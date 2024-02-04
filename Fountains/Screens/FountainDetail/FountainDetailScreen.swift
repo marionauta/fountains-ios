@@ -22,6 +22,8 @@ struct FountainDetailScreen: View {
                 .clipped()
             }
 
+            AdView(adUnit: Secrets.admobDetailAdUnitId)
+
             FountainPropertyRow(
                 name: "fountain_detail_bottle_title",
                 description: "fountain_detail_bottle_description",

@@ -8,7 +8,7 @@ struct MapScreen: View {
     var body: some View {
         VStack(spacing: 0) {
             Spacer(minLength: 10)
-            AdView().padding(.bottom, 4)
+            AdView(adUnit: Secrets.admobMapAdUnitId).padding(.bottom, 4)
             NeedsLocationBannerView(isLocationEnabled: viewModel.hideLocationBanner)
             MapView(viewModel: viewModel)
         }

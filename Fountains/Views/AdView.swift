@@ -8,7 +8,9 @@ struct AdView: View {
         static let adsHiddenKey = "ADSHIDDEN.\(Bundle.main.buildNumber)"
     }
 
+    let adUnit: String
+
     var body: some View {
-        BannerAdView(adUnitId: Secrets.admobAdUnitId, adsHiddenKey: Constants.adsHiddenKey)
+        BannerAdView(adUnitId: adUnit, adsHiddenKey: Constants.adsHiddenKey)
     }
 }
