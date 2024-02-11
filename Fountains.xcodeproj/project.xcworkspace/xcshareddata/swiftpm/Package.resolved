@@ -6,7 +6,7 @@
       "location" : "https://github.com/marionauta/AdmobSwiftUI",
       "state" : {
         "branch" : "main",
-        "revision" : "4280c26420ef60cf594ea44c9cbe43aab0a12760"
+        "revision" : "9bec6c474ebc16101f78dd15588e0d72782eb8c7"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/GoogleAppMeasurement.git",
       "state" : {
-        "revision" : "ceec9f28dea12b7cf3dabf18b5ed7621c88fd4aa",
-        "version" : "10.20.0"
+        "revision" : "cb8617fab75d181270a1d8f763f26b15c73e2e1e",
+        "version" : "10.21.0"
       }
     },
     {
