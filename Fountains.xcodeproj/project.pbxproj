@@ -27,6 +27,7 @@
 		AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */ = {isa = PBXBuildFile; productRef = AC7A72D72B13A5CC008AB25C /* MapCluster */; };
 		ACA92D042B18A9A200AD305A /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = ACA92D032B18A9A200AD305A /* AppsShowcase */; };
 		ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACADD55D2B12215B001D1CD1 /* HelperKit */; };
+		ACC3C3EF2BAB4AFC006537F3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = ACC3C3EE2BAB4AFC006537F3 /* PrivacyInfo.xcprivacy */; };
 		ACC8E2E229DB41DD00B92C86 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */; };
 		ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCE471429D73335008167D6 /* FountainPropertyRow.swift */; };
 		ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACCF53C52815D52500D62A53 /* DomainLayer */; };
@@ -58,6 +59,7 @@
 		AC4FF8CA29D9887B003B41BF /* CloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButton.swift; sourceTree = "<group>"; };
 		AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		AC54D0462B13781E00785512 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		ACC3C3EE2BAB4AFC006537F3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ACC8E2E329DB41DD00B92C86 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACC8E2E529DB41E300B92C86 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ACCE471429D73335008167D6 /* FountainPropertyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainPropertyRow.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				ACE2909A2815D0F6002B0BD8 /* ContentView.swift */,
 				ACE290982815D0F6002B0BD8 /* FountainsApp.swift */,
 				AC364FDB299CEEA5005C93E8 /* Info.plist */,
+				ACC3C3EE2BAB4AFC006537F3 /* PrivacyInfo.xcprivacy */,
 				ACF53A9D2A32283B00D8BC78 /* SceneDelegate.swift */,
 				AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */,
 			);
@@ -295,6 +298,7 @@
 			files = (
 				ACE2909D2815D0F7002B0BD8 /* Assets.xcassets in Resources */,
 				ACC8E2E229DB41DD00B92C86 /* InfoPlist.strings in Resources */,
+				ACC3C3EF2BAB4AFC006537F3 /* PrivacyInfo.xcprivacy in Resources */,
 				AC238EB72AFE2289006B2390 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

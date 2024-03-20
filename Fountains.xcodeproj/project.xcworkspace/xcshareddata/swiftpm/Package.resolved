@@ -6,7 +6,7 @@
       "location" : "https://github.com/marionauta/AdmobSwiftUI",
       "state" : {
         "branch" : "main",
-        "revision" : "9bec6c474ebc16101f78dd15588e0d72782eb8c7"
+        "revision" : "bf8d85d19e0e5a3c117cbf7b03e551fe70b72518"
       }
     },
     {
@@ -37,24 +37,6 @@
       }
     },
     {
-      "identity" : "googleappmeasurement",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/google/GoogleAppMeasurement.git",
-      "state" : {
-        "revision" : "cb8617fab75d181270a1d8f763f26b15c73e2e1e",
-        "version" : "10.21.0"
-      }
-    },
-    {
-      "identity" : "googleutilities",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/google/GoogleUtilities.git",
-      "state" : {
-        "revision" : "bc27fad73504f3d4af235de451f02ee22586ebd3",
-        "version" : "7.12.1"
-      }
-    },
-    {
       "identity" : "helperkit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marionauta/HelperKit",
@@ -64,30 +46,12 @@
       }
     },
     {
-      "identity" : "nanopb",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/firebase/nanopb.git",
-      "state" : {
-        "revision" : "819d0a2173aff699fb8c364b6fb906f7cdb1a692",
-        "version" : "2.30909.0"
-      }
-    },
-    {
       "identity" : "notchlogokit",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marionauta/NotchLogoKit",
       "state" : {
         "branch" : "main",
         "revision" : "597fa81cf5e7c7b69d84256cc457c3f3d46218fa"
-      }
-    },
-    {
-      "identity" : "promises",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/google/promises.git",
-      "state" : {
-        "revision" : "e70e889c0196c76d22759eb50d6a0270ca9f1d9e",
-        "version" : "2.3.1"
       }
     },
     {
@@ -121,8 +85,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
       "state" : {
-        "revision" : "70516c9e799a366ff90c1a70c09c48f7c076fd8a",
-        "version" : "10.14.0"
+        "revision" : "5ff977255c2ba5844e7e9da779f1f2a5a00e0028",
+        "version" : "11.2.0"
       }
     },
     {
@@ -130,8 +94,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
       "state" : {
-        "revision" : "129fa838520cd02174f890ae0cfe0242e60714ae",
-        "version" : "2.1.0"
+        "revision" : "cfe8b2ae16b9bc81f4cdf1d1a12a01a452489c32",
+        "version" : "2.3.0"
       }
     },
     {
