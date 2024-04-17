@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC0C97A72BCFE4DB00E6795E /* Perception in Frameworks */ = {isa = PBXBuildFile; productRef = AC0C97A62BCFE4DB00E6795E /* Perception */; };
 		AC1D6BA92AFE340000A88F7B /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = AC1D6BA82AFE340000A88F7B /* AppsShowcase */; };
 		AC238EB72AFE2289006B2390 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AC238EB62AFE2288006B2390 /* Localizable.xcstrings */; };
 		AC2D614C2AFA4B4600594061 /* NeedsLocationBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */; };
@@ -83,6 +84,7 @@
 				ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */,
 				ACA92D042B18A9A200AD305A /* AppsShowcase in Frameworks */,
 				AC690A352B50A6F6008F42C9 /* AdmobSwiftUI in Frameworks */,
+				AC0C97A72BCFE4DB00E6795E /* Perception in Frameworks */,
 				AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */,
 				AC4C185929F13E9100226FDE /* NotchLogoKit in Frameworks */,
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
@@ -241,6 +243,7 @@
 				AC7A72D72B13A5CC008AB25C /* MapCluster */,
 				ACA92D032B18A9A200AD305A /* AppsShowcase */,
 				AC690A342B50A6F6008F42C9 /* AdmobSwiftUI */,
+				AC0C97A62BCFE4DB00E6795E /* Perception */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -278,6 +281,7 @@
 				AC7A72D62B13A5CC008AB25C /* XCRemoteSwiftPackageReference "swift-map-cluster" */,
 				ACA92D022B18A9A100AD305A /* XCRemoteSwiftPackageReference "apps-showcase-swift" */,
 				AC690A332B50A6F6008F42C9 /* XCRemoteSwiftPackageReference "AdmobSwiftUI" */,
+				AC0C97A52BCFE4DB00E6795E /* XCRemoteSwiftPackageReference "swift-perception" */,
 			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
 			projectDirPath = "";
@@ -574,6 +578,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AC0C97A52BCFE4DB00E6795E /* XCRemoteSwiftPackageReference "swift-perception" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-perception";
+			requirement = {
+				kind = exactVersion;
+				version = 1.1.5;
+			};
+		};
 		AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marionauta/NotchLogoKit";
@@ -625,6 +637,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AC0C97A62BCFE4DB00E6795E /* Perception */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC0C97A52BCFE4DB00E6795E /* XCRemoteSwiftPackageReference "swift-perception" */;
+			productName = Perception;
+		};
 		AC1D6BA82AFE340000A88F7B /* AppsShowcase */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AppsShowcase;
