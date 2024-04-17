@@ -113,8 +113,9 @@ private struct UserLocationButton: View {
             Label {
                 Text("map_center_on_map")
             } icon: {
-                Image(systemName: isDisabled ? "location.fill" : "location")
+                Image(systemName: "location")
                     .resizable()
+                    .symbolVariant(isDisabled ? .fill : .none)
                     .frame(width: 18, height: 18)
                     .animation(.easeInOut, value: isDisabled)
             }
