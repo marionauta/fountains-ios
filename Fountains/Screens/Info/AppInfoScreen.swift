@@ -46,11 +46,6 @@ struct AppInfoScreen: View {
         .listStyle(.insetGrouped)
         .navigationTitle("app_info_title")
         .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                CloseButton(dismiss: dismiss)
-            }
-        }
         .alert(isPresented: $isEasterShown) {
             Alert(
                 title: Text("app_info_easteregg_title"),

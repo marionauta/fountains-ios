@@ -54,14 +54,14 @@ struct MapScreen: View {
                 }
             }
         }
-        ToolbarItem(placement: .navigationBarTrailing) {
+        ToolbarItem(placement: .topBarTrailing) {
             if viewModel.isLoading {
                 ProgressView().progressViewStyle(.circular)
             }
         }
-        ToolbarItem(placement: .navigationBarTrailing) {
-            Button {
-                viewModel.route = .appInfo
+        ToolbarItem(placement: .topBarTrailing) {
+            NavigationLink {
+                AppInfoScreen()
             } label: {
                 AppInfoLabel()
             }
