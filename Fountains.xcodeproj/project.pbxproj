@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC1D6BA62AFE33F200A88F7B /* AppInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1D6BA52AFE33F200A88F7B /* AppInfoViewModel.swift */; };
 		AC1D6BA92AFE340000A88F7B /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = AC1D6BA82AFE340000A88F7B /* AppsShowcase */; };
 		AC238EB72AFE2289006B2390 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AC238EB62AFE2288006B2390 /* Localizable.xcstrings */; };
 		AC2D614C2AFA4B4600594061 /* NeedsLocationBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */; };
@@ -44,7 +43,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AC1D6BA52AFE33F200A88F7B /* AppInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoViewModel.swift; sourceTree = "<group>"; };
 		AC238EB62AFE2288006B2390 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsLocationBannerView.swift; sourceTree = "<group>"; };
 		AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				AC4FF8C129D98177003B41BF /* AppInfoCoordinator.swift */,
 				AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */,
 				AC4FF8C329D98186003B41BF /* AppInfoScreen.swift */,
-				AC1D6BA52AFE33F200A88F7B /* AppInfoViewModel.swift */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -320,7 +317,6 @@
 				ACF53A9E2A32283B00D8BC78 /* SceneDelegate.swift in Sources */,
 				ACE425A02ADFF1A800241FE0 /* MapFountainMarker.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
-				AC1D6BA62AFE33F200A88F7B /* AppInfoViewModel.swift in Sources */,
 				AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */,
 				ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */,
 				AC33C29329DC7B9500102883 /* UIWindow+Extensions.swift in Sources */,
@@ -607,7 +603,7 @@
 			repositoryURL = "https://github.com/marionauta/apps-showcase-swift";
 			requirement = {
 				kind = exactVersion;
-				version = 0.1.1;
+				version = 0.2.0;
 			};
 		};
 		ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */ = {

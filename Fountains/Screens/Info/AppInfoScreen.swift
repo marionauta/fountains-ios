@@ -12,8 +12,8 @@ struct AppInfoScreen: View {
         static let mapDistanceRange = minMapDistance...maxMapDistance
     }
 
-    @ObservedObject private var viewModel = AppInfoViewModel()
     @State private var isEasterShown: Bool = false
+    @State private var isLoadingShowcase: Bool = false
     @AppStorage(AdView.Constants.adsHiddenKey) private var areAdsHidden: Bool = false
     @AppStorage(Constants.mapDistanceKey) private var mapMaxDistance: Double = 15_000
     @AppStorage(Constants.mapClusteringKey) private var mapMarkerClustering: Bool = true
@@ -46,6 +46,7 @@ struct AppInfoScreen: View {
         .listStyle(.insetGrouped)
         .navigationTitle("app_info_title")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar { toolbarContent }
         .alert(isPresented: $isEasterShown) {
             Alert(
                 title: Text("app_info_easteregg_title"),
@@ -54,9 +55,6 @@ struct AppInfoScreen: View {
                 areAdsHidden.toggle()
                 isEasterShown = false
             })
-        }
-        .task {
-            await viewModel.load()
         }
     }
 
@@ -83,11 +81,18 @@ struct AppInfoScreen: View {
 
     @ViewBuilder
     private var showcasedAppsSection: some View {
-        if !viewModel.apps.isEmpty {
-            Section("app_info_apps_showcase_title") {
-                ForEach(viewModel.apps) { app in
-                    ShowcasedAppLink(app: app)
-                }
+        ShowcasedAppsSection(
+            "app_info_apps_showcase_title",
+            url: KnownUris.showcasedApps,
+            isLoading: $isLoadingShowcase
+        )
+    }
+
+    @ToolbarContentBuilder
+    private var toolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .topBarTrailing) {
+            if isLoadingShowcase {
+                ProgressView()
             }
         }
     }

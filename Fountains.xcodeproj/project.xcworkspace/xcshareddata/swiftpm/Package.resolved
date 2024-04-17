@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marionauta/apps-showcase-swift",
       "state" : {
-        "revision" : "7d6085036d8e8efa99a1521a79d77846118104ce",
-        "version" : "0.1.1"
+        "revision" : "e7c19e35ce81ccf778e4994248feab8f019421c0",
+        "version" : "0.2.0"
       }
     },
     {
