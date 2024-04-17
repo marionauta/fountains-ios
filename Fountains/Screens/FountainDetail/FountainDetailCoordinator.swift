@@ -2,13 +2,16 @@ import DomainLayer
 import SwiftUI
 
 struct FountainDetailCoordinator: View {
-    @StateObject private var viewModel = FountainDetailViewModel()
+    @State private var viewModel: FountainDetailViewModel
 
-    let fountain: Fountain
+    init(fountain: Fountain) {
+        self._viewModel = State(wrappedValue: FountainDetailViewModel(fountain: fountain))
+    }
 
     var body: some View {
         NavigationView {
-            FountainDetailScreen(fountain: fountain, viewModel: viewModel)
+            FountainDetailScreen()
+                .environment(viewModel)
         }
     }
 }

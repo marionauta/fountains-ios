@@ -1,14 +1,25 @@
 import DomainLayer
+import Perception
 import SwiftUI
 
-final class FountainDetailViewModel: ObservableObject {
+@Perceptible
+final class FountainDetailViewModel {
     private let mapillaryUseCase = GetMapillaryUrlUseCase()
 
-    @Published var fountainImageUrl: URL?
+    public let fountain: Fountain
+    public var fountainImageUrl: URL?
+    public var somethingWrongUrl: URL {
+        let baseUrl = KnownUris.help(slug: "corregir").absoluteString
+        return URL(string: "\(baseUrl)&lat=\(fountain.location.latitude)&lng=\(fountain.location.longitude)")!
+    }
+
+    public init(fountain: Fountain) {
+        self.fountain = fountain
+    }
 
     @MainActor
-    public func loadFountainImage(for mapillaryId: String?) async {
-        guard let mapillaryId else { return }
+    public func loadFountainImage() async {
+        guard let mapillaryId = fountain.properties.mapillaryId else { return }
         fountainImageUrl = await mapillaryUseCase.execute(mapillaryId: mapillaryId)
     }
 }
