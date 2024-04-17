@@ -18,6 +18,7 @@ struct AppInfoScreen: View {
     @AppStorage(Constants.mapDistanceKey) private var mapMaxDistance: Double = 15_000
     @AppStorage(Constants.mapClusteringKey) private var mapMarkerClustering: Bool = true
     @Environment(\.dismiss) private var dismiss
+    @Environment(PurchaseManager.self) private var purchaseManager: PurchaseManager
 
     var body: some View {
         List {
@@ -40,6 +41,7 @@ struct AppInfoScreen: View {
                 .tint(.accentColor)
             }
 
+            purchasePremiumSection
             aboutSection
             showcasedAppsSection
         }
@@ -75,6 +77,20 @@ struct AppInfoScreen: View {
             )
             .onTapGesture(count: 50) {
                 isEasterShown = true
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var purchasePremiumSection: some View {
+        if #available(iOS 17.0, *) {
+            Section("app_info_purchase_premium_title") {
+                NavigationLink {
+                    PaywallScreen()
+                        .environment(purchaseManager)
+                } label: {
+                    Label("app_info_purchase_premium_link", systemImage: "sparkles")
+                }
             }
         }
     }

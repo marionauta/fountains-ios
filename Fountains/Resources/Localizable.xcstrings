@@ -213,6 +213,38 @@
         }
       }
     },
+    "app_info_purchase_premium_link" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove ads"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitar anuncios"
+          }
+        }
+      }
+    },
+    "app_info_purchase_premium_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium"
+          }
+        }
+      }
+    },
     "app_info_title" : {
       "localizations" : {
         "en" : {
@@ -555,6 +587,86 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Demasiado lejos. Haz zoom o edita el zoom en los ajustes, por favor."
+          }
+        }
+      }
+    },
+    "paywall_remove_ads_first" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remove ads"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quitar anuncios"
+          }
+        }
+      }
+    },
+    "paywall_remove_ads_second" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Future premium features"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Futuras funciones premium"
+          }
+        }
+      }
+    },
+    "paywall_remove_ads_support_developer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support an indie developer"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apoya a un desarrollador independiente"
+          }
+        }
+      }
+    },
+    "paywall_restore_purchases_button" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restore purchase"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restaurar compra"
+          }
+        }
+      }
+    },
+    "paywall_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium"
           }
         }
       }

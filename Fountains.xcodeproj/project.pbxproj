@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AC0C97A72BCFE4DB00E6795E /* Perception in Frameworks */ = {isa = PBXBuildFile; productRef = AC0C97A62BCFE4DB00E6795E /* Perception */; };
+		AC0C97AA2BD0027B00E6795E /* PaywallScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C97A92BD0027B00E6795E /* PaywallScreen.swift */; };
+		AC0C97AC2BD0033B00E6795E /* PurchaseManagerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C97AB2BD0033B00E6795E /* PurchaseManagerModifier.swift */; };
 		AC1D6BA92AFE340000A88F7B /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = AC1D6BA82AFE340000A88F7B /* AppsShowcase */; };
 		AC238EB72AFE2289006B2390 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = AC238EB62AFE2288006B2390 /* Localizable.xcstrings */; };
 		AC2D614C2AFA4B4600594061 /* NeedsLocationBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */; };
@@ -44,6 +46,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC0C97A92BD0027B00E6795E /* PaywallScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallScreen.swift; sourceTree = "<group>"; };
+		AC0C97AB2BD0033B00E6795E /* PurchaseManagerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManagerModifier.swift; sourceTree = "<group>"; };
 		AC238EB62AFE2288006B2390 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsLocationBannerView.swift; sourceTree = "<group>"; };
 		AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
@@ -95,10 +99,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AC0C97A82BD0026A00E6795E /* Paywall */ = {
+			isa = PBXGroup;
+			children = (
+				AC0C97A92BD0027B00E6795E /* PaywallScreen.swift */,
+			);
+			path = Paywall;
+			sourceTree = "<group>";
+		};
 		AC33C28F29DC7B0900102883 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
 				AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */,
+				AC0C97AB2BD0033B00E6795E /* PurchaseManagerModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -127,9 +140,9 @@
 		AC7DF5E22B6FAEE300606B89 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */,
 				ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */,
 				AC238EB62AFE2288006B2390 /* Localizable.xcstrings */,
-				ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -148,6 +161,7 @@
 				ACCFBE45281602E500319CCB /* FountainDetail */,
 				AC4FF8C029D9813D003B41BF /* Info */,
 				ACEE77CC2815EC0200340A88 /* Map */,
+				AC0C97A82BD0026A00E6795E /* Paywall */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -314,6 +328,8 @@
 				AC4FF8C229D98177003B41BF /* AppInfoCoordinator.swift in Sources */,
 				AC54D0472B13781E00785512 /* MapView.swift in Sources */,
 				ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */,
+				AC0C97AA2BD0027B00E6795E /* PaywallScreen.swift in Sources */,
+				AC0C97AC2BD0033B00E6795E /* PurchaseManagerModifier.swift in Sources */,
 				ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */,
 				AC4FF8C429D98186003B41BF /* AppInfoScreen.swift in Sources */,
 				ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */,
