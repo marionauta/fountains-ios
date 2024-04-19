@@ -1,6 +1,7 @@
 import AppsShowcase
 import DomainLayer
 import HelperKit
+import Perception
 import SwiftUI
 
 struct AppInfoScreen: View {
@@ -14,7 +15,6 @@ struct AppInfoScreen: View {
 
     @State private var isEasterShown: Bool = false
     @State private var isLoadingShowcase: Bool = false
-    @AppStorage(AdView.Constants.adsHiddenKey) private var areAdsHidden: Bool = false
     @AppStorage(Constants.mapDistanceKey) private var mapMaxDistance: Double = 15_000
     @AppStorage(Constants.mapClusteringKey) private var mapMarkerClustering: Bool = true
     @Environment(\.dismiss) private var dismiss
@@ -54,7 +54,6 @@ struct AppInfoScreen: View {
                 title: Text("app_info_easteregg_title"),
                 message: Text("app_info_easteregg_content"),
                 dismissButton: .default(Text("app_info_easteregg_ok")) {
-                areAdsHidden.toggle()
                 isEasterShown = false
             })
         }
@@ -83,13 +82,15 @@ struct AppInfoScreen: View {
 
     @ViewBuilder
     private var purchasePremiumSection: some View {
-        if #available(iOS 17.0, *) {
-            Section("app_info_purchase_premium_title") {
-                NavigationLink {
-                    PaywallScreen()
-                        .environment(purchaseManager)
-                } label: {
-                    Label("app_info_purchase_premium_link", systemImage: "sparkles")
+        WithPerceptionTracking {
+            if #available(iOS 17.0, *), !purchaseManager.hasRemovedAds {
+                Section("app_info_purchase_premium_title") {
+                    NavigationLink {
+                        PaywallScreen()
+                            .environment(purchaseManager)
+                    } label: {
+                        Label("app_info_purchase_premium_link", systemImage: "sparkles")
+                    }
                 }
             }
         }

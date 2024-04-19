@@ -1,16 +1,19 @@
 import AdmobSwiftUI
-import enum DomainLayer.Secrets
-import HelperKit
+import Perception
 import SwiftUI
 
 struct AdView: View {
-    enum Constants {
-        static let adsHiddenKey = "ADSHIDDEN.\(Bundle.main.buildNumber)"
-    }
+    @Environment(PurchaseManager.self) private var purchaseManager
 
     let adUnit: String
 
     var body: some View {
-        BannerAdView(adUnitId: adUnit, adsHiddenKey: Constants.adsHiddenKey)
+        WithPerceptionTracking {
+            if purchaseManager.hasRemovedAds {
+                EmptyView()
+            } else {
+                BannerAdView(adUnitId: adUnit)
+            }
+        }
     }
 }

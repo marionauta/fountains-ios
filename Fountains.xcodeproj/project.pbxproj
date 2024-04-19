@@ -48,6 +48,7 @@
 /* Begin PBXFileReference section */
 		AC0C97A92BD0027B00E6795E /* PaywallScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaywallScreen.swift; sourceTree = "<group>"; };
 		AC0C97AB2BD0033B00E6795E /* PurchaseManagerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseManagerModifier.swift; sourceTree = "<group>"; };
+		AC0C97AD2BD0090400E6795E /* Fountains.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Fountains.storekit; sourceTree = "<group>"; };
 		AC238EB62AFE2288006B2390 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		AC2D614B2AFA4B4600594061 /* NeedsLocationBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedsLocationBannerView.swift; sourceTree = "<group>"; };
 		AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceShakeViewModifier.swift; sourceTree = "<group>"; };
@@ -141,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */,
+				AC0C97AD2BD0090400E6795E /* Fountains.storekit */,
 				ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */,
 				AC238EB62AFE2288006B2390 /* Localizable.xcstrings */,
 			);

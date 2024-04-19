@@ -98,6 +98,7 @@ final class PurchaseManager {
         !availableProductIds.contains(where: \.removesAds) || purchasedProductIds.hasRemovedAds
     }
 
+    @MainActor
     public func retrieveProducts() async {
         guard let products = try? await Product.products(for: ProductId.allCases.map(\.rawValue)) else { return }
         availableProductIds = Set(products.compactMap { ProductId(rawValue: $0.id) })
