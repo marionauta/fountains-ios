@@ -60,8 +60,8 @@ struct MapScreen: View {
             }
         }
         ToolbarItem(placement: .topBarTrailing) {
-            NavigationLink {
-                AppInfoScreen()
+            Button {
+                viewModel.route = .appInfo
             } label: {
                 AppInfoLabel()
             }

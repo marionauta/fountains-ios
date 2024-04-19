@@ -107,6 +107,10 @@ struct AppInfoScreen: View {
 
     @ToolbarContentBuilder
     private var toolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .cancellationAction) {
+            CloseButton(dismiss: dismiss)
+        }
+
         ToolbarItem(placement: .topBarTrailing) {
             if isLoadingShowcase {
                 ProgressView()
