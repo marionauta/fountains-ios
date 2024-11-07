@@ -1,12 +1,10 @@
+import OpenLocationsShared
 import HelperKit
 import Foundation
 
-public struct Fountain: Equatable, Identifiable {
-    public let id: Identifier<Self, String>
-    public let name: String
-    public let location: Location
-    public let properties: Properties
-}
+public typealias Fountain = OpenLocationsShared.Fountain
+
+extension Fountain: @retroactive Identifiable {}
 
 extension Fountain {
     public struct Properties: Equatable {

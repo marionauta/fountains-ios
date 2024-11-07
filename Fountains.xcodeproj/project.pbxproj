@@ -27,6 +27,7 @@
 		AC54D0472B13781E00785512 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54D0462B13781E00785512 /* MapView.swift */; };
 		AC690A352B50A6F6008F42C9 /* AdmobSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC690A342B50A6F6008F42C9 /* AdmobSwiftUI */; };
 		AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */ = {isa = PBXBuildFile; productRef = AC7A72D72B13A5CC008AB25C /* MapCluster */; };
+		AC82C63A2CDC0C6300D9E7C1 /* OpenLocationsShared in Frameworks */ = {isa = PBXBuildFile; productRef = AC82C6392CDC0C6300D9E7C1 /* OpenLocationsShared */; };
 		ACA92D042B18A9A200AD305A /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = ACA92D032B18A9A200AD305A /* AppsShowcase */; };
 		ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACADD55D2B12215B001D1CD1 /* HelperKit */; };
 		ACC3C3EF2BAB4AFC006537F3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = ACC3C3EE2BAB4AFC006537F3 /* PrivacyInfo.xcprivacy */; };
@@ -91,6 +92,7 @@
 				AC690A352B50A6F6008F42C9 /* AdmobSwiftUI in Frameworks */,
 				AC0C97A72BCFE4DB00E6795E /* Perception in Frameworks */,
 				AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */,
+				AC82C63A2CDC0C6300D9E7C1 /* OpenLocationsShared in Frameworks */,
 				AC4C185929F13E9100226FDE /* NotchLogoKit in Frameworks */,
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
 				AC1D6BA92AFE340000A88F7B /* AppsShowcase in Frameworks */,
@@ -260,6 +262,7 @@
 				ACA92D032B18A9A200AD305A /* AppsShowcase */,
 				AC690A342B50A6F6008F42C9 /* AdmobSwiftUI */,
 				AC0C97A62BCFE4DB00E6795E /* Perception */,
+				AC82C6392CDC0C6300D9E7C1 /* OpenLocationsShared */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -522,7 +525,7 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
-					WaterFountains,
+					OpenLocationsShared,
 					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mn.openlocations;
@@ -560,7 +563,7 @@
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
-					WaterFountains,
+					OpenLocationsShared,
 					"-ObjC",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = mn.openlocations;
@@ -678,6 +681,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AC7A72D62B13A5CC008AB25C /* XCRemoteSwiftPackageReference "swift-map-cluster" */;
 			productName = MapCluster;
+		};
+		AC82C6392CDC0C6300D9E7C1 /* OpenLocationsShared */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = OpenLocationsShared;
 		};
 		ACA92D032B18A9A200AD305A /* AppsShowcase */ = {
 			isa = XCSwiftPackageProductDependency;

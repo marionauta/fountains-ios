@@ -55,13 +55,13 @@ struct FountainDetailView: View {
                 FountainPropertyRow(
                     name: "fountain_detail_bottle_title",
                     description: "fountain_detail_bottle_description",
-                    value: viewModel.fountain.properties.bottle.title
+                    value: viewModel.fountain.properties.bottle.name
                 )
 
                 FountainPropertyRow(
                     name: "fountain_detail_wheelchair_title",
                     description: "fountain_detail_wheelchair_description",
-                    value: viewModel.fountain.properties.wheelchair.title
+                    value: viewModel.fountain.properties.wheelchair.name
                 )
 
                 if let checkDate = viewModel.fountain.properties.checkDate {

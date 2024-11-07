@@ -1,3 +1,4 @@
+import OpenLocationsShared
 import Foundation
 import MapKit
 
@@ -13,9 +14,9 @@ public struct GetFountainsUseCase {
         self.maxDistance = maxDistance
     }
 
-    public func callAsFunction(northEast: MKMapPoint, southWest: MKMapPoint) async -> Result<FountainResponse?, FountainError> {
+    public func callAsFunction(northEast: MKMapPoint, southWest: MKMapPoint) async -> Result<FountainsResponse?, FountainError> {
         guard northEast.distance(to: southWest) < maxDistance else { return .failure(.tooFarAway) }
-        let result = await repository.inside(northEast: northEast.intoDomain(), southWest: southWest.intoDomain())
+        let result = try! await repository.inside(northEast: northEast.intoDomain(), southWest: southWest.intoDomain())
         return .success(result)
     }
 }

@@ -1,5 +1,6 @@
 import Foundation
 import MapKit
+import OpenLocationsShared
 
 extension Location {
     public var coordinate: CLLocationCoordinate2D {
