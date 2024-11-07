@@ -623,7 +623,7 @@
 			repositoryURL = "https://github.com/marionauta/swift-map-cluster";
 			requirement = {
 				kind = revision;
-				revision = 2a44c870ed283db53df1607acc558f8f9c90304b;
+				revision = 6514b9f214fb31019af1bd5c284cfdd5e034a848;
 			};
 		};
 		AC8B8C992CDCE64C007E18BC /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {

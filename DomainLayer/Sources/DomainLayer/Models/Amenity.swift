@@ -14,6 +14,16 @@ extension Amenity: @retroactive WithCoordinate {
     }
 }
 
+extension Amenity: @retroactive WithClusteringGroup {
+    public var clusteringGroup: String? {
+        switch self {
+        case is Fountain: "fountain"
+        case is Amenity.Restroom: "restroom"
+        default: nil
+        }
+    }
+}
+
 public extension Amenity {
     typealias BasicValue = OpenLocationsShared.BasicValue
     typealias WheelchairValue = OpenLocationsShared.WheelchairValue

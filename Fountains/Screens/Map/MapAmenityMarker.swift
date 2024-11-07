@@ -29,12 +29,20 @@ struct MapAmenityMarker: View {
 }
 
 struct MapClusterMarker: View {
+    let group: String?
     let count: Int
     let onTap: () -> Void
 
     var body: some View {
         DefaultClusterView(count: count)
-            .tint(Color(.marker))
+            .tint(color)
             .onTapGesture(perform: onTap)
+    }
+
+    private var color: Color {
+        switch group {
+        case "restroom": Color(.markerRestroom)
+        default: Color(.marker)
+        }
     }
 }
