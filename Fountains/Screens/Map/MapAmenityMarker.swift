@@ -3,15 +3,28 @@ import MapCluster
 import MapKit
 import SwiftUI
 
-struct MapFountainMarker: View {
+struct MapAmenityMarker: View {
+    let amenity: Amenity
     let onTap: () -> Void
 
     var body: some View {
-        Image(.marker)
+        image
             .background(Color.white)
             .clipShape(Circle())
             .shadow(color: .black.opacity(0.5), radius: 2, y: 2)
             .onTapGesture(perform: onTap)
+    }
+
+    private var image: Image {
+        switch amenity {
+        case is Fountain: Image(.marker)
+        case is Amenity.Restroom: Image(.markerRestroom)
+        default:
+            {
+                print("unknown amenity \(amenity.self)")
+                return Image(systemName: "questionmark")
+            }()
+        }
     }
 }
 

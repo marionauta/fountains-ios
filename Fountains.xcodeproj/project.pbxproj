@@ -28,6 +28,7 @@
 		AC690A352B50A6F6008F42C9 /* AdmobSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = AC690A342B50A6F6008F42C9 /* AdmobSwiftUI */; };
 		AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */ = {isa = PBXBuildFile; productRef = AC7A72D72B13A5CC008AB25C /* MapCluster */; };
 		AC82C63A2CDC0C6300D9E7C1 /* OpenLocationsShared in Frameworks */ = {isa = PBXBuildFile; productRef = AC82C6392CDC0C6300D9E7C1 /* OpenLocationsShared */; };
+		AC8B8C9B2CDCE64C007E18BC /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = AC8B8C9A2CDCE64C007E18BC /* Algorithms */; };
 		ACA92D042B18A9A200AD305A /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = ACA92D032B18A9A200AD305A /* AppsShowcase */; };
 		ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACADD55D2B12215B001D1CD1 /* HelperKit */; };
 		ACC3C3EF2BAB4AFC006537F3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = ACC3C3EE2BAB4AFC006537F3 /* PrivacyInfo.xcprivacy */; };
@@ -40,7 +41,7 @@
 		ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE290982815D0F6002B0BD8 /* FountainsApp.swift */; };
 		ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2909A2815D0F6002B0BD8 /* ContentView.swift */; };
 		ACE2909D2815D0F7002B0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */; };
-		ACE425A02ADFF1A800241FE0 /* MapFountainMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE4259F2ADFF1A800241FE0 /* MapFountainMarker.swift */; };
+		ACE425A02ADFF1A800241FE0 /* MapAmenityMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE4259F2ADFF1A800241FE0 /* MapAmenityMarker.swift */; };
 		ACF53A9C2A32281300D8BC78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53A9B2A32281300D8BC78 /* AppDelegate.swift */; };
 		ACF53A9E2A32283B00D8BC78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF53A9D2A32283B00D8BC78 /* SceneDelegate.swift */; };
 		ACF96E1429E58A4100F71F20 /* ContentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF96E1329E58A4100F71F20 /* ContentRow.swift */; };
@@ -76,7 +77,7 @@
 		ACE2909A2815D0F6002B0BD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACE290A62815D227002B0BD8 /* DomainLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DomainLayer; sourceTree = "<group>"; };
-		ACE4259F2ADFF1A800241FE0 /* MapFountainMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFountainMarker.swift; sourceTree = "<group>"; };
+		ACE4259F2ADFF1A800241FE0 /* MapAmenityMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAmenityMarker.swift; sourceTree = "<group>"; };
 		ACF53A9B2A32281300D8BC78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACF53A9D2A32283B00D8BC78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ACF96E1329E58A4100F71F20 /* ContentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentRow.swift; sourceTree = "<group>"; };
@@ -95,6 +96,7 @@
 				AC82C63A2CDC0C6300D9E7C1 /* OpenLocationsShared in Frameworks */,
 				AC4C185929F13E9100226FDE /* NotchLogoKit in Frameworks */,
 				ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */,
+				AC8B8C9B2CDCE64C007E18BC /* Algorithms in Frameworks */,
 				AC1D6BA92AFE340000A88F7B /* AppsShowcase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,7 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				AC4FF8CC29D98BED003B41BF /* MapCoordinator.swift */,
-				ACE4259F2ADFF1A800241FE0 /* MapFountainMarker.swift */,
+				ACE4259F2ADFF1A800241FE0 /* MapAmenityMarker.swift */,
 				ACCF53C82815D58400D62A53 /* MapScreen.swift */,
 				AC54D0462B13781E00785512 /* MapView.swift */,
 				ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */,
@@ -250,7 +252,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				ACCE78702B05369700F12B6B /* PBXTargetDependency */,
 			);
 			name = Fountains;
 			packageProductDependencies = (
@@ -263,6 +264,7 @@
 				AC690A342B50A6F6008F42C9 /* AdmobSwiftUI */,
 				AC0C97A62BCFE4DB00E6795E /* Perception */,
 				AC82C6392CDC0C6300D9E7C1 /* OpenLocationsShared */,
+				AC8B8C9A2CDCE64C007E18BC /* Algorithms */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -295,12 +297,12 @@
 			mainGroup = ACE2908C2815D0F6002B0BD8;
 			packageReferences = (
 				AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */,
-				ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */,
 				AC7A72D62B13A5CC008AB25C /* XCRemoteSwiftPackageReference "swift-map-cluster" */,
 				ACA92D022B18A9A100AD305A /* XCRemoteSwiftPackageReference "apps-showcase-swift" */,
 				AC690A332B50A6F6008F42C9 /* XCRemoteSwiftPackageReference "AdmobSwiftUI" */,
 				AC0C97A52BCFE4DB00E6795E /* XCRemoteSwiftPackageReference "swift-perception" */,
+				AC8B8C992CDCE64C007E18BC /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
 			projectDirPath = "";
@@ -340,7 +342,7 @@
 				ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */,
 				ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */,
 				ACF53A9E2A32283B00D8BC78 /* SceneDelegate.swift in Sources */,
-				ACE425A02ADFF1A800241FE0 /* MapFountainMarker.swift in Sources */,
+				ACE425A02ADFF1A800241FE0 /* MapAmenityMarker.swift in Sources */,
 				ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */,
 				AC4FF8CD29D98BED003B41BF /* MapCoordinator.swift in Sources */,
 				ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */,
@@ -358,13 +360,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ACCE78702B05369700F12B6B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = ACCE786F2B05369700F12B6B /* SwiftLintPlugin */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ACC8E2E429DB41DD00B92C86 /* InfoPlist.strings */ = {
@@ -631,6 +626,14 @@
 				revision = 2a44c870ed283db53df1607acc558f8f9c90304b;
 			};
 		};
+		AC8B8C992CDCE64C007E18BC /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
 		ACA92D022B18A9A100AD305A /* XCRemoteSwiftPackageReference "apps-showcase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/marionauta/apps-showcase-swift";
@@ -645,14 +648,6 @@
 			requirement = {
 				kind = exactVersion;
 				version = 0.9.0;
-			};
-		};
-		ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/SwiftLint";
-			requirement = {
-				kind = exactVersion;
-				version = 0.54.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -686,6 +681,11 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = OpenLocationsShared;
 		};
+		AC8B8C9A2CDCE64C007E18BC /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AC8B8C992CDCE64C007E18BC /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
 		ACA92D032B18A9A200AD305A /* AppsShowcase */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = ACA92D022B18A9A100AD305A /* XCRemoteSwiftPackageReference "apps-showcase-swift" */;
@@ -695,11 +695,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */;
 			productName = HelperKit;
-		};
-		ACCE786F2B05369700F12B6B /* SwiftLintPlugin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = ACCE786E2B05367B00F12B6B /* XCRemoteSwiftPackageReference "SwiftLint" */;
-			productName = "plugin:SwiftLintPlugin";
 		};
 		ACCF53C52815D52500D62A53 /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;

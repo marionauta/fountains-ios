@@ -15,8 +15,8 @@ final class MapViewModel: NSObject, ObservableObject {
     @AppStorage(AppInfoScreen.Constants.mapClusteringKey) private var mapMarkerClustering: Bool = true
     @Published private(set) var areaName: String?
     @Published private(set) var lastUpdated: Date?
-    @Published private(set) var fountains: [Fountain] = []
-    @Published private(set) var markers: [ClusterizableMarker<Fountain>] = []
+    @Published private(set) var amenities: [Amenity] = []
+    @Published private(set) var markers: [ClusterizableMarker<Amenity>] = []
     @Published private(set) var isLoading: Bool = true
     @Published private(set) var isTooFarAway: Bool = false
     @Published public var mapRect = MKMapRect.world
@@ -44,7 +44,7 @@ final class MapViewModel: NSObject, ObservableObject {
             isTooFarAway = true
         case let .success(.some(response)):
             isTooFarAway = false
-            fountains = response.fountains
+            amenities = response.fountains
             lastUpdated = response.lastUpdated
         case .success(.none):
             isTooFarAway = false
@@ -77,9 +77,14 @@ final class MapViewModel: NSObject, ObservableObject {
         }
     }
 
-    public func openDetail(for fountain: Fountain) {
+    public func openDetail(for amenity: Amenity) {
         feedbackGenerator.selectionChanged()
-        route = .fountain(fountain)
+        switch amenity {
+        case let fountain as Fountain:
+            route = .fountain(fountain)
+        default:
+            break
+        }
     }
 
     public func zoomABit(on coordinate: CLLocationCoordinate2D) {
@@ -113,13 +118,13 @@ final class MapViewModel: NSObject, ObservableObject {
 
         Publishers.CombineLatest(
             $mapRect.debounce(for: .milliseconds(50), scheduler: DispatchQueue.main),
-            $fountains.removeDuplicates()
+            $amenities.removeDuplicates()
         )
-        .map { [weak self] mapRect, fountains -> [ClusterizableMarker<Fountain>] in
+        .map { [weak self] mapRect, amenities -> [ClusterizableMarker<Amenity>] in
             guard let self, self.mapMarkerClustering else {
-                return fountains.map { .single($0) }
+                return amenities.map { .single($0) }
             }
-            return MapCluster.clusterize(fountains, markerSize: 30, bounds: mapRect)
+            return MapCluster.clusterize(amenities, markerSize: 30, bounds: mapRect)
         }
         .removeDuplicates()
         .subscribe(on: DispatchQueue.main)
@@ -129,23 +134,19 @@ final class MapViewModel: NSObject, ObservableObject {
 }
 
 extension MapViewModel: CLLocationManagerDelegate {
-    @MainActor
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         locationManagerDidChangeAuthorization(manager)
     }
 
-    @MainActor
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         guard [.authorizedAlways, .authorizedWhenInUse].contains(manager.authorizationStatus) else { return }
-        centerOnUserLocation()
+        Task {
+            await centerOnUserLocation()
+        }
     }
 }
 
-extension Fountain: WithCoordinate {
-    public var coordinate: CLLocationCoordinate2D { location.coordinate }
-}
-
-private extension Fountain {
+private extension Amenity {
     var point: MKMapPoint { MKMapPoint(location.coordinate) }
 }
 

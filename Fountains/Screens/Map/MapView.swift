@@ -1,5 +1,6 @@
 import HelperKit
 import MapKit
+import OpenLocationsShared
 import SwiftUI
 
 struct MapView: View {
@@ -36,9 +37,9 @@ private struct MapView17: View {
                                 allowsAutomaticPitch: false
                             )
                         }
-                    case let .single(fountain):
-                        MapFountainMarker {
-                            viewModel.openDetail(for: fountain)
+                    case let .single(amenity):
+                        MapAmenityMarker(amenity: amenity) {
+                            viewModel.openDetail(for: amenity)
                         }
                     }
                 }
@@ -82,9 +83,9 @@ private struct MapViewLegacy: View {
                     MapClusterMarker(count: cluster.singles.count) {
                         viewModel.zoomABit(on: marker.coordinate)
                     }
-                case let .single(fountain):
-                    MapFountainMarker {
-                        viewModel.openDetail(for: fountain)
+                case let .single(amenity):
+                    MapAmenityMarker(amenity: amenity) {
+                        viewModel.openDetail(for: amenity)
                     }
                 }
             }
