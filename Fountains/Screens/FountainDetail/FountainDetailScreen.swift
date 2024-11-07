@@ -55,13 +55,13 @@ struct FountainDetailView: View {
                 FountainPropertyRow(
                     name: "fountain_detail_bottle_title",
                     description: "fountain_detail_bottle_description",
-                    value: viewModel.fountain.properties.bottle.name
+                    value: viewModel.fountain.properties.bottle.title
                 )
 
                 FountainPropertyRow(
                     name: "fountain_detail_wheelchair_title",
                     description: "fountain_detail_wheelchair_description",
-                    value: viewModel.fountain.properties.wheelchair.name
+                    value: viewModel.fountain.properties.wheelchair.title
                 )
 
                 if let checkDate = viewModel.fountain.properties.checkDate {
@@ -79,17 +79,25 @@ struct FountainDetailView: View {
     }
 }
 
-private extension Fountain.Properties.Value {
+private extension Fountain.BasicValue {
     var title: LocalizedStringKey {
         switch self {
-        case .unknown:
-            return "property_value_unknown"
-        case .no:
-            return "property_value_no"
-        case .limited:
-            return "property_value_limited"
-        case .yes:
-            return "property_value_yes"
+        case .unknown: "property_value_unknown"
+        case .no: "property_value_no"
+        case .yes: "property_value_yes"
+        default: "property_value_unknown"
+        }
+    }
+}
+
+private extension Fountain.WheelchairValue {
+    var title: LocalizedStringKey {
+        switch self {
+        case .unknown: "property_value_unknown"
+        case .no: "property_value_no"
+        case .limited: "property_value_limited"
+        case .yes: "property_value_yes"
+        default: "property_value_unknown"
         }
     }
 }
