@@ -3,23 +3,23 @@ import Perception
 import SwiftUI
 
 @Perceptible
-final class FountainDetailViewModel {
+final class AmenityDetailViewModel {
     private let mapillaryUseCase = GetMapillaryUrlUseCase()
 
-    public let fountain: Fountain
+    public let amenity: Amenity
     public var fountainImageUrl: URL?
     public var somethingWrongUrl: URL {
         let baseUrl = KnownUris.help(slug: "corregir").absoluteString
-        return URL(string: "\(baseUrl)&lat=\(fountain.location.latitude)&lng=\(fountain.location.longitude)")!
+        return URL(string: "\(baseUrl)&lat=\(amenity.location.latitude)&lng=\(amenity.location.longitude)")!
     }
 
-    public init(fountain: Fountain) {
-        self.fountain = fountain
+    public init(amenity: Amenity) {
+        self.amenity = amenity
     }
 
     @MainActor
-    public func loadFountainImage() async {
-        guard let mapillaryId = fountain.properties.mapillaryId else { return }
+    public func loadAmenityImage() async {
+        guard let mapillaryId = amenity.properties.mapillaryId else { return }
         fountainImageUrl = await mapillaryUseCase.execute(mapillaryId: mapillaryId)
     }
 }

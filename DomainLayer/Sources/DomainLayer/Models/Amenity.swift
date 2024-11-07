@@ -4,7 +4,6 @@ import MapCluster
 import OpenLocationsShared
 
 public typealias Amenity = OpenLocationsShared.Amenity
-public typealias Fountain = OpenLocationsShared.Fountain
 
 extension Amenity: @retroactive Identifiable {}
 
@@ -18,7 +17,7 @@ extension Amenity: @retroactive WithClusteringGroup {
     public var clusteringGroup: String? {
         switch self {
         case is Fountain: "fountain"
-        case is Amenity.Restroom: "restroom"
+        case is Restroom: "restroom"
         default: nil
         }
     }

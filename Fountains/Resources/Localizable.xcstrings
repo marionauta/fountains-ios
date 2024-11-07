@@ -411,6 +411,38 @@
         }
       }
     },
+    "fountain_detail_changing_table_description" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Provides a surface for changing the nappy (diaper) of an infant or young child."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proporciona una superficie para cambiar el pañal de un bebé o un niño pequeño."
+          }
+        }
+      }
+    },
+    "fountain_detail_changing_table_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diaper Changing Table"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mesa para cambiar pañales"
+          }
+        }
+      }
+    },
     "fountain_detail_check_date_description" : {
       "localizations" : {
         "en" : {

@@ -3,24 +3,24 @@ import HelperKit
 import Perception
 import SwiftUI
 
-struct FountainDetailScreen: View {
+struct AmenityDetailScreen: View {
     @Environment(\.dismiss) private var dismiss
-    @Environment(FountainDetailViewModel.self) private var viewModel
+    @Environment(AmenityDetailViewModel.self) private var viewModel
 
     var body: some View {
         ScrollView {
-            FountainDetailView()
+            AmenityDetailView()
         }
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar { toolbarContent }
         .task {
-            await viewModel.loadFountainImage()
+            await viewModel.loadAmenityImage()
         }
     }
 
     private var title: LocalizedStringKey {
-        viewModel.fountain.name.nilIfEmpty.map(LocalizedStringKey.init(stringLiteral:))
+        viewModel.amenity.name.nilIfEmpty.map(LocalizedStringKey.init(stringLiteral:))
             ?? "fountain_detail_fallback_title"
     }
 
@@ -32,8 +32,8 @@ struct FountainDetailScreen: View {
     }
 }
 
-struct FountainDetailView: View {
-    @Environment(FountainDetailViewModel.self) private var viewModel
+struct AmenityDetailView: View {
+    @Environment(AmenityDetailViewModel.self) private var viewModel
 
     var body: some View {
         WithPerceptionTracking {
@@ -53,18 +53,29 @@ struct FountainDetailView: View {
                 AdView(adUnit: Secrets.admobDetailAdUnitId)
 
                 FountainPropertyRow(
-                    name: "fountain_detail_bottle_title",
-                    description: "fountain_detail_bottle_description",
-                    value: viewModel.fountain.properties.bottle.title
-                )
-
-                FountainPropertyRow(
                     name: "fountain_detail_wheelchair_title",
                     description: "fountain_detail_wheelchair_description",
-                    value: viewModel.fountain.properties.wheelchair.title
+                    value: viewModel.amenity.properties.wheelchair.title
                 )
 
-                if let checkDate = viewModel.fountain.properties.checkDate {
+                switch viewModel.amenity {
+                case let fountain as Amenity.Fountain:
+                    FountainPropertyRow(
+                        name: "fountain_detail_bottle_title",
+                        description: "fountain_detail_bottle_description",
+                        value: fountain.properties.bottle.title
+                    )
+                case let restroom as Amenity.Restroom:
+                    FountainPropertyRow(
+                        name: "fountain_detail_changing_table_title",
+                        description: "fountain_detail_changing_table_description",
+                        value: restroom.properties.changingTable.title
+                    )
+                default:
+                    EmptyView()
+                }
+
+                if let checkDate = viewModel.amenity.properties.checkDate {
                     FountainPropertyRow(
                         name: "fountain_detail_check_date_title",
                         description: "fountain_detail_check_date_description",
@@ -79,7 +90,7 @@ struct FountainDetailView: View {
     }
 }
 
-private extension Fountain.BasicValue {
+private extension Amenity.BasicValue {
     var title: LocalizedStringKey {
         switch self {
         case .unknown: "property_value_unknown"
@@ -90,7 +101,7 @@ private extension Fountain.BasicValue {
     }
 }
 
-private extension Fountain.WheelchairValue {
+private extension Amenity.WheelchairValue {
     var title: LocalizedStringKey {
         switch self {
         case .unknown: "property_value_unknown"

@@ -38,13 +38,13 @@ final class MapViewModel: NSObject, ObservableObject {
             return
         }
         isLoading = true
-        let getFountainsUseCase = GetFountainsUseCase(maxDistance: maxMapDistance)
-        switch await getFountainsUseCase(northEast: bounds.northEast, southWest: bounds.southWest) {
+        let getAmenitiesUseCase = GetAmenitiesUseCase(maxDistance: maxMapDistance)
+        switch await getAmenitiesUseCase(northEast: bounds.northEast, southWest: bounds.southWest) {
         case .failure(.tooFarAway):
             isTooFarAway = true
         case let .success(.some(response)):
             isTooFarAway = false
-            amenities = response.fountains
+            amenities = response.amenities
             lastUpdated = response.lastUpdated
         case .success(.none):
             isTooFarAway = false
@@ -79,12 +79,7 @@ final class MapViewModel: NSObject, ObservableObject {
 
     public func openDetail(for amenity: Amenity) {
         feedbackGenerator.selectionChanged()
-        switch amenity {
-        case let fountain as Fountain:
-            route = .fountain(fountain)
-        default:
-            break
-        }
+        route = .amenity(amenity)
     }
 
     public func zoomABit(on coordinate: CLLocationCoordinate2D) {

@@ -17,7 +17,7 @@ struct MapAmenityMarker: View {
 
     private var image: Image {
         switch amenity {
-        case is Fountain: Image(.marker)
+        case is Amenity.Fountain: Image(.marker)
         case is Amenity.Restroom: Image(.markerRestroom)
         default:
             {

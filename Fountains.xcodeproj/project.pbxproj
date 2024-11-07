@@ -16,8 +16,8 @@
 		AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29029DC7B2200102883 /* DeviceShakeViewModifier.swift */; };
 		AC33C29329DC7B9500102883 /* UIWindow+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */; };
 		AC45685C29DD7C58009CAD02 /* AdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45685B29DD7C58009CAD02 /* AdView.swift */; };
-		AC4B038729D72AA3008946C9 /* FountainDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */; };
-		AC4B038929D72B83008946C9 /* FountainDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */; };
+		AC4B038729D72AA3008946C9 /* AmenityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B038629D72AA3008946C9 /* AmenityDetailViewModel.swift */; };
+		AC4B038929D72B83008946C9 /* AmenityDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4B038829D72B83008946C9 /* AmenityDetailCoordinator.swift */; };
 		AC4C185929F13E9100226FDE /* NotchLogoKit in Frameworks */ = {isa = PBXBuildFile; productRef = AC4C185829F13E9100226FDE /* NotchLogoKit */; };
 		AC4FF8C229D98177003B41BF /* AppInfoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C129D98177003B41BF /* AppInfoCoordinator.swift */; };
 		AC4FF8C429D98186003B41BF /* AppInfoScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4FF8C329D98186003B41BF /* AppInfoScreen.swift */; };
@@ -37,7 +37,7 @@
 		ACCF53C62815D52500D62A53 /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = ACCF53C52815D52500D62A53 /* DomainLayer */; };
 		ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53C82815D58400D62A53 /* MapScreen.swift */; };
 		ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */; };
-		ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFBE462816030900319CCB /* FountainDetailScreen.swift */; };
+		ACCFBE472816030900319CCB /* AmenityDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACCFBE462816030900319CCB /* AmenityDetailScreen.swift */; };
 		ACE290992815D0F6002B0BD8 /* FountainsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE290982815D0F6002B0BD8 /* FountainsApp.swift */; };
 		ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE2909A2815D0F6002B0BD8 /* ContentView.swift */; };
 		ACE2909D2815D0F7002B0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACE2909C2815D0F7002B0BD8 /* Assets.xcassets */; };
@@ -57,8 +57,8 @@
 		AC33C29229DC7B9500102883 /* UIWindow+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+Extensions.swift"; sourceTree = "<group>"; };
 		AC364FDB299CEEA5005C93E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC45685B29DD7C58009CAD02 /* AdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdView.swift; sourceTree = "<group>"; };
-		AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailViewModel.swift; sourceTree = "<group>"; };
-		AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailCoordinator.swift; sourceTree = "<group>"; };
+		AC4B038629D72AA3008946C9 /* AmenityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenityDetailViewModel.swift; sourceTree = "<group>"; };
+		AC4B038829D72B83008946C9 /* AmenityDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenityDetailCoordinator.swift; sourceTree = "<group>"; };
 		AC4FF8C129D98177003B41BF /* AppInfoCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoCoordinator.swift; sourceTree = "<group>"; };
 		AC4FF8C329D98186003B41BF /* AppInfoScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoScreen.swift; sourceTree = "<group>"; };
 		AC4FF8C729D984B2003B41BF /* AppInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoLabel.swift; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		ACCE471429D73335008167D6 /* FountainPropertyRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainPropertyRow.swift; sourceTree = "<group>"; };
 		ACCF53C82815D58400D62A53 /* MapScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapScreen.swift; sourceTree = "<group>"; };
 		ACCF53CA2815D5D800D62A53 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
-		ACCFBE462816030900319CCB /* FountainDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainDetailScreen.swift; sourceTree = "<group>"; };
+		ACCFBE462816030900319CCB /* AmenityDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmenityDetailScreen.swift; sourceTree = "<group>"; };
 		ACE290952815D0F6002B0BD8 /* Fountains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fountains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE290982815D0F6002B0BD8 /* FountainsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FountainsApp.swift; sourceTree = "<group>"; };
 		ACE2909A2815D0F6002B0BD8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		ACCF53C72815D52F00D62A53 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				ACCFBE45281602E500319CCB /* FountainDetail */,
+				ACCFBE45281602E500319CCB /* AmenityDetail */,
 				AC4FF8C029D9813D003B41BF /* Info */,
 				ACEE77CC2815EC0200340A88 /* Map */,
 				AC0C97A82BD0026A00E6795E /* Paywall */,
@@ -172,15 +172,15 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
-		ACCFBE45281602E500319CCB /* FountainDetail */ = {
+		ACCFBE45281602E500319CCB /* AmenityDetail */ = {
 			isa = PBXGroup;
 			children = (
 				ACCE471329D732C2008167D6 /* Views */,
-				AC4B038829D72B83008946C9 /* FountainDetailCoordinator.swift */,
-				ACCFBE462816030900319CCB /* FountainDetailScreen.swift */,
-				AC4B038629D72AA3008946C9 /* FountainDetailViewModel.swift */,
+				AC4B038829D72B83008946C9 /* AmenityDetailCoordinator.swift */,
+				ACCFBE462816030900319CCB /* AmenityDetailScreen.swift */,
+				AC4B038629D72AA3008946C9 /* AmenityDetailViewModel.swift */,
 			);
-			path = FountainDetail;
+			path = AmenityDetail;
 			sourceTree = "<group>";
 		};
 		ACE2908C2815D0F6002B0BD8 = {
@@ -337,7 +337,7 @@
 				ACCF53C92815D58400D62A53 /* MapScreen.swift in Sources */,
 				AC0C97AA2BD0027B00E6795E /* PaywallScreen.swift in Sources */,
 				AC0C97AC2BD0033B00E6795E /* PurchaseManagerModifier.swift in Sources */,
-				ACCFBE472816030900319CCB /* FountainDetailScreen.swift in Sources */,
+				ACCFBE472816030900319CCB /* AmenityDetailScreen.swift in Sources */,
 				AC4FF8C429D98186003B41BF /* AppInfoScreen.swift in Sources */,
 				ACCE471529D73335008167D6 /* FountainPropertyRow.swift in Sources */,
 				ACE2909B2815D0F6002B0BD8 /* ContentView.swift in Sources */,
@@ -348,14 +348,14 @@
 				ACCF53CB2815D5D800D62A53 /* MapViewModel.swift in Sources */,
 				AC33C29329DC7B9500102883 /* UIWindow+Extensions.swift in Sources */,
 				AC33C29129DC7B2200102883 /* DeviceShakeViewModifier.swift in Sources */,
-				AC4B038929D72B83008946C9 /* FountainDetailCoordinator.swift in Sources */,
+				AC4B038929D72B83008946C9 /* AmenityDetailCoordinator.swift in Sources */,
 				AC45685C29DD7C58009CAD02 /* AdView.swift in Sources */,
 				AC2D614C2AFA4B4600594061 /* NeedsLocationBannerView.swift in Sources */,
 				ACF96E1429E58A4100F71F20 /* ContentRow.swift in Sources */,
 				AC4FF8CB29D9887B003B41BF /* CloseButton.swift in Sources */,
 				AC4FF8C829D984B2003B41BF /* AppInfoLabel.swift in Sources */,
 				ACF53A9C2A32281300D8BC78 /* AppDelegate.swift in Sources */,
-				AC4B038729D72AA3008946C9 /* FountainDetailViewModel.swift in Sources */,
+				AC4B038729D72AA3008946C9 /* AmenityDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
