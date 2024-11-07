@@ -8,23 +8,29 @@ struct MapAmenityMarker: View {
     let onTap: () -> Void
 
     var body: some View {
-        image
-            .background(Color.white)
-            .clipShape(Circle())
-            .shadow(color: .black.opacity(0.5), radius: 2, y: 2)
-            .onTapGesture(perform: onTap)
-    }
-
-    private var image: Image {
-        switch amenity {
-        case is Amenity.Fountain: Image(.marker)
-        case is Amenity.Restroom: Image(.markerRestroom)
-        default:
-            {
-                print("unknown amenity \(amenity.self)")
-                return Image(systemName: "questionmark")
-            }()
+        Group {
+            switch amenity {
+            case is Amenity.Fountain:
+                Image(.marker)
+                    .background(Color.white)
+                    .clipShape(Circle())
+            case is Amenity.Restroom:
+                Text(verbatim: "WC")
+                    .minimumScaleFactor(0.5)
+                    .foregroundStyle(Color.white)
+                    .padding(2)
+                    .frame(width: 25, height: 25, alignment: .center)
+                    .background(Color(.markerRestroom))
+                    .clipShape(Circle())
+                    .padding(1.5)
+                    .background(Color.white)
+                    .clipShape(Circle())
+            default:
+                EmptyView()
+            }
         }
+        .shadow(radius: 2, y: 2)
+        .onTapGesture(perform: onTap)
     }
 }
 
