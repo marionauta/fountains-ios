@@ -379,18 +379,66 @@
         }
       }
     },
-    "fountain_detail_bottle_description" : {
+    "fee_value_donation_title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A water bottle can easily be filled."
+            "value" : "Donation"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Una botella de agua se puede llenar fácilmente."
+            "value" : "Donativo"
+          }
+        }
+      }
+    },
+    "fee_value_no_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No fee"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sin tarifa"
+          }
+        }
+      }
+    },
+    "fee_value_unknown_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " "
+          }
+        }
+      }
+    },
+    "fee_value_yes_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fee"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tarifa"
           }
         }
       }
@@ -407,22 +455,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Rellenado de botellas"
-          }
-        }
-      }
-    },
-    "fountain_detail_changing_table_description" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Provides a surface for changing the nappy (diaper) of an infant or young child."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Proporciona una superficie para cambiar el pañal de un bebé o un niño pequeño."
           }
         }
       }
@@ -492,6 +524,22 @@
         }
       }
     },
+    "fountain_detail_handwashing_title" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Handwashing"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lavabo"
+          }
+        }
+      }
+    },
     "fountain_detail_something_wrong_button" : {
       "localizations" : {
         "en" : {
@@ -508,34 +556,18 @@
         }
       }
     },
-    "fountain_detail_wheelchair_description" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The fountain can be used with wheelchairs."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La fuente se puede acceder con silla de ruedas."
-          }
-        }
-      }
-    },
     "fountain_detail_wheelchair_title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wheelchair access"
+            "value" : "Wheelchair accessible"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Acceso con silla de ruedas"
+            "value" : "Accesible"
           }
         }
       }

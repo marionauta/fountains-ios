@@ -52,28 +52,42 @@ struct AmenityDetailView: View {
 
                 AdView(adUnit: Secrets.admobDetailAdUnitId)
 
-                FountainPropertyRow(
-                    name: "fountain_detail_wheelchair_title",
-                    description: "fountain_detail_wheelchair_description",
-                    value: viewModel.amenity.properties.wheelchair.title
-                )
+                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
+                    AmenityPropertyCell(
+                        title: viewModel.amenity.properties.fee.title,
+                        image: Image(systemName: "dollarsign.circle"),
+                        value: viewModel.amenity.properties.fee
+                    )
 
-                switch viewModel.amenity {
-                case let fountain as Amenity.Fountain:
-                    FountainPropertyRow(
-                        name: "fountain_detail_bottle_title",
-                        description: "fountain_detail_bottle_description",
-                        value: fountain.properties.bottle.title
+                    switch viewModel.amenity {
+                    case let fountain as Amenity.Fountain:
+                        AmenityPropertyCell(
+                            title: "fountain_detail_bottle_title",
+                            image: Image(systemName: "waterbottle"),
+                            value: fountain.properties.bottle
+                        )
+                    case let restroom as Amenity.Restroom:
+                        AmenityPropertyCell(
+                            title: "fountain_detail_handwashing_title",
+                            image: Image(systemName: "sink"),
+                            value: restroom.properties.handwashing
+                        )
+                        AmenityPropertyCell(
+                            title: "fountain_detail_changing_table_title",
+                            image: Image(systemName: "figure.and.child.holdinghands"),
+                            value: restroom.properties.changingTable
+                        )
+                    default:
+                        EmptyView()
+                    }
+                    AmenityPropertyCell(
+                        title: "fountain_detail_wheelchair_title",
+                        image: Image(systemName: "figure.roll"),
+                        value: viewModel.amenity.properties.wheelchair
                     )
-                case let restroom as Amenity.Restroom:
-                    FountainPropertyRow(
-                        name: "fountain_detail_changing_table_title",
-                        description: "fountain_detail_changing_table_description",
-                        value: restroom.properties.changingTable.title
-                    )
-                default:
-                    EmptyView()
                 }
+                .padding(.top, 8)
+                .padding(.horizontal, 8)
 
                 if let checkDate = viewModel.amenity.properties.checkDate {
                     FountainPropertyRow(
@@ -109,6 +123,18 @@ private extension Amenity.WheelchairValue {
         case .limited: "property_value_limited"
         case .yes: "property_value_yes"
         default: "property_value_unknown"
+        }
+    }
+}
+
+private extension Amenity.FeeValue {
+    var title: LocalizedStringKey {
+        switch self {
+        case is Unknown: "fee_value_unknown_title"
+        case is No: "fee_value_no_title"
+        case is Donation: "fee_value_donation_title"
+        case is Yes: "fee_value_yes_title"
+        default: "fee_value_unknown_title"
         }
     }
 }
