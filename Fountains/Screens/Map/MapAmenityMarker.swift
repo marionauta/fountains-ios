@@ -31,6 +31,22 @@ struct MapAmenityMarker: View {
         }
         .shadow(radius: 2, y: 2)
         .onTapGesture(perform: onTap)
+        .overlay(alignment: .topTrailing) {
+            if amenity.properties.fee is Amenity.FeeValue.Yes {
+                Image(systemName: "dollarsign")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .foregroundStyle(Color.white)
+                    .frame(width: 10, height: 10)
+                    .padding(1)
+                    .background(.accent)
+                    .clipShape(Circle())
+                    .padding(1)
+                    .background(Color.white)
+                    .clipShape(Circle())
+                    .offset(x: 4, y: -4)
+            }
+        }
     }
 }
 
