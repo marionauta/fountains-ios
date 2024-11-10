@@ -19,9 +19,8 @@ struct AmenityDetailScreen: View {
         }
     }
 
-    private var title: LocalizedStringKey {
-        viewModel.amenity.name.nilIfEmpty.map(LocalizedStringKey.init(stringLiteral:))
-            ?? "fountain_detail_fallback_title"
+    private var title: String {
+        viewModel.amenity.name
     }
 
     @ToolbarContentBuilder
@@ -53,49 +52,77 @@ struct AmenityDetailView: View {
                 AdView(adUnit: Secrets.admobDetailAdUnitId)
 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
-                    AmenityPropertyCell(
-                        title: viewModel.amenity.properties.fee.title,
-                        image: Image(systemName: "dollarsign.circle"),
-                        value: viewModel.amenity.properties.fee
-                    )
+                    if !(viewModel.amenity.properties.fee is Amenity.FeeValue.Unknown) {
+                        AmenityPropertyCell {
+                            viewModel.amenity.properties.fee.title
+                        } subtitle: {
+                            (viewModel.amenity.properties.fee as? Amenity.FeeValue.Yes)?.amount
+                        } image: {
+                            Image(systemName: "dollarsign.circle")
+                        } badge: {
+                            switch viewModel.amenity.properties.fee {
+                            case is Amenity.FeeValue.Yes, is Amenity.FeeValue.Donation:
+                                AmenityPropertyBadge(variant: .limited)
+                            case is Amenity.FeeValue.Unknown:
+                                AmenityPropertyBadge(variant: .unknown)
+                            default:
+                                nil
+                            }
+                        }
+                    }
 
                     switch viewModel.amenity {
                     case let fountain as Amenity.Fountain:
-                        AmenityPropertyCell(
-                            title: "fountain_detail_bottle_title",
-                            image: Image(systemName: "waterbottle"),
-                            value: fountain.properties.bottle
-                        )
+                        AmenityPropertyCell {
+                            "fountain_detail_bottle_title"
+                        } subtitle: {
+                            nil
+                        } image: {
+                            Image(systemName: "waterbottle")
+                        } badge: {
+                            AmenityPropertyBadge(variant: fountain.properties.bottle)
+                        }
+
                     case let restroom as Amenity.Restroom:
-                        AmenityPropertyCell(
-                            title: "fountain_detail_handwashing_title",
-                            image: Image(systemName: "sink"),
-                            value: restroom.properties.handwashing
-                        )
-                        AmenityPropertyCell(
-                            title: "fountain_detail_changing_table_title",
-                            image: Image(systemName: "figure.and.child.holdinghands"),
-                            value: restroom.properties.changingTable
-                        )
+                        AmenityPropertyCell {
+                            "fountain_detail_handwashing_title"
+                        } image: {
+                            Image(systemName: "sink")
+                        } badge: {
+                            AmenityPropertyBadge(variant: restroom.properties.handwashing)
+                        }
+
+                        AmenityPropertyCell {
+                            "fountain_detail_changing_table_title"
+                        } image: {
+                            Image(systemName: "figure.and.child.holdinghands")
+                        } badge: {
+                            AmenityPropertyBadge(variant: restroom.properties.changingTable)
+                        }
                     default:
                         EmptyView()
                     }
-                    AmenityPropertyCell(
-                        title: "fountain_detail_wheelchair_title",
-                        image: Image(systemName: "figure.roll"),
-                        value: viewModel.amenity.properties.wheelchair
-                    )
+
+                    AmenityPropertyCell {
+                        "fountain_detail_wheelchair_title"
+                    } image: {
+                        Image(systemName: "figure.roll")
+                    } badge: {
+                        AmenityPropertyBadge(variant: viewModel.amenity.properties.wheelchair)
+                    }
+
+                    if let checkDate = viewModel.amenity.properties.checkDate {
+                        AmenityPropertyCell {
+                            "fountain_detail_check_date_title"
+                        } subtitle: {
+                            checkDate.formatted(date: .abbreviated, time: .omitted)
+                        } image: {
+                            Image(systemName: "calendar")
+                        }
+                    }
                 }
                 .padding(.top, 8)
                 .padding(.horizontal, 8)
-
-                if let checkDate = viewModel.amenity.properties.checkDate {
-                    FountainPropertyRow(
-                        name: "fountain_detail_check_date_title",
-                        description: "fountain_detail_check_date_description",
-                        value: checkDate.formatted(date: .long, time: .omitted)
-                    )
-                }
 
                 Link("fountain_detail_something_wrong_button", destination: viewModel.somethingWrongUrl)
                     .padding(16)

@@ -384,13 +384,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Donation"
+            "value" : "Accepts donation"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Donativo"
+            "value" : "Acepta donativo"
           }
         }
       }
@@ -400,13 +400,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "No fee"
+            "value" : "Free"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sin tarifa"
+            "value" : "Gratis"
           }
         }
       }
@@ -416,13 +416,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " "
+            "value" : "Fee unknown"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " "
+            "value" : "Tarifa desconocida"
           }
         }
       }
@@ -432,13 +432,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fee"
+            "value" : "Requires payment"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tarifa"
+            "value" : "Requiere pago"
           }
         }
       }
@@ -475,22 +475,6 @@
         }
       }
     },
-    "fountain_detail_check_date_description" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The last time someone checked this water fountain."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La  última vez que alguien comprobó esta fuente."
-          }
-        }
-      }
-    },
     "fountain_detail_check_date_title" : {
       "localizations" : {
         "en" : {
@@ -507,29 +491,12 @@
         }
       }
     },
-    "fountain_detail_fallback_title" : {
-      "comment" : "Fountain Detail",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fountain"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fuente"
-          }
-        }
-      }
-    },
     "fountain_detail_handwashing_title" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Handwashing"
+            "value" : "Hand washing"
           }
         },
         "es" : {
