@@ -19,8 +19,15 @@ struct AmenityDetailScreen: View {
         }
     }
 
-    private var title: String {
-        viewModel.amenity.name
+    private var title: LocalizedStringKey {
+        if let name = viewModel.amenity.name.nilIfEmpty {
+            return LocalizedStringKey(name)
+        }
+        return switch viewModel.amenity {
+        case is Amenity.Fountain: "amenity_detail_fountain_title"
+        case is Amenity.Restroom: "amenity_detail_restroom_title"
+        default: fatalError("Unknown amenity \(String(describing: viewModel.amenity))")
+        }
     }
 
     @ToolbarContentBuilder
@@ -55,22 +62,20 @@ struct AmenityDetailView: View {
                     .padding(.top, 8)
 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
-                    if !(viewModel.amenity.properties.fee is Amenity.FeeValue.Unknown) {
-                        AmenityPropertyCell {
-                            viewModel.amenity.properties.fee.title
-                        } subtitle: {
-                            (viewModel.amenity.properties.fee as? Amenity.FeeValue.Yes)?.amount
-                        } image: {
-                            Image(systemName: "dollarsign.circle")
-                        } badge: {
-                            switch viewModel.amenity.properties.fee {
-                            case is Amenity.FeeValue.Yes, is Amenity.FeeValue.Donation:
-                                AmenityPropertyBadge(variant: .limited)
-                            case is Amenity.FeeValue.Unknown:
-                                AmenityPropertyBadge(variant: .unknown)
-                            default:
-                                nil
-                            }
+                    AmenityPropertyCell {
+                        viewModel.amenity.properties.fee.title
+                    } subtitle: {
+                        (viewModel.amenity.properties.fee as? Amenity.FeeValue.Yes)?.amount
+                    } image: {
+                        Image(systemName: "dollarsign.circle")
+                    } badge: {
+                        switch viewModel.amenity.properties.fee {
+                        case is Amenity.FeeValue.Yes, is Amenity.FeeValue.Donation:
+                            AmenityPropertyBadge(variant: .limited)
+                        case is Amenity.FeeValue.Unknown:
+                            AmenityPropertyBadge(variant: .unknown)
+                        default:
+                            nil
                         }
                     }
 
