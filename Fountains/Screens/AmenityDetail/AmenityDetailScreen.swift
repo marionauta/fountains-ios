@@ -47,9 +47,12 @@ struct AmenityDetailView: View {
                     }
                     .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
                     .clipped()
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .padding(.horizontal, 8)
                 }
 
                 AdView(adUnit: Secrets.admobDetailAdUnitId)
+                    .padding(.top, 8)
 
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
                     if !(viewModel.amenity.properties.fee is Amenity.FeeValue.Unknown) {
