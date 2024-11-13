@@ -132,8 +132,20 @@ struct AmenityDetailView: View {
                 .padding(.top, 8)
                 .padding(.horizontal, 8)
 
-                Link("fountain_detail_something_wrong_button", destination: viewModel.somethingWrongUrl)
-                    .padding(16)
+                Text("amenity_detail_feedback_title")
+                    .font(.subheadline)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding(.top, 16)
+
+                HStack(alignment: .center, spacing: 8) {
+                    FeedbackButton(variant: .good, isSelected: false) {
+                        viewModel.sendReport(state: .good)
+                    }
+                    FeedbackButton(variant: .bad, isSelected: false) {
+                        viewModel.sendReport(state: .bad)
+                    }
+                }
+                .padding(8)
             }
         }
     }

@@ -1,4 +1,5 @@
 import DomainLayer
+import OpenLocationsShared
 import Perception
 import SwiftUI
 
@@ -8,10 +9,7 @@ final class AmenityDetailViewModel {
 
     public let amenity: Amenity
     public var fountainImageUrl: URL?
-    public var somethingWrongUrl: URL {
-        let baseUrl = KnownUris.help(slug: "corregir").absoluteString
-        return URL(string: "\(baseUrl)&lat=\(amenity.location.latitude)&lng=\(amenity.location.longitude)")!
-    }
+    public var sheet: AmenityDetailCoordinator.Route?
 
     public init(amenity: Amenity) {
         self.amenity = amenity
@@ -21,5 +19,10 @@ final class AmenityDetailViewModel {
     public func loadAmenityImage() async {
         guard let mapillaryId = amenity.properties.mapillaryId else { return }
         fountainImageUrl = await mapillaryUseCase.execute(mapillaryId: mapillaryId)
+    }
+
+    @MainActor
+    public func sendReport(state: FeedbackState) {
+        sheet = .feedback(osmId: amenity.id, state: state)
     }
 }

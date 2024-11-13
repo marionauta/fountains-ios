@@ -1,4 +1,6 @@
 import DomainLayer
+import OpenLocationsShared
+import Perception
 import SwiftUI
 
 struct AmenityDetailCoordinator: View {
@@ -9,9 +11,37 @@ struct AmenityDetailCoordinator: View {
     }
 
     var body: some View {
-        NavigationView {
-            AmenityDetailScreen()
-                .environment(viewModel)
+        WithPerceptionTracking {
+            NavigationView {
+                AmenityDetailScreen()
+                    .environment(viewModel)
+            }
+            .sheet(item: $viewModel.sheet) { route in
+                switch route {
+                case let .feedback(osmId, state):
+                    NavigationView {
+                        FeedbackScreen(osmId: osmId, state: state)
+                    }
+                    .modifier(HalfSheetModifier())
+                }
+            }
+        }
+    }
+}
+
+extension AmenityDetailCoordinator {
+    enum Route: Hashable, Identifiable {
+        case feedback(osmId: String, state: FeedbackState)
+        var id: Int { hashValue }
+    }
+}
+
+struct HalfSheetModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 16.0, *) {
+            content.presentationDetents([.medium])
+        } else {
+            content
         }
     }
 }
