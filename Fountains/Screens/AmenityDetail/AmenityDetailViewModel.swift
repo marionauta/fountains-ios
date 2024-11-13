@@ -5,7 +5,7 @@ import SwiftUI
 
 @Perceptible
 final class AmenityDetailViewModel {
-    private let mapillaryUseCase = GetMapillaryUrlUseCase()
+    private let mapillaryUseCase = GetMapillaryUrlUseCase(mapillaryToken: Secrets.mapillaryToken)
 
     public let amenity: Amenity
     public var fountainImageUrl: URL?
@@ -18,7 +18,7 @@ final class AmenityDetailViewModel {
     @MainActor
     public func loadAmenityImage() async {
         guard let mapillaryId = amenity.properties.mapillaryId else { return }
-        fountainImageUrl = await mapillaryUseCase.execute(mapillaryId: mapillaryId)
+        fountainImageUrl = try? await mapillaryUseCase(mapillaryId: mapillaryId)
     }
 
     @MainActor
