@@ -15,12 +15,14 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/marionauta/HelperKit", exact: "0.9.0"),
+        .package(url: "https://github.com/kishikawakatsumi/KeychainAccess", exact: "4.2.2"),
     ],
     targets: [
         .target(
             name: "DomainLayer",
             dependencies: [
                 .byName(name: "HelperKit"),
+                .byName(name: "KeychainAccess"),
                 .byName(name: "OpenLocationsShared"),
             ]),
         .binaryTarget(

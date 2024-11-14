@@ -1,10 +1,11 @@
 import OpenLocationsShared
+import DomainLayer
 import Perception
 import SwiftUI
 
 @Perceptible
 final class FeedbackViewModel {
-    private let sendFeedbackUseCase = SendFeedbackUseCase()
+    private let sendFeedbackUseCase = SendFeedbackUseCase(storage: .shared)
 
     private let osmId: String
     public var state: FeedbackState
