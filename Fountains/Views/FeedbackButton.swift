@@ -2,9 +2,7 @@ import OpenLocationsShared
 import SwiftUI
 
 struct FeedbackButton: View {
-    typealias Variant = FeedbackState
-
-    let variant: Variant
+    let variant: FeedbackState
     let isSelected: Bool
     let action: () -> Void
 
@@ -14,14 +12,18 @@ struct FeedbackButton: View {
                 Text(title)
             } icon: {
                 image
-                    .foregroundStyle(isSelected ? Color.white : Color.accentColor)
             }
             .labelStyle(.iconOnly)
             .font(.largeTitle)
             .frame(height: 100, alignment: .center)
             .frame(maxWidth: .infinity, alignment: .center)
-            .background(isSelected ? Color.accentColor : Color(.secondarySystemBackground))
+            .background(Color(.secondarySystemBackground))
             .clipShape(RoundedRectangle(cornerRadius: 8))
+            .overlay {
+                if isSelected {
+                    RoundedRectangle(cornerRadius: 8).stroke(Color.accentColor, lineWidth: 4)
+                }
+            }
         }
     }
 
