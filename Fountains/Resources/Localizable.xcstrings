@@ -33,6 +33,54 @@
         }
       }
     },
+    "amenity_detail_open_in_apple_maps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple Maps"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apple Maps"
+          }
+        }
+      }
+    },
+    "amenity_detail_open_in_google_maps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google Maps"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google Maps"
+          }
+        }
+      }
+    },
+    "amenity_detail_open_in_maps" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open in Maps"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir en Maps"
+          }
+        }
+      }
+    },
     "amenity_detail_restroom_title" : {
       "localizations" : {
         "en" : {
@@ -528,7 +576,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Leave a comment explaining your feedback"
+            "value" : "Leave a comment explaining your feedback."
           }
         },
         "es" : {

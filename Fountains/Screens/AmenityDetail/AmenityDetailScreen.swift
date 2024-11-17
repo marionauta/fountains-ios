@@ -5,6 +5,7 @@ import SwiftUI
 
 struct AmenityDetailScreen: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
     @Environment(AmenityDetailViewModel.self) private var viewModel
 
     var body: some View {
@@ -35,6 +36,20 @@ struct AmenityDetailScreen: View {
         ToolbarItem(placement: .cancellationAction) {
             CloseButton(dismiss: dismiss)
         }
+        ToolbarItem(placement: .topBarTrailing) {
+            Menu("amenity_detail_open_in_maps", systemImage: "map") {
+                if let apple = viewModel.appleMapsUrl {
+                    Button("amenity_detail_open_in_apple_maps") {
+                        openURL(apple)
+                    }
+                }
+                if let google = viewModel.googleMapsUrl {
+                    Button("amenity_detail_open_in_google_maps") {
+                        openURL(google)
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -44,7 +59,7 @@ struct AmenityDetailView: View {
     var body: some View {
         WithPerceptionTracking {
             LazyVStack(spacing: 0) {
-                if let imageUrl = viewModel.fountainImageUrl {
+                if let imageUrl = viewModel.amenityImageUrl {
                     AsyncImage(url: imageUrl) { image in
                         image
                             .resizable()
