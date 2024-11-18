@@ -5,7 +5,7 @@ import SwiftUI
 
 struct AmenityDetailScreen: View {
     @Environment(\.dismiss) private var dismiss
-    @Environment(\.openURL) private var openURL
+    @Environment(\.openURL) private var openURL: OpenURLAction
     @Environment(AmenityDetailViewModel.self) private var viewModel
 
     var body: some View {
@@ -54,6 +54,7 @@ struct AmenityDetailScreen: View {
 }
 
 struct AmenityDetailView: View {
+    @Environment(\.openURL) private var openURL: OpenURLAction
     @Environment(AmenityDetailViewModel.self) private var viewModel
 
     var body: some View {
@@ -161,6 +162,11 @@ struct AmenityDetailView: View {
                     }
                 }
                 .padding(8)
+
+                Button("amenity_detail_how_to_fix_button") {
+                    guard let url = viewModel.gixGuideUrl() else { return }
+                    openURL(url)
+                }
             }
         }
     }

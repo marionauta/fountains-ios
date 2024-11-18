@@ -38,4 +38,13 @@ final class AmenityDetailViewModel {
     public func sendReport(state: FeedbackState) {
         sheet = .feedback(osmId: amenity.id, state: state)
     }
+
+    public func gixGuideUrl() -> URL? {
+        var components = URLComponents(url: KnownUris.fixGuide, resolvingAgainstBaseURL: false)
+        components?.queryItems!.append(contentsOf: [
+            URLQueryItem(name: "lat", value: "\(amenity.location.latitude)"),
+            URLQueryItem(name: "lng", value: "\(amenity.location.longitude)"),
+        ])
+        return components?.url
+    }
 }

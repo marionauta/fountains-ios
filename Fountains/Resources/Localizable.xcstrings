@@ -33,6 +33,22 @@
         }
       }
     },
+    "amenity_detail_how_to_fix_button" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Want to fix this?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Quieres arreglar esto?"
+          }
+        }
+      }
+    },
     "amenity_detail_open_in_apple_maps" : {
       "localizations" : {
         "en" : {
