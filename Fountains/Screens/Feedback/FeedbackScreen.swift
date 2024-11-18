@@ -27,6 +27,12 @@ struct FeedbackScreen: View {
                 .disabled(viewModel.isSending)
         }
 
+        ToolbarItem(placement: .topBarTrailing) {
+            if viewModel.isSending {
+                ProgressView()
+            }
+        }
+
         ToolbarItem(placement: .confirmationAction) {
             WithPerceptionTracking {
                 Button("feedback_screen_send") {

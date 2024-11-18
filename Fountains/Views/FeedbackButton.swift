@@ -20,9 +20,11 @@ struct FeedbackButton: View {
             .background(Color(.secondarySystemBackground))
             .clipShape(RoundedRectangle(cornerRadius: 8))
             .overlay {
-                if isSelected {
-                    RoundedRectangle(cornerRadius: 8).stroke(Color.accentColor, lineWidth: 4)
-                }
+                RoundedRectangle(cornerRadius: 8)
+                    .stroke(
+                        isSelected ? Color.accentColor : .clear,
+                        lineWidth: isSelected ? 4 : 0
+                    )
             }
         }
     }
