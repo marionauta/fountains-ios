@@ -21,6 +21,7 @@ struct PaywallScreen: View {
                         .onInAppPurchaseCompletion { _, result in
                             switch result {
                             case .success(.success(.verified)):
+                                try? await Task.sleep(for: .milliseconds(500))
                                 await purchaseManager.updatePurchasedProducts()
                                 dismiss()
                             default:
