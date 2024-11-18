@@ -33,11 +33,10 @@ struct MapAmenityMarker: View {
         .onTapGesture(perform: onTap)
         .overlay(alignment: .topTrailing) {
             if amenity.properties.fee is Amenity.FeeValue.Yes {
-                Image(systemName: "dollarsign")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                Text(verbatim: "$")
+                    .font(.system(size: 10))
                     .foregroundStyle(Color.white)
-                    .frame(width: 10, height: 10)
+                    .frame(width: 10, height: 10, alignment: .center)
                     .padding(1)
                     .background(.accent)
                     .clipShape(Circle())
