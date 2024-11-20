@@ -86,3 +86,15 @@ extension Amenity.WheelchairValue: IntoVariant {
         }
     }
 }
+
+extension Amenity.AccessValue: IntoVariant {
+    func intoVariant() -> AmenityPropertyBadge.Variant {
+        switch self {
+        case .no, .private_: .negative
+        case .customers, .permissive: .limited
+        case .yes: .positive
+        case .unknown: .unknown
+        default: .unknown
+        }
+    }
+}

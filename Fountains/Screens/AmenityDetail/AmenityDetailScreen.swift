@@ -81,7 +81,9 @@ struct AmenityDetailView: View {
                     AmenityPropertyCell {
                         viewModel.amenity.properties.fee.title
                     } subtitle: {
-                        (viewModel.amenity.properties.fee as? Amenity.FeeValue.Yes)?.amount
+                        if let subtitle = (viewModel.amenity.properties.fee as? Amenity.FeeValue.Yes)?.amount {
+                            Text(subtitle)
+                        }
                     } image: {
                         Image(systemName: "dollarsign.circle")
                     } badge: {
@@ -95,12 +97,27 @@ struct AmenityDetailView: View {
                         }
                     }
 
+                    if viewModel.amenity.properties.access != .yes {
+                        AmenityPropertyCell {
+                            "amenity_detail_access_title"
+                        } subtitle: {
+                            let subtitle: LocalizedStringKey = switch viewModel.amenity.properties.access {
+                            case .customers: "access_value_customers_title"
+                            case .permissive: "access_value_permissive_title"
+                            default: "property_value_unknown"
+                            }
+                            Text(subtitle)
+                        } image: {
+                            Image(systemName: "figure.walk")
+                        } badge: {
+                            AmenityPropertyBadge(variant: viewModel.amenity.properties.access)
+                        }
+                    }
+
                     switch viewModel.amenity {
                     case let fountain as Amenity.Fountain:
                         AmenityPropertyCell {
                             "fountain_detail_bottle_title"
-                        } subtitle: {
-                            nil
                         } image: {
                             Image(systemName: "waterbottle")
                         } badge: {
@@ -139,7 +156,7 @@ struct AmenityDetailView: View {
                         AmenityPropertyCell {
                             "fountain_detail_check_date_title"
                         } subtitle: {
-                            checkDate.formatted(date: .abbreviated, time: .omitted)
+                            Text(checkDate.formatted(date: .abbreviated, time: .omitted))
                         } image: {
                             Image(systemName: "calendar")
                         }

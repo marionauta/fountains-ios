@@ -2,13 +2,13 @@ import SwiftUI
 
 struct AmenityPropertyCell: View {
     let title: LocalizedStringKey
-    let subtitle: String?
+    let subtitle: Text?
     let image: Image
     let badge: AmenityPropertyBadge?
 
     init(
         title: () -> LocalizedStringKey,
-        subtitle: () -> String? = { nil },
+        @ViewBuilder subtitle: () -> Text? = { nil },
         image: () -> Image,
         badge: () -> AmenityPropertyBadge? = { nil }
     ) {
@@ -35,7 +35,7 @@ struct AmenityPropertyCell: View {
                 .multilineTextAlignment(.center)
 
             if let subtitle {
-                Text(subtitle)
+                subtitle
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)

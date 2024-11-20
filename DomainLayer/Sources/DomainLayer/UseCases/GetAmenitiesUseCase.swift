@@ -7,7 +7,7 @@ public struct GetAmenitiesUseCase {
         case tooFarAway
     }
 
-    private let repository = FountainRepository()
+    private let repository = AmenityRepository()
     private let maxDistance: Double
 
     public init(maxDistance: Double) {
