@@ -1,12 +1,11 @@
 import CoreLocation
 import Foundation
 
-public struct GetLocationNameUseCase {
-    private let geocoder = CLGeocoder()
-
+public struct GetLocationNameUseCase: Sendable {
     public init() {}
 
     public func callAsFunction(_ location: CLLocation) async -> String? {
+        let geocoder = CLGeocoder()
         let placemarks = try? await geocoder.reverseGeocodeLocation(location)
         return placemarks?.first?.locality
     }

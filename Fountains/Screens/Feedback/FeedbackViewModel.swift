@@ -1,12 +1,10 @@
-import OpenLocationsShared
+@preconcurrency import OpenLocationsShared
 import DomainLayer
 import Perception
 import SwiftUI
 
 @Perceptible
 final class FeedbackViewModel {
-    private let sendFeedbackUseCase = SendFeedbackUseCase(storage: .shared)
-
     private let osmId: String
     public var state: FeedbackState
     public var comment: String = ""
@@ -17,9 +15,11 @@ final class FeedbackViewModel {
         self.state = state
     }
 
+    @MainActor
     func sendReport() async {
         isSending = true
         do {
+            let sendFeedbackUseCase = SendFeedbackUseCase(storage: .shared)
             try await sendFeedbackUseCase(osmId: osmId, state: state, comment: comment)
         } catch {
             print(error.localizedDescription)

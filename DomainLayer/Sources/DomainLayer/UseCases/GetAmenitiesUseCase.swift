@@ -21,6 +21,8 @@ public struct GetAmenitiesUseCase {
     }
 }
 
+extension AmenitiesResponse: @unchecked @retroactive Sendable {}
+
 private extension MKMapPoint {
     func intoDomain() -> Location {
         Location(latitude: coordinate.latitude, longitude: coordinate.longitude)

@@ -3,6 +3,8 @@ import OpenLocationsShared
 import Perception
 import SwiftUI
 
+extension GetMapillaryUrlUseCase: @unchecked @retroactive Sendable {}
+
 @Perceptible
 final class AmenityDetailViewModel {
     private let mapillaryUseCase = GetMapillaryUrlUseCase(mapillaryToken: Secrets.mapillaryToken)

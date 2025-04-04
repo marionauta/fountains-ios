@@ -8,7 +8,7 @@ import SwiftUI
 final class MapViewModel: NSObject, ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     private let getLocationNameUseCase = GetLocationNameUseCase()
-    private let feedbackGenerator = UISelectionFeedbackGenerator()
+    @MainActor private let feedbackGenerator = UISelectionFeedbackGenerator()
     private let locationManager = CLLocationManager()
 
     @AppStorage(AppInfoScreen.Constants.mapDistanceKey) private var maxMapDistance: Double = 15_000
@@ -69,7 +69,6 @@ final class MapViewModel: NSObject, ObservableObject {
         centerOnUserLocation()
     }
 
-    @MainActor
     private func centerOnUserLocation() {
         trackingMode = .follow
         if min(mapRect.size.width, mapRect.size.height) > 2_000 {
@@ -77,6 +76,7 @@ final class MapViewModel: NSObject, ObservableObject {
         }
     }
 
+    @MainActor
     public func openDetail(for amenity: Amenity) {
         feedbackGenerator.selectionChanged()
         route = .amenity(amenity)
@@ -89,6 +89,7 @@ final class MapViewModel: NSObject, ObservableObject {
         }
     }
 
+    @MainActor
     private func setupBindings() {
         cancellables = []
         $mapRect
@@ -135,9 +136,7 @@ extension MapViewModel: CLLocationManagerDelegate {
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         guard [.authorizedAlways, .authorizedWhenInUse].contains(manager.authorizationStatus) else { return }
-        Task {
-            await centerOnUserLocation()
-        }
+        centerOnUserLocation()
     }
 }
 

@@ -87,9 +87,10 @@ enum ProductId: String, CaseIterable, Identifiable {
         case .premium1: true
         }
     }
-    static var removeAds: Set<Self> = Set(allCases.filter(\.removesAds))
+    static let removeAds: Set<Self> = Set(allCases.filter(\.removesAds))
 }
 
+@MainActor
 @Perceptible
 final class PurchaseManager {
     public private(set) var availableProductIds: Set<ProductId> = []
@@ -99,7 +100,6 @@ final class PurchaseManager {
         !availableProductIds.contains(where: \.removesAds) || purchasedProductIds.hasRemovedAds
     }
 
-    @MainActor
     public func retrieveProducts() async {
         guard let products = try? await Product.products(for: ProductId.allCases.map(\.rawValue)) else { return }
         availableProductIds = Set(products.compactMap { ProductId(rawValue: $0.id) })
