@@ -46,29 +46,11 @@
       }
     },
     {
-      "identity" : "swift-algorithms",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-algorithms.git",
-      "state" : {
-        "revision" : "f6919dfc309e7f1b56224378b11e28bab5bccc42",
-        "version" : "1.2.0"
-      }
-    },
-    {
       "identity" : "swift-map-cluster",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marionauta/swift-map-cluster",
       "state" : {
         "revision" : "6514b9f214fb31019af1bd5c284cfdd5e034a848"
-      }
-    },
-    {
-      "identity" : "swift-numerics",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/apple/swift-numerics.git",
-      "state" : {
-        "revision" : "0a5bc04095a675662cf24757cc0640aa2204253b",
-        "version" : "1.0.2"
       }
     },
     {
