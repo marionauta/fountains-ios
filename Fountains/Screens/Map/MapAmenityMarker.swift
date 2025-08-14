@@ -3,6 +3,8 @@ import MapCluster
 import MapKit
 import SwiftUI
 
+// TODO: Improve "closed" markers
+
 struct MapAmenityMarker: View {
     let amenity: Amenity
     let onTap: () -> Void
@@ -29,6 +31,7 @@ struct MapAmenityMarker: View {
                 EmptyView()
             }
         }
+        .grayscale(amenity.properties.closed ? 1 : 0)
         .shadow(radius: 2, y: 2)
         .onTapGesture(perform: onTap)
         .overlay(alignment: .topTrailing) {
@@ -52,11 +55,13 @@ struct MapAmenityMarker: View {
 struct MapClusterMarker: View {
     let group: String?
     let count: Int
+    var allClosed: Bool
     let onTap: () -> Void
 
     var body: some View {
         DefaultClusterView(count: count)
             .tint(color)
+            .grayscale(allClosed ? 1 : 0)
             .onTapGesture(perform: onTap)
     }
 

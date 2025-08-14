@@ -3,6 +3,7 @@ import DomainLayer
 import HelperKit
 import Perception
 import SwiftUI
+import OpenLocationsShared
 
 struct AppInfoScreen: View {
     enum Constants {
@@ -62,11 +63,12 @@ struct AppInfoScreen: View {
     @ViewBuilder
     private var aboutSection: some View {
         Section("app_info_about_section") {
-            Link(destination: KnownUris.website) {
+            Link(destination: KnownUris.shared.website) {
+                // TODO: show website url
                 ContentRow(title: "app_info_website_title", description: "app_info_website_content")
             }
 
-            Link(destination: KnownUris.developer) {
+            Link(destination: KnownUris.shared.developer) {
                 ContentRow(title: "app_info_developer_title", description: "app_info_developer_content")
             }
 
@@ -100,7 +102,7 @@ struct AppInfoScreen: View {
     private var showcasedAppsSection: some View {
         ShowcasedAppsSection(
             "app_info_apps_showcase_title",
-            url: KnownUris.showcasedApps,
+            url: KnownUris.shared.showcasedApps,
             isLoading: $isLoadingShowcase
         )
     }

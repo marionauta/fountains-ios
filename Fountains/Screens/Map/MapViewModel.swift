@@ -3,7 +3,11 @@ import Foundation
 import DomainLayer
 import MapCluster
 import MapKit
+import OpenLocationsShared
 import SwiftUI
+
+extension AmenitiesResponse: @unchecked @retroactive Sendable {}
+extension GetAmenitiesUseCase: @unchecked @retroactive Sendable {}
 
 final class MapViewModel: NSObject, ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
@@ -23,6 +27,11 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published public var trackingMode: MapUserTrackingMode = .none
     @Published public var route: MapCoordinator.Route?
 
+    private let getAmenities = GetAmenitiesUseCase(
+        amenityRepository: .shared,
+        settingsRepository: FilterSettingsRepositoryImpl(),
+    )
+
     public var hideLocationBanner: Bool {
         return isLocationEnabled || locationManager.authorizationStatus == .notDetermined
     }
@@ -38,15 +47,20 @@ final class MapViewModel: NSObject, ObservableObject {
             return
         }
         isLoading = true
-        let getAmenitiesUseCase = GetAmenitiesUseCase(maxDistance: maxMapDistance)
-        switch await getAmenitiesUseCase(northEast: bounds.northEast, southWest: bounds.southWest) {
-        case .failure(.tooFarAway):
+        guard bounds.northEast.distance(to: bounds.southWest) < maxMapDistance else {
             isTooFarAway = true
-        case let .success(.some(response)):
+            isLoading = false
+            return
+        }
+        let response = try? await getAmenities(
+            northEast: bounds.northEast.location,
+            southWest: bounds.southWest.location
+        )
+        if let response {
             isTooFarAway = false
             amenities = response.amenities
             lastUpdated = response.lastUpdated
-        case .success(.none):
+        } else {
             isTooFarAway = false
         }
         isLoading = false
@@ -142,33 +156,6 @@ extension MapViewModel: CLLocationManagerDelegate {
 
 private extension Amenity {
     var point: MKMapPoint { MKMapPoint(location.coordinate) }
-}
-
-private extension MKMapRect {
-    var center: MKMapPoint {
-        get {
-            MKMapPoint(x: origin.x + (width / 2), y: origin.y + height / 2)
-        }
-        set {
-            origin = MKMapPoint(x: newValue.x - width / 2, y: newValue.y - height / 2)
-        }
-    }
-}
-
-extension MKMapRect {
-    var northEast: MKMapPoint {
-        var base = origin
-        base.x += width
-        return base
-    }
-
-    var northWest: MKMapPoint { origin }
-
-    var southWest: MKMapPoint {
-        var base = origin
-        base.y += height
-        return base
-    }
 }
 
 private extension UIApplication {

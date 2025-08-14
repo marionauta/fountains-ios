@@ -97,6 +97,22 @@
         }
       }
     },
+    "amenity_detail_not_working_notice" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "May be out of service or not working."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puede estar estropeado o fuera de servicio."
+          }
+        }
+      }
+    },
     "amenity_detail_open_in_apple_maps" : {
       "localizations" : {
         "en" : {

@@ -60,40 +60,62 @@ struct AmenityDetailView: View {
     var body: some View {
         WithPerceptionTracking {
             LazyVStack(spacing: 0) {
-                if let imageUrl = viewModel.amenityImageUrl {
-                    AsyncImage(url: imageUrl) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    } placeholder: {
-                        ProgressView()
+                if !viewModel.images.isEmpty {
+                    TabView {
+                        ForEach(viewModel.images, id: \.self) { image in
+                            AsyncImage(url: image.imageUrl) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
+                            .clipped()
+                            .clipShape(RoundedRectangle(cornerRadius: 8))
+                            .padding(.horizontal, 8)
+                        }
                     }
+                    .tabViewStyle(.page)
+                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
                     .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
-                    .clipped()
-                    .clipShape(RoundedRectangle(cornerRadius: 8))
-                    .padding(.horizontal, 8)
                 }
 
                 AdView(adUnit: Secrets.admobDetailAdUnitId)
                     .padding(.top, 8)
 
+                if viewModel.amenity.properties.closed {
+                    Text("amenity_detail_not_working_notice")
+                        .multilineTextAlignment(.center)
+                        .padding(8)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .background(Color(.secondarySystemBackground))
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                        .padding(.top, 8)
+                        .padding(.horizontal, 8)
+                }
+
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
-                    AmenityPropertyCell {
-                        viewModel.amenity.properties.fee.title
-                    } subtitle: {
-                        if let subtitle = (viewModel.amenity.properties.fee as? Amenity.FeeValue.Yes)?.amount {
-                            Text(subtitle)
-                        }
-                    } image: {
-                        Image(systemName: "dollarsign.circle")
-                    } badge: {
-                        switch viewModel.amenity.properties.fee {
-                        case is Amenity.FeeValue.Yes, is Amenity.FeeValue.Donation:
-                            AmenityPropertyBadge(variant: .limited)
-                        case is Amenity.FeeValue.Unknown:
-                            AmenityPropertyBadge(variant: .unknown)
-                        default:
-                            nil
+                    let hideFee = viewModel.amenity.properties.fee is Amenity.FeeValue.No
+                        && viewModel.amenity.properties.access == .customers
+                    if !hideFee {
+                        AmenityPropertyCell {
+                            viewModel.amenity.properties.fee.title
+                        } subtitle: {
+                            if let subtitle = (viewModel.amenity.properties.fee as? Amenity.FeeValue.Yes)?.amount {
+                                Text(subtitle)
+                            }
+                        } image: {
+                            Image(systemName: "dollarsign.circle")
+                        } badge: {
+                            switch viewModel.amenity.properties.fee {
+                            case is Amenity.FeeValue.Yes, is Amenity.FeeValue.Donation:
+                                AmenityPropertyBadge(variant: .limited)
+                            case is Amenity.FeeValue.Unknown:
+                                AmenityPropertyBadge(variant: .unknown)
+                            default:
+                                nil
+                            }
                         }
                     }
 
@@ -181,7 +203,7 @@ struct AmenityDetailView: View {
                 .padding(8)
 
                 Button("amenity_detail_how_to_fix_button") {
-                    guard let url = viewModel.gixGuideUrl() else { return }
+                    guard let url = viewModel.fixGuideUrl() else { return }
                     openURL(url)
                 }
             }

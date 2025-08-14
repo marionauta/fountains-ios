@@ -31,7 +31,11 @@ private struct MapView17: View {
                 Annotation(String.empty, coordinate: marker.coordinate, anchor: .center) {
                     switch marker {
                     case let .cluster(cluster):
-                        MapClusterMarker(group: cluster.clusteringGroup, count: cluster.singles.count) {
+                        MapClusterMarker(
+                            group: cluster.clusteringGroup,
+                            count: cluster.singles.count,
+                            allClosed: cluster.singles.allSatisfy(\.properties.closed)
+                        ) {
                             mapCameraPosition = .item(
                                 .init(placemark: .init(coordinate: cluster.coordinate)),
                                 allowsAutomaticPitch: false
@@ -80,7 +84,11 @@ private struct MapViewLegacy: View {
             MapAnnotation(coordinate: marker.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
                 switch marker {
                 case let .cluster(cluster):
-                    MapClusterMarker(group: cluster.clusteringGroup, count: cluster.singles.count) {
+                    MapClusterMarker(
+                        group: cluster.clusteringGroup,
+                        count: cluster.singles.count,
+                        allClosed: cluster.singles.allSatisfy(\.properties.closed)
+                    ) {
                         viewModel.zoomABit(on: marker.coordinate)
                     }
                 case let .single(amenity):
