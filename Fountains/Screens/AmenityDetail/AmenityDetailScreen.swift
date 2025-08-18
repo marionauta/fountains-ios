@@ -61,26 +61,7 @@ struct AmenityDetailView: View {
     var body: some View {
         WithPerceptionTracking {
             LazyVStack(spacing: 0) {
-                if !viewModel.images.isEmpty {
-                    TabView {
-                        ForEach(viewModel.images, id: \.self) { image in
-                            AsyncImage(url: image.imageUrl) { image in
-                                image
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                            } placeholder: {
-                                ProgressView()
-                            }
-                            .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
-                            .clipped()
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .padding(.horizontal, 8)
-                        }
-                    }
-                    .tabViewStyle(.page)
-                    .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
-                    .frame(maxWidth: .infinity, minHeight: 250, maxHeight: 250)
-                }
+                ImageCarousel(images: viewModel.images)
 
                 AdView(adUnit: Secrets.admobDetailAdUnitId)
                     .padding(.top, 8)
