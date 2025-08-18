@@ -3,17 +3,22 @@ import MapCluster
 import MapKit
 import SwiftUI
 
-// TODO: Improve "closed" markers
-
 struct MapAmenityMarker: View {
     let amenity: Amenity
     let onTap: () -> Void
+
+    fileprivate static let closedColor: Color = Color.gray
 
     var body: some View {
         Group {
             switch amenity {
             case is Amenity.Fountain:
                 Image(.marker)
+                    .renderingMode(.template)
+                    .resizable()
+                    .frame(width: 25, height: 25, alignment: .center)
+                    .foregroundStyle(backgroundColor)
+                    .padding(0.5)
                     .background(Color.white)
                     .clipShape(Circle())
             case is Amenity.Restroom:
@@ -22,7 +27,7 @@ struct MapAmenityMarker: View {
                     .foregroundStyle(Color.white)
                     .padding(2)
                     .frame(width: 25, height: 25, alignment: .center)
-                    .background(Color(.markerRestroom))
+                    .background(backgroundColor)
                     .clipShape(Circle())
                     .padding(1.5)
                     .background(Color.white)
@@ -31,7 +36,6 @@ struct MapAmenityMarker: View {
                 EmptyView()
             }
         }
-        .grayscale(amenity.properties.closed ? 1 : 0)
         .shadow(radius: 2, y: 2)
         .onTapGesture(perform: onTap)
         .overlay(alignment: .topTrailing) {
@@ -50,6 +54,15 @@ struct MapAmenityMarker: View {
             }
         }
     }
+
+    private var backgroundColor: Color {
+        if amenity.properties.closed { return MapAmenityMarker.closedColor }
+        return switch amenity {
+        case is Amenity.Fountain: Color(.marker)
+        case is Amenity.Restroom: Color(.markerRestroom)
+        default: fatalError("Unknown amenity type: \(String(describing: type(of: amenity)))")
+        }
+    }
 }
 
 struct MapClusterMarker: View {
@@ -60,13 +73,13 @@ struct MapClusterMarker: View {
 
     var body: some View {
         DefaultClusterView(count: count)
-            .tint(color)
-            .grayscale(allClosed ? 1 : 0)
+            .tint(backgroundColor)
             .onTapGesture(perform: onTap)
     }
 
-    private var color: Color {
-        switch group {
+    private var backgroundColor: Color {
+        if allClosed { return MapAmenityMarker.closedColor }
+        return switch group {
         case "restroom": Color(.markerRestroom)
         default: Color(.marker)
         }
