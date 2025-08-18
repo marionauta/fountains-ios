@@ -1,5 +1,6 @@
 import DomainLayer
 import HelperKit
+import OpenLocationsShared
 import Perception
 import SwiftUI
 
@@ -16,7 +17,7 @@ struct AmenityDetailScreen: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar { toolbarContent }
         .task {
-            await viewModel.loadAmenityImage()
+            await viewModel.load()
         }
     }
 
@@ -202,10 +203,17 @@ struct AmenityDetailView: View {
                 }
                 .padding(8)
 
+                ForEach(viewModel.comments, id: \.id) { comment in
+                    FeedbackCommentRow(comment: comment)
+                        .padding(.horizontal, 8)
+                        .padding(.top, 6)
+                }
+
                 Button("amenity_detail_how_to_fix_button") {
                     guard let url = viewModel.fixGuideUrl() else { return }
                     openURL(url)
                 }
+                .padding(.top, 16)
             }
         }
     }
