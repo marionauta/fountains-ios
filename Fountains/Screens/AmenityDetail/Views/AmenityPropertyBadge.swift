@@ -1,4 +1,5 @@
 import DomainLayer
+import OpenLocationsShared
 import SwiftUI
 
 struct AmenityPropertyBadge: View {

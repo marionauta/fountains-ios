@@ -1,6 +1,7 @@
 import DomainLayer
 import MapCluster
 import MapKit
+import OpenLocationsShared
 import SwiftUI
 
 struct MapAmenityMarker: View {
