@@ -330,13 +330,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Experimental feature"
+            "value" : "Group markers based on distance and zoom"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Funcionalidad experimental"
+            "value" : "Agupar marcadores por distancia y zoom"
           }
         }
       }
