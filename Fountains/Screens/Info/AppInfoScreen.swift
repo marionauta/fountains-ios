@@ -74,7 +74,7 @@ struct AppInfoScreen: View {
 
             ContentRow(
                 title: "app_info_app_version_title",
-                description: Bundle.main.fullVersionString
+                description: version,
             )
             .onTapGesture(count: 50) {
                 isEasterShown = true
@@ -118,5 +118,9 @@ struct AppInfoScreen: View {
                 ProgressView()
             }
         }
+    }
+
+    private var version: String {
+        "\(Bundle.main.fullVersionString) \(CommitHash.ios) / \(CommitHash.android)"
     }
 }
