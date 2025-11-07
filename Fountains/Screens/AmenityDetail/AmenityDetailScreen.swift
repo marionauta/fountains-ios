@@ -121,7 +121,7 @@ struct AmenityDetailView: View {
                     switch viewModel.amenity {
                     case let fountain as Amenity.Fountain:
                         AmenityPropertyCell {
-                            "fountain_detail_bottle_title"
+                            "amenity_detail_bottle_title"
                         } image: {
                             Image(systemName: "waterbottle")
                         } badge: {
@@ -130,7 +130,7 @@ struct AmenityDetailView: View {
 
                     case let restroom as Amenity.Restroom:
                         AmenityPropertyCell {
-                            "fountain_detail_handwashing_title"
+                            "amenity_detail_handwashing_title"
                         } image: {
                             Image(systemName: "sink")
                         } badge: {
@@ -138,7 +138,7 @@ struct AmenityDetailView: View {
                         }
 
                         AmenityPropertyCell {
-                            "fountain_detail_changing_table_title"
+                            "amenity_detail_changing_table_title"
                         } image: {
                             Image(systemName: "figure.and.child.holdinghands")
                         } badge: {
@@ -149,7 +149,7 @@ struct AmenityDetailView: View {
                     }
 
                     AmenityPropertyCell {
-                        "fountain_detail_wheelchair_title"
+                        "amenity_detail_wheelchair_title"
                     } image: {
                         Image(systemName: "figure.roll")
                     } badge: {
@@ -158,7 +158,7 @@ struct AmenityDetailView: View {
 
                     if let checkDate = viewModel.amenity.properties.checkDate {
                         AmenityPropertyCell {
-                            "fountain_detail_check_date_title"
+                            "amenity_detail_check_date_title"
                         } subtitle: {
                             Text(checkDate.formatted(date: .abbreviated, time: .omitted))
                         } image: {

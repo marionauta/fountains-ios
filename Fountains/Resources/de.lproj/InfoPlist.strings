@@ -1,0 +1,5 @@
+"CFBundleName" = "Water Finder";
+"CFBundleDisplayName" = "Water Finder";
+"NSLocationWhenInUseUsageDescription" = "Ihr Standort wird verwendet, um Ihnen nahegelegene Trinkbrunnen anzuzeigen.";
+"BUGORISSUE_SHORTCUT_ITEM_TITLE" = "🐛 Bugs oder sonstige Probleme?";
+"BUGORISSUE_SHORTCUT_ITEM_SUBTITLE" = "Schicken Sie mir eine E-Mail";

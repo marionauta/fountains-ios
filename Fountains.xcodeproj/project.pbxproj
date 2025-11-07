@@ -133,6 +133,7 @@
 				en,
 				Base,
 				es,
+				de,
 			);
 			mainGroup = ACE2908C2815D0F6002B0BD8;
 			packageReferences = (
