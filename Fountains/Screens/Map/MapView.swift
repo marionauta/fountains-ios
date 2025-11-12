@@ -10,13 +10,57 @@ struct MapView: View {
         Group {
             if #available(iOS 17.0, *) {
                 MapView17(viewModel: viewModel)
-                    .toolbarBackground(.hidden, for: .navigationBar)
             } else {
                 MapViewLegacy(viewModel: viewModel)
             }
         }
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .shadow(radius: 2)
+        .overlay(alignment: .topLeading) { toolbarLeading }
+        .overlay(alignment: .top) { toolbarPrimary }
+    }
+
+    private var toolbarLeading: some View {
+        HStack(spacing: 12) {
+            Button {
+                viewModel.route = .appInfo
+            } label: {
+                AppInfoLabel()
+            }
+            if viewModel.isLoading {
+                ProgressView()
+                    .progressViewStyle(.circular)
+            }
+        }
+        .labelStyle(.iconOnly)
+        .foregroundColor(.accentColor)
+        .padding(12)
+        .modifier(MapButtonBackground())
+        .padding(5)
+    }
+
+    private var toolbarPrimary: some View {
+        VStack(spacing: 2) {
+            if let areaName = viewModel.areaName {
+                Text(areaName)
+                    .font(.headline)
+            }
+            if let lastUpdated = viewModel.lastUpdated {
+                Text(lastUpdated.formatted(date: .abbreviated, time: .shortened))
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+        }
+        .padding(.vertical, 8)
+        .padding(.horizontal, 12)
+        .modifier(MapButtonBackground())
+        .padding(.top, primaryTopPadding)
+        .animation(.bouncy, value: primaryTopPadding)
+    }
+
+    private var primaryTopPadding: CGFloat {
+        if viewModel.areaName == nil || viewModel.lastUpdated == nil {
+            return 6
+        }
+        return 0
     }
 }
 
@@ -124,17 +168,32 @@ private struct UserLocationButton: View {
             } icon: {
                 Image(systemName: "location")
                     .resizable()
-                    .symbolVariant(isDisabled ? .fill : .none)
+                    .symbolVariant(isDisabled ? .none : .fill)
                     .frame(width: 18, height: 18)
                     .animation(.easeInOut, value: isDisabled)
             }
         }
         .labelStyle(.iconOnly)
         .foregroundColor(.accentColor)
-        .padding(12)
-        .background(Color(UIColor.systemBackground).opacity(0.8))
-        .clipShape(RoundedRectangle(cornerRadius: 11))
-        .shadow(radius: 20)
+        .padding(13)
+        .modifier(MapButtonBackground())
         .padding(5)
+    }
+}
+
+private struct MapButtonBackground: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .background(background)
+            .clipShape(RoundedRectangle(cornerRadius: 8))
+            .shadow(radius: 20)
+    }
+
+    private var background: some ShapeStyle {
+        if #available(iOS 17, *) {
+            return Material.thickMaterial
+        } else {
+            return Color(UIColor.systemBackground).opacity(0.8)
+        }
     }
 }

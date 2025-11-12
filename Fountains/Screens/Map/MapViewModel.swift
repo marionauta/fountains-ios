@@ -46,7 +46,9 @@ final class MapViewModel: NSObject, ObservableObject {
             setupBindings()
             return
         }
-        isLoading = true
+        withAnimation {
+            isLoading = true
+        }
         guard bounds.northEast.distance(to: bounds.southWest) < maxMapDistance else {
             isTooFarAway = true
             isLoading = false
@@ -63,7 +65,9 @@ final class MapViewModel: NSObject, ObservableObject {
         } else {
             isTooFarAway = false
         }
-        isLoading = false
+        withAnimation {
+            isLoading = false
+        }
     }
 
     @MainActor

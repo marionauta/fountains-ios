@@ -7,17 +7,13 @@ struct MapScreen: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Spacer(minLength: 10)
-            AdView(adUnit: Secrets.admobMapAdUnitId).padding(.bottom, 4)
+            AdView(adUnit: Secrets.admobMapAdUnitId)
             NeedsLocationBannerView(isLocationEnabled: viewModel.hideLocationBanner)
             MapView(viewModel: viewModel)
         }
-        .edgesIgnoringSafeArea([.horizontal, .bottom])
         .overlay(alignment: .bottomTrailing) {
             tooFarAwayMessage
         }
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar { toolbarContent }
         .task {
             viewModel.requestLocationAndCenter(requestIfneeded: false)
             await viewModel.load(from: nil)
@@ -38,33 +34,5 @@ struct MapScreen: View {
             .allowsHitTesting(false)
             .padding(.horizontal, 12)
             .padding(.bottom, 40)
-    }
-
-    @ToolbarContentBuilder
-    private var toolbarContent: some ToolbarContent {
-        ToolbarItem(placement: .principal) {
-            VStack(spacing: 4) {
-                if let areaName = viewModel.areaName {
-                    Text(areaName)
-                }
-                if let lastUpdated = viewModel.lastUpdated {
-                    Text(lastUpdated.formatted(date: .abbreviated, time: .shortened))
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                }
-            }
-        }
-        ToolbarItem(placement: .topBarTrailing) {
-            if viewModel.isLoading {
-                ProgressView().progressViewStyle(.circular)
-            }
-        }
-        ToolbarItem(placement: .topBarTrailing) {
-            Button {
-                viewModel.route = .appInfo
-            } label: {
-                AppInfoLabel()
-            }
-        }
     }
 }

@@ -20,17 +20,15 @@ struct MapCoordinator: View {
     @StateObject private var viewModel = MapViewModel()
 
     var body: some View {
-        NavigationView {
-            MapScreen(viewModel: viewModel)
-        }
-        .navigationViewStyle(.stack)
-        .sheet(item: $viewModel.route) { route in
-            switch route {
-            case .appInfo:
-                AppInfoCoordinator()
-            case let .amenity(amenity):
-                AmenityDetailCoordinator(amenity: amenity)
+        MapScreen(viewModel: viewModel)
+            .navigationViewStyle(.stack)
+            .sheet(item: $viewModel.route) { route in
+                switch route {
+                case .appInfo:
+                    AppInfoCoordinator()
+                case let .amenity(amenity):
+                    AmenityDetailCoordinator(amenity: amenity)
+                }
             }
-        }
     }
 }
