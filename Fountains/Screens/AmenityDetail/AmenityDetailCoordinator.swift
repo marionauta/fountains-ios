@@ -12,6 +12,7 @@ struct AmenityDetailCoordinator: View {
 
     var body: some View {
         WithPerceptionTracking {
+            @Perception.Bindable var viewModel = viewModel
             NavigationView {
                 AmenityDetailScreen()
                     .environment(viewModel)

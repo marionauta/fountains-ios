@@ -1,5 +1,4 @@
 import DomainLayer
-import HelperKit
 import OpenLocationsShared
 import Perception
 import SwiftUI
