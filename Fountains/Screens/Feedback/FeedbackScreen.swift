@@ -41,7 +41,7 @@ struct FeedbackScreen: View {
                         dismiss()
                     }
                 }
-                .disabled(viewModel.isSending)
+                .disabled(viewModel.isSendDisabled)
             }
         }
     }

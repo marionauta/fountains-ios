@@ -4,9 +4,9 @@ import Perception
 import SwiftUI
 
 struct AmenityDetailScreen: View {
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) private var dismiss: DismissAction
     @Environment(\.openURL) private var openURL: OpenURLAction
-    @Environment(AmenityDetailViewModel.self) private var viewModel
+    @Environment(AmenityDetailViewModel.self) private var viewModel: AmenityDetailViewModel
 
     var body: some View {
         ScrollView {
@@ -53,7 +53,7 @@ struct AmenityDetailScreen: View {
     }
 }
 
-struct AmenityDetailView: View {
+private struct AmenityDetailView: View {
     @Environment(\.openURL) private var openURL: OpenURLAction
     @Environment(AmenityDetailViewModel.self) private var viewModel
 
