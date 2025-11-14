@@ -1,5 +1,4 @@
 import AppsShowcase
-import DomainLayer
 import HelperKit
 import Perception
 import SwiftUI

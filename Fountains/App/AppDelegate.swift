@@ -1,4 +1,3 @@
-import DomainLayer
 import UIKit
 
 final class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {

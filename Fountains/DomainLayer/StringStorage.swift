@@ -1,8 +1,8 @@
-import KeychainAccess
+@preconcurrency import KeychainAccess
 import OpenLocationsShared
 
-public final class StringStorage: SecureStringStorage {
-    private var keychain = Keychain(service: Bundle.main.bundleIdentifier!)
+public final class StringStorage: SecureStringStorage, Sendable {
+    private let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
 
     public static let shared = StringStorage()
     private init() {}

@@ -5,6 +5,7 @@ public struct QuickActionsHelper {
         case reportBugOrIssue = "mn.openlocations.reportBugOrIssue"
     }
 
+    @MainActor
     @discardableResult
     public static func performAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
         guard let actionType = ActionType(rawValue: shortcutItem.type) else { return false }

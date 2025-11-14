@@ -1,4 +1,3 @@
-import DomainLayer
 import MapCluster
 import MapKit
 import OpenLocationsShared

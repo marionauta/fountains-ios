@@ -1,10 +1,10 @@
 # Fountains iOS
 
-iOS app to search for drinking fountains nearby.
+iOS app to search for drinking fountains and public restrooms nearby.
 
-## KMM
+## KMP
 
-This project relies on a library written in [Kotlin Multiplatform Mobile][kmm].
+This project relies on a library written in [Kotlin Multiplatform][kmp].
 You need to have the [android project][android] in your local machine, with the
 following folder structure:
 
@@ -13,13 +13,7 @@ following folder structure:
 android       ios
 ```
 
-Then run the compile command on the android projects root folder:
+Once you have this folder structure, you can open this project in Xcode as usual.
 
-```sh
-./gradlew :WaterFountains:assembleXCFramework
-```
-
-After that, you can open this project in Xcode as usual.
-
-[kmm]: https://kotlinlang.org/lp/mobile/
+[kmp]: https://www.jetbrains.com/kotlin-multiplatform/
 [android]: https://github.com/marionauta/fountains-android

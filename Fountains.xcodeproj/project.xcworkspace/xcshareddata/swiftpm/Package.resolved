@@ -1,4 +1,5 @@
 {
+  "originHash" : "4293bf8009f86ae018d2d8f93cefa7a05d648b00c06f2a238d00a19c33682d4e",
   "pins" : [
     {
       "identity" : "admobswiftui",
@@ -30,7 +31,7 @@
     {
       "identity" : "keychainaccess",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/kishikawakatsumi/KeychainAccess",
+      "location" : "https://github.com/kishikawakatsumi/KeychainAccess.git",
       "state" : {
         "revision" : "84e546727d66f1adc5439debad16270d0fdd04e7",
         "version" : "4.2.2"
@@ -99,5 +100,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }

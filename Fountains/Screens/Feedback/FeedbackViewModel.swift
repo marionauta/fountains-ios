@@ -1,5 +1,4 @@
 @preconcurrency import OpenLocationsShared
-import DomainLayer
 import Perception
 import SwiftUI
 

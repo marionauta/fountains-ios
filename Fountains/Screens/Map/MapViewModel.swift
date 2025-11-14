@@ -1,6 +1,5 @@
 import Combine
 import Foundation
-import DomainLayer
 import MapCluster
 import MapKit
 import OpenLocationsShared

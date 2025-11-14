@@ -1,4 +1,3 @@
-import DomainLayer
 import OpenLocationsShared
 import SwiftUI
 
