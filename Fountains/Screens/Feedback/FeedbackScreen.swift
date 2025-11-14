@@ -37,8 +37,9 @@ struct FeedbackScreen: View {
             WithPerceptionTracking {
                 Button("feedback_screen_send") {
                     Task {
-                        await viewModel.sendReport()
-                        dismiss()
+                        if await viewModel.sendReport() {
+                            dismiss()
+                        }
                     }
                 }
                 .disabled(viewModel.isSendDisabled)

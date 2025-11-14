@@ -9,8 +9,10 @@ final class FeedbackViewModel {
     public var comment: String = ""
     public private(set) var isSending: Bool = false
 
-    public var isSendDisabled: Bool {
-        isSending || (state == .bad && comment.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+    public var isSendDisabled: Bool { isSending || !payload.isSendEnabled }
+
+    private var payload: SendFeedbackUseCase.Payload {
+        SendFeedbackUseCase.Payload(osmId: osmId, state: state, comment: comment)
     }
 
     init(osmId: String, state: FeedbackState) {
@@ -19,14 +21,17 @@ final class FeedbackViewModel {
     }
 
     @MainActor
-    func sendReport() async {
-        guard !isSendDisabled else { return }
+    func sendReport() async -> Bool {
         isSending = true
         do {
             let sendFeedbackUseCase = SendFeedbackUseCase(storage: .shared)
-            try await sendFeedbackUseCase(osmId: osmId, state: state, comment: comment)
+            let ok = try await sendFeedbackUseCase(payload: payload)
+            isSending = false
+            return ok.boolValue
         } catch {
             print(error.localizedDescription)
+            isSending = false
+            return false
         }
     }
 }
