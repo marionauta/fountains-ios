@@ -87,6 +87,3 @@ iOSInjectionProject/
 
 # macOS
 .DS_Store
-
-# project
-**/Secrets.swift
