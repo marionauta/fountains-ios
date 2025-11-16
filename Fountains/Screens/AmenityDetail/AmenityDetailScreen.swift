@@ -75,6 +75,14 @@ private struct AmenityDetailView: View {
                         .padding(.horizontal, 8)
                 }
 
+                if !viewModel.amenity.description_.isEmpty {
+                    Text(viewModel.amenity.description_)
+                        .font(.body)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.top, 8)
+                        .padding(.horizontal, 8)
+                }
+
                 LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
                     let hideFee = viewModel.amenity.properties.fee is Amenity.FeeValue.No
                         && viewModel.amenity.properties.access == .customers
