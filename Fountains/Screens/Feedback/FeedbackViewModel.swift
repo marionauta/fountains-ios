@@ -1,4 +1,4 @@
-@preconcurrency import OpenLocationsShared
+import OpenLocationsShared
 import Perception
 import SwiftUI
 

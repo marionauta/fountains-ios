@@ -34,7 +34,11 @@ struct MapView: View {
         .foregroundColor(.accentColor)
         .padding(12)
         .modifier(MapButtonBackground())
-        .padding(5)
+        .padding(leadingPadding)
+    }
+
+    private var leadingPadding: CGFloat {
+        return if #available(iOS 26, *) { 12 } else { 5 }
     }
 
     private var toolbarPrimary: some View {
@@ -52,8 +56,9 @@ struct MapView: View {
         .padding(.vertical, 8)
         .padding(.horizontal, 12)
         .modifier(MapButtonBackground())
+        .opacity(primaryOpacity)
         .padding(.top, primaryTopPadding)
-        .animation(.bouncy, value: primaryTopPadding)
+        .animation(.bouncy, value: [primaryOpacity, primaryTopPadding])
     }
 
     private var primaryTopPadding: CGFloat {
@@ -61,6 +66,13 @@ struct MapView: View {
             return 6
         }
         return 0
+    }
+
+    private var primaryOpacity: Double {
+        if viewModel.areaName == nil && viewModel.lastUpdated == nil {
+            return 0
+        }
+        return 1
     }
 }
 
@@ -183,10 +195,14 @@ private struct UserLocationButton: View {
 
 private struct MapButtonBackground: ViewModifier {
     func body(content: Content) -> some View {
-        content
-            .background(background)
-            .clipShape(RoundedRectangle(cornerRadius: 8))
-            .shadow(radius: 20)
+        if #available(iOS 26.0, *) {
+            content.glassEffect()
+        } else {
+            content
+                .background(background)
+                .clipShape(RoundedRectangle(cornerRadius: 8))
+                .shadow(radius: 20)
+        }
     }
 
     private var background: some ShapeStyle {
