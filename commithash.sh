@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -ex
+
 cd ../android
 ANDROID=`git rev-parse --short HEAD`
 cd -
@@ -12,4 +14,4 @@ public enum CommitHash {
 }
 "
 
-echo $CONTENT > ${SRCROOT:-.}/Fountains/Resources/CommitHash.swift
+echo "$CONTENT" > ${SRCROOT:-.}/Fountains/Resources/CommitHash.swift
