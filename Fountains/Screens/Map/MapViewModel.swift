@@ -27,7 +27,7 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published public var route: MapCoordinator.Route?
 
     private let getAmenities = GetAmenitiesUseCase(
-        languages: GetLanguagesUseCase.shared(),
+        languages: GetLanguagesUseCase.shared.invoke(),
         amenityRepository: .shared,
         settingsRepository: FilterSettingsRepositoryImpl(),
     )
