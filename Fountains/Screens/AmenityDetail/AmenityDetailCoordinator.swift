@@ -31,7 +31,7 @@ struct AmenityDetailCoordinator: View {
 
 extension AmenityDetailCoordinator {
     enum Route: Hashable, Identifiable {
-        case feedback(osmId: String, state: FeedbackState)
+        case feedback(osmId: OsmId, state: FeedbackState)
         var id: Int { hashValue }
     }
 }

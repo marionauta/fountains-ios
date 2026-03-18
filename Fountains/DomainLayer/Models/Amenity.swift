@@ -3,9 +3,7 @@ import Foundation
 import MapCluster
 import OpenLocationsShared
 
-extension Amenity: @retroactive Identifiable {
-    public var id: String { self.id_ }
-}
+extension Amenity: @retroactive Identifiable {}
 
 extension Amenity: @retroactive WithCoordinate {
     public var coordinate: CLLocationCoordinate2D {

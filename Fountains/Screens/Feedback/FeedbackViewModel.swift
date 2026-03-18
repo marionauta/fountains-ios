@@ -4,7 +4,7 @@ import SwiftUI
 
 @Perceptible
 final class FeedbackViewModel {
-    private let osmId: String
+    private let osmId: OsmId
     public var state: FeedbackState
     public var comment: String = ""
     public private(set) var isSending: Bool = false
@@ -15,7 +15,7 @@ final class FeedbackViewModel {
         SendFeedbackUseCase.Payload(osmId: osmId, state: state, comment: comment)
     }
 
-    init(osmId: String, state: FeedbackState) {
+    init(osmId: OsmId, state: FeedbackState) {
         self.osmId = osmId
         self.state = state
     }

@@ -6,7 +6,7 @@ struct FeedbackScreen: View {
     @Environment(\.dismiss) private var dismiss
     @State private var viewModel: FeedbackViewModel
 
-    init(osmId: String, state: FeedbackState) {
+    init(osmId: OsmId, state: FeedbackState) {
         _viewModel = State(wrappedValue: FeedbackViewModel(osmId: osmId, state: state))
     }
 
