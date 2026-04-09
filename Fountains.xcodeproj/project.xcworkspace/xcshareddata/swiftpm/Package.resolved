@@ -1,5 +1,5 @@
 {
-  "originHash" : "4293bf8009f86ae018d2d8f93cefa7a05d648b00c06f2a238d00a19c33682d4e",
+  "originHash" : "7efbd28cd204f79783493123ae65aa2d4e8b9be2de927185d2590f57ea61cdb9",
   "pins" : [
     {
       "identity" : "admobswiftui",
@@ -44,6 +44,15 @@
       "state" : {
         "branch" : "main",
         "revision" : "597fa81cf5e7c7b69d84256cc457c3f3d46218fa"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log",
+      "state" : {
+        "revision" : "8c0f217f01000dd30f60d6e536569ad4e74291f9",
+        "version" : "1.11.0"
       }
     },
     {

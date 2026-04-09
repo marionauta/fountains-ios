@@ -1,6 +1,9 @@
+import Logging
 import OpenLocationsShared
 import Perception
 import SwiftUI
+
+private let log = Logger(label: String(describing: FeedbackViewModel.self))
 
 @Perceptible
 final class FeedbackViewModel {
@@ -29,7 +32,7 @@ final class FeedbackViewModel {
             isSending = false
             return ok.boolValue
         } catch {
-            print(error.localizedDescription)
+            log.error("\(#function) \(error)")
             isSending = false
             return false
         }

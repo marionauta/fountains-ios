@@ -1,5 +1,8 @@
+import Logging
 import SwiftUI
 import OpenLocationsShared
+
+private let log = Logger(label: String(describing: FountainsApp.self))
 
 @main
 struct FountainsApp: App {
@@ -21,7 +24,7 @@ struct FountainsApp: App {
         do {
             try await RefreshFeatureFlagsUseCase.shared()
         } catch {
-            print("\(#function) error: \(error)")
+            log.error("\(#function) \(error)")
         }
     }
 }

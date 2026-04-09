@@ -15,6 +15,7 @@
 		AC7A72D82B13A5CC008AB25C /* MapCluster in Frameworks */ = {isa = PBXBuildFile; productRef = AC7A72D72B13A5CC008AB25C /* MapCluster */; };
 		ACA92D042B18A9A200AD305A /* AppsShowcase in Frameworks */ = {isa = PBXBuildFile; productRef = ACA92D032B18A9A200AD305A /* AppsShowcase */; };
 		ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */ = {isa = PBXBuildFile; productRef = ACADD55D2B12215B001D1CD1 /* HelperKit */; };
+		ACD0C7492F87D4F4003BF642 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = ACD0C7482F87D4F4003BF642 /* Logging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACD0C7492F87D4F4003BF642 /* Logging in Frameworks */,
 				ACADD55E2B12215B001D1CD1 /* HelperKit in Frameworks */,
 				ACA92D042B18A9A200AD305A /* AppsShowcase in Frameworks */,
 				AC690A352B50A6F6008F42C9 /* AdmobSwiftUI in Frameworks */,
@@ -101,6 +103,7 @@
 				AC690A342B50A6F6008F42C9 /* AdmobSwiftUI */,
 				AC0C97A62BCFE4DB00E6795E /* Perception */,
 				AC00BEAE2EC73D30002912D9 /* KeychainAccess */,
+				ACD0C7482F87D4F4003BF642 /* Logging */,
 			);
 			productName = Fountains;
 			productReference = ACE290952815D0F6002B0BD8 /* Fountains.app */;
@@ -140,6 +143,7 @@
 				AC690A332B50A6F6008F42C9 /* XCRemoteSwiftPackageReference "AdmobSwiftUI" */,
 				AC0C97A52BCFE4DB00E6795E /* XCRemoteSwiftPackageReference "swift-perception" */,
 				AC00BEAD2EC73D30002912D9 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				ACD0C7472F87D4F4003BF642 /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = ACE290962815D0F6002B0BD8 /* Products */;
 			projectDirPath = "";
@@ -488,6 +492,14 @@
 				version = 0.9.0;
 			};
 		};
+		ACD0C7472F87D4F4003BF642 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log";
+			requirement = {
+				kind = exactVersion;
+				version = 1.11.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -529,6 +541,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ACADD55C2B12215B001D1CD1 /* XCRemoteSwiftPackageReference "HelperKit" */;
 			productName = HelperKit;
+		};
+		ACD0C7482F87D4F4003BF642 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ACD0C7472F87D4F4003BF642 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

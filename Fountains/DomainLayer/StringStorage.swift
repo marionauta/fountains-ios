@@ -1,5 +1,8 @@
 @preconcurrency import KeychainAccess
+import Logging
 import OpenLocationsShared
+
+private let log = Logger(label: String(describing: StringStorage.self))
 
 public final class StringStorage: SecureStringStorage, Sendable {
     private let keychain = Keychain(service: Bundle.main.bundleIdentifier!)
@@ -15,7 +18,7 @@ public final class StringStorage: SecureStringStorage, Sendable {
         do {
             try keychain.set(value, key: key)
         } catch {
-            print("StringStorage: \(error.localizedDescription)")
+            log.error("\(#function) \(error)")
         }
     }
 }
