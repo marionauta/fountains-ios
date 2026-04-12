@@ -5,8 +5,7 @@ import MapKit
 import OpenLocationsShared
 import SwiftUI
 
-extension AmenitiesResponse: @unchecked @retroactive Sendable {}
-extension GetAmenitiesUseCase: @unchecked @retroactive Sendable {}
+extension GetAmenitiesUseCase: @retroactive @unchecked Sendable {}
 
 final class MapViewModel: NSObject, ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
@@ -17,7 +16,6 @@ final class MapViewModel: NSObject, ObservableObject {
     @AppStorage(AppInfoScreen.Constants.mapDistanceKey) private var maxMapDistance: Double = 15_000
     @AppStorage(AppInfoScreen.Constants.mapClusteringKey) private var mapMarkerClustering: Bool = true
     @Published private(set) var areaName: String?
-    @Published private(set) var lastUpdated: Date?
     @Published private(set) var amenities: [Amenity] = []
     @Published private(set) var markers: [ClusterizableMarker<Amenity>] = []
     @Published private(set) var isLoading: Bool = true
@@ -54,16 +52,18 @@ final class MapViewModel: NSObject, ObservableObject {
             isLoading = false
             return
         }
+        isTooFarAway = false
         let response = try? await getAmenities(
             northEast: bounds.northEast.location,
-            southWest: bounds.southWest.location
+            southWest: bounds.southWest.location,
         )
         if let response {
-            isTooFarAway = false
-            amenities = response.amenities
-            lastUpdated = response.lastUpdated
-        } else {
-            isTooFarAway = false
+            let sequence: AsyncStream<[Amenity]> = response.collect()
+            for await r in sequence {
+                print("new value!")
+                amenities = r
+                if Task.isCancelled { return }
+            }
         }
         withAnimation {
             isLoading = false
@@ -76,7 +76,7 @@ final class MapViewModel: NSObject, ObservableObject {
     }
 
     @MainActor
-    public func requestLocationAndCenter(requestIfneeded: Bool = true) {
+    func requestLocationAndCenter(requestIfneeded: Bool = true) {
         guard isLocationEnabled else {
             if requestIfneeded {
                 locationManager.delegate = self
@@ -95,12 +95,12 @@ final class MapViewModel: NSObject, ObservableObject {
     }
 
     @MainActor
-    public func openDetail(for amenity: Amenity) {
+    func openDetail(for amenity: Amenity) {
         feedbackGenerator.selectionChanged()
         route = .amenity(amenity)
     }
 
-    public func zoomABit(on coordinate: CLLocationCoordinate2D) {
+    func zoomABit(on coordinate: CLLocationCoordinate2D) {
         withAnimation {
             mapRect.size = .init(width: mapRect.size.width * 0.5, height: mapRect.size.height * 0.5)
             mapRect.center = .init(coordinate)
@@ -156,10 +156,6 @@ extension MapViewModel: CLLocationManagerDelegate {
         guard [.authorizedAlways, .authorizedWhenInUse].contains(manager.authorizationStatus) else { return }
         centerOnUserLocation()
     }
-}
-
-private extension Amenity {
-    var point: MKMapPoint { MKMapPoint(location.coordinate) }
 }
 
 private extension UIApplication {

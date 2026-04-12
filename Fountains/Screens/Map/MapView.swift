@@ -47,29 +47,21 @@ struct MapView: View {
                 Text(areaName)
                     .font(.headline)
             }
-            if let lastUpdated = viewModel.lastUpdated {
-                Text(lastUpdated.formatted(date: .abbreviated, time: .shortened))
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-            }
         }
         .padding(.vertical, 8)
         .padding(.horizontal, 12)
         .modifier(MapButtonBackground())
         .opacity(primaryOpacity)
         .padding(.top, primaryTopPadding)
-        .animation(.bouncy, value: [primaryOpacity, primaryTopPadding])
+        .animation(.bouncy, value: [primaryOpacity])
     }
 
-    private var primaryTopPadding: CGFloat {
-        if viewModel.areaName == nil || viewModel.lastUpdated == nil {
-            return 6
-        }
-        return 0
+    private var primaryTopPadding: Double {
+        leadingPadding
     }
 
     private var primaryOpacity: Double {
-        if viewModel.areaName == nil && viewModel.lastUpdated == nil {
+        if viewModel.areaName == nil {
             return 0
         }
         return 1

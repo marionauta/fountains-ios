@@ -4,6 +4,7 @@ import MapCluster
 import OpenLocationsShared
 
 extension Amenity: @retroactive Identifiable {}
+extension Amenity: @retroactive @unchecked Sendable {}
 
 extension Amenity: @retroactive WithCoordinate {
     public var coordinate: CLLocationCoordinate2D {
