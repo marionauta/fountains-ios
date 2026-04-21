@@ -60,7 +60,6 @@ final class MapViewModel: NSObject, ObservableObject {
         if let response {
             let sequence: AsyncStream<[Amenity]> = response.collect()
             for await r in sequence {
-                print("new value!")
                 amenities = r
                 if Task.isCancelled { return }
             }
