@@ -21,8 +21,9 @@ struct PaywallScreen: View {
                         .onInAppPurchaseCompletion { _, result in
                             switch result {
                             case .success(.success(.verified)):
-                                try? await Task.sleep(for: .milliseconds(500))
-                                await purchaseManager.updatePurchasedProducts()
+                                async let sleep: Void? = try? Task.sleep(for: .milliseconds(500))
+                                async let update: Void = purchaseManager.updatePurchasedProducts()
+                                _ = await (sleep, update)
                                 dismiss()
                             default:
                                 break
@@ -38,7 +39,7 @@ struct PaywallScreen: View {
             }
             .scrollBounceBehavior(.basedOnSize)
             .navigationTitle("paywall_title")
-            .navigationBarTitleDisplayMode(.large)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 

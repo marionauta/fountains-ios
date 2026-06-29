@@ -61,8 +61,12 @@ private struct AmenityDetailView: View {
             LazyVStack(spacing: 0) {
                 ImageCarousel(images: viewModel.images)
 
-                AdView(adUnit: Secrets.admobDetailAdUnitId)
-                    .padding(.top, 8)
+                AdView(adUnit: Secrets.admobDetailAdUnitId) {
+                    if #available(iOS 17, *) {
+                        viewModel.sheet = .paywall
+                    }
+                }
+                .padding(.top, 8)
 
                 if viewModel.amenity.properties.closed {
                     Text("amenity_detail_not_working_notice")

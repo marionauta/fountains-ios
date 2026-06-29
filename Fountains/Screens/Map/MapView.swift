@@ -146,6 +146,7 @@ private struct MapViewLegacy: View {
                 }
             }
         }
+        .ignoresSafeArea()
         .overlay(alignment: .topTrailing) {
             userLocationButton
         }

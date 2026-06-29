@@ -6,7 +6,11 @@ struct MapScreen: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            AdView(adUnit: Secrets.admobMapAdUnitId)
+            AdView(adUnit: Secrets.admobMapAdUnitId) {
+                if #available(iOS 17, *) {
+                    viewModel.route = .paywall
+                }
+            }
             NeedsLocationBannerView(isLocationEnabled: viewModel.hideLocationBanner)
             MapView(viewModel: viewModel)
         }

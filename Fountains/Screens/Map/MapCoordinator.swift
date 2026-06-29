@@ -2,18 +2,12 @@ import OpenLocationsShared
 import SwiftUI
 
 struct MapCoordinator: View {
-    enum Route: Identifiable {
+    enum Route: Hashable, Identifiable {
         case appInfo
         case amenity(Amenity)
-
-        var id: AnyHashable {
-            switch self {
-            case .appInfo:
-                return "appInfo"
-            case let .amenity(amenity):
-                return amenity.id
-            }
-        }
+        @available(iOS 17.0, *)
+        case paywall
+        var id: AnyHashable { hashValue }
     }
 
     @StateObject private var viewModel = MapViewModel()
@@ -27,6 +21,8 @@ struct MapCoordinator: View {
                     AppInfoCoordinator()
                 case let .amenity(amenity):
                     AmenityDetailCoordinator(amenity: amenity)
+                case .paywall:
+                    PaywallCoordinator()
                 }
             }
     }

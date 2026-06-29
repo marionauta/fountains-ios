@@ -23,6 +23,8 @@ struct AmenityDetailCoordinator: View {
                         FeedbackScreen(osmId: osmId, state: state)
                     }
                     .modifier(HalfSheetModifier())
+                case .paywall:
+                    PaywallCoordinator()
                 }
             }
         }
@@ -32,6 +34,8 @@ struct AmenityDetailCoordinator: View {
 extension AmenityDetailCoordinator {
     enum Route: Hashable, Identifiable {
         case feedback(osmId: OsmId, state: FeedbackState)
+        @available(iOS 17, *)
+        case paywall
         var id: Int { hashValue }
     }
 }
