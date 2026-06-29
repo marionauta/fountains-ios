@@ -449,7 +449,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-perception";
 			requirement = {
 				kind = exactVersion;
-				version = 2.0.6;
+				version = 2.0.10;
 			};
 		};
 		AC4C185729F13E9100226FDE /* XCRemoteSwiftPackageReference "NotchLogoKit" */ = {
@@ -497,7 +497,7 @@
 			repositoryURL = "https://github.com/apple/swift-log";
 			requirement = {
 				kind = exactVersion;
-				version = 1.11.0;
+				version = 1.14.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
