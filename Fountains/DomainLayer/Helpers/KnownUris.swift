@@ -1,6 +1,6 @@
 import Foundation
 import OpenLocationsShared
 
-public extension KnownUris {
+extension KnownUris {
     var showcasedApps: URL { developer.appendingPathComponent("apps.json") }
 }

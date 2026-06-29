@@ -93,19 +93,19 @@ enum ProductId: String, CaseIterable, Identifiable {
 @MainActor
 @Perceptible
 final class PurchaseManager {
-    public private(set) var availableProductIds: Set<ProductId> = []
-    public private(set) var purchasedProductIds: Set<String> = []
+    private(set) var availableProductIds: Set<ProductId> = []
+    private(set) var purchasedProductIds: Set<String> = []
 
-    public var hasRemovedAds: Bool {
+    var hasRemovedAds: Bool {
         !availableProductIds.contains(where: \.removesAds) || purchasedProductIds.hasRemovedAds
     }
 
-    public func retrieveProducts() async {
+    func retrieveProducts() async {
         guard let products = try? await Product.products(for: ProductId.allCases.map(\.rawValue)) else { return }
         availableProductIds = Set(products.compactMap { ProductId(rawValue: $0.id) })
     }
 
-    public func updatePurchasedProducts() async {
+    func updatePurchasedProducts() async {
         for await result in Transaction.currentEntitlements {
             guard case let .verified(transaction) = result else { continue }
             if transaction.revocationDate == nil {

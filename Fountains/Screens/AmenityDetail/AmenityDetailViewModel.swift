@@ -13,35 +13,35 @@ final class AmenityDetailViewModel {
     private let getImages = GetImagesUseCase(mapillaryToken: Secrets.mapillaryToken)
     private let getFeedbackComments = GetFeedbackCommentsUseCase(storage: .shared)
 
-    public let amenity: Amenity
-    public private(set) var images: [ImageMetadata] = []
-    public private(set) var comments: [FeedbackComment] = []
-    public var sheet: AmenityDetailCoordinator.Route?
+    let amenity: Amenity
+    private(set) var images: [ImageMetadata] = []
+    private(set) var comments: [FeedbackComment] = []
+    var sheet: AmenityDetailCoordinator.Route?
 
-    public var appleMapsUrl: URL? {
+    var appleMapsUrl: URL? {
         URL(string: "maps://?saddr=&daddr=\(amenity.location.latitude),\(amenity.location.longitude)")
     }
 
-    public var googleMapsUrl: URL? {
+    var googleMapsUrl: URL? {
         return KnownUris.shared.googleMaps(location: amenity.location)
     }
 
-    public init(amenity: Amenity) {
+    init(amenity: Amenity) {
         self.amenity = amenity
     }
 
     @MainActor
-    public func load() async {
+    func load() async {
         images = (try? await getImages(images: amenity.properties.imageIds)) ?? []
         comments = (try? await getFeedbackComments(osmId: amenity.id)) ?? []
     }
 
     @MainActor
-    public func sendReport(state: FeedbackState) {
+    func sendReport(state: FeedbackState) {
         sheet = .feedback(osmId: amenity.id, state: state)
     }
 
-    public func fixGuideUrl() -> URL? {
+    func fixGuideUrl() -> URL? {
         return KnownUris.shared.fix(location: amenity.location)
     }
 }

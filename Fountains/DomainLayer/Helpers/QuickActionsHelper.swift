@@ -1,13 +1,13 @@
 import SwiftUI
 
-public struct QuickActionsHelper {
+struct QuickActionsHelper {
     private enum ActionType: String {
         case reportBugOrIssue = "mn.openlocations.reportBugOrIssue"
     }
 
     @MainActor
     @discardableResult
-    public static func performAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
+    static func performAction(for shortcutItem: UIApplicationShortcutItem) -> Bool {
         guard let actionType = ActionType(rawValue: shortcutItem.type) else { return false }
         switch actionType {
         case .reportBugOrIssue:

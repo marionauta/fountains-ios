@@ -20,9 +20,9 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published private(set) var markers: [ClusterizableMarker<Amenity>] = []
     @Published private(set) var isLoading: Bool = true
     @Published private(set) var isTooFarAway: Bool = false
-    @Published public var mapRect = MKMapRect.world
-    @Published public var trackingMode: MapUserTrackingMode = .none
-    @Published public var route: MapCoordinator.Route?
+    @Published var mapRect = MKMapRect.world
+    @Published var trackingMode: MapUserTrackingMode = .none
+    @Published var route: MapCoordinator.Route?
 
     private let getAmenities = GetAmenitiesUseCase(
         languages: GetLanguagesUseCase.shared.invoke(),
@@ -30,16 +30,16 @@ final class MapViewModel: NSObject, ObservableObject {
         settingsRepository: FilterSettingsRepositoryImpl(),
     )
 
-    public var hideLocationBanner: Bool {
+    var hideLocationBanner: Bool {
         return isLocationEnabled || locationManager.authorizationStatus == .notDetermined
     }
 
-    public var isLocationEnabled: Bool {
+    var isLocationEnabled: Bool {
         return [.authorizedAlways, .authorizedWhenInUse].contains(locationManager.authorizationStatus)
     }
 
     @MainActor
-    public func load(from bounds: MKMapRect?) async {
+    func load(from bounds: MKMapRect?) async {
         guard let bounds else {
             setupBindings()
             return

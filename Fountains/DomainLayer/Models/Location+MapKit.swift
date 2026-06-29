@@ -3,12 +3,12 @@ import MapKit
 import OpenLocationsShared
 
 extension Location {
-    public var coordinate: CLLocationCoordinate2D {
+    var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
 }
 
-public extension MKMapRect {
+extension MKMapRect {
     var center: MKMapPoint {
         get {
             MKMapPoint(x: origin.x + (width / 2), y: origin.y + height / 2)
@@ -19,7 +19,7 @@ public extension MKMapRect {
     }
 }
 
-public extension MKMapRect {
+extension MKMapRect {
     var northEast: MKMapPoint {
         var base = origin
         base.x += width
@@ -35,7 +35,7 @@ public extension MKMapRect {
     }
 }
 
-public extension MKMapPoint {
+extension MKMapPoint {
     var location: Location {
         return Location(latitude: coordinate.latitude, longitude: coordinate.longitude)
     }

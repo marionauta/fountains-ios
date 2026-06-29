@@ -8,11 +8,11 @@ private let log = Logger(label: String(describing: FeedbackViewModel.self))
 @Perceptible
 final class FeedbackViewModel {
     private let osmId: OsmId
-    public var state: FeedbackState
-    public var comment: String = ""
-    public private(set) var isSending: Bool = false
+    var state: FeedbackState
+    var comment: String = ""
+    private(set) var isSending: Bool = false
 
-    public var isSendDisabled: Bool { isSending || !payload.isSendEnabled }
+    var isSendDisabled: Bool { isSending || !payload.isSendEnabled }
 
     private var payload: SendFeedbackUseCase.Payload {
         SendFeedbackUseCase.Payload(osmId: osmId, state: state, comment: comment)

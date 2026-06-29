@@ -8,9 +8,10 @@ cd -
 IOS=`git rev-parse --short HEAD`
 
 CONTENT="
-public enum CommitHash {
-  public static let android = \"$ANDROID\";
-  public static let ios = \"$IOS\";
+// auto generated file, do not modify
+enum CommitHash {
+    static let android = \"$ANDROID\";
+    static let ios = \"$IOS\";
 }
 "
 

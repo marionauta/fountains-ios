@@ -22,14 +22,14 @@ extension Amenity: @retroactive WithClusteringGroup {
     }
 }
 
-public extension Amenity {
+extension Amenity {
     typealias AccessValue = OpenLocationsShared.AccessValue
     typealias BasicValue = OpenLocationsShared.BasicValue
     typealias FeeValue = OpenLocationsShared.FeeValue
     typealias WheelchairValue = OpenLocationsShared.WheelchairValue
 }
 
-public extension Amenity.FeeValue {
+extension Amenity.FeeValue {
     typealias Donation = OpenLocationsShared.FeeValueDonation
     typealias No = OpenLocationsShared.FeeValueNo
     typealias Yes = OpenLocationsShared.FeeValueYes
