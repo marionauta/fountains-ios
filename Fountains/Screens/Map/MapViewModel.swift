@@ -53,16 +53,10 @@ final class MapViewModel: NSObject, ObservableObject {
             return
         }
         isTooFarAway = false
-        let response = try? await getAmenities(
-            northEast: bounds.northEast.location,
-            southWest: bounds.southWest.location,
-        )
-        if let response {
-            let sequence: AsyncStream<[Amenity]> = response.collect()
-            for await r in sequence {
-                amenities = r
-                if Task.isCancelled { return }
-            }
+        let flow = getAmenities(northEast: bounds.northEast.location, southWest: bounds.southWest.location)
+        collectAmenities: for await r in flow.collect([Amenity].self) {
+            amenities = r
+            if Task.isCancelled { break collectAmenities }
         }
         withAnimation {
             isLoading = false

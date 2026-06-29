@@ -25,7 +25,7 @@ final class FlowCollector<Output>: Kotlinx_coroutines_coreFlowCollector {
 }
 
 extension Kotlinx_coroutines_coreFlow {
-    func collect<Output>() -> AsyncStream<Output> where Output: Sendable {
+    func collect<Output>(_ type: Output.Type) -> AsyncStream<Output> where Output: Sendable {
         AsyncStream { continuation in
             let collector = FlowCollector<Output> { result in
                 switch result {
