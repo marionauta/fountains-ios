@@ -1,10 +1,19 @@
 import CoreLocation
 import Foundation
+import Logging
+
+private let log = Logger(label: String(describing: GetLocationNameUseCase.self))
 
 struct GetLocationNameUseCase: Sendable {
     func callAsFunction(_ location: CLLocation) async -> String? {
         let geocoder = CLGeocoder()
-        let placemarks = try? await geocoder.reverseGeocodeLocation(location)
+        let placemarks: [CLPlacemark]?
+        do {
+            placemarks = try await geocoder.reverseGeocodeLocation(location)
+        } catch {
+            placemarks = nil
+            log.error("Failed to geocode location: \(error)")
+        }
         return placemarks?.first?.locality
     }
 

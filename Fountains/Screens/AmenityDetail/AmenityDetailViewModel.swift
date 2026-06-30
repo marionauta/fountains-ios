@@ -1,3 +1,4 @@
+import Logging
 import OpenLocationsShared
 import Perception
 import SwiftUI
@@ -8,10 +9,12 @@ extension FeedbackComment: @unchecked @retroactive Sendable {}
 extension ImageMetadata: @unchecked @retroactive Sendable {}
 extension KotlinPair: @unchecked @retroactive Sendable {}
 
+private let log = Logger(label: String(describing: AmenityDetailScreen.self))
+
 @Perceptible
 final class AmenityDetailViewModel {
-    private let getImages = GetImagesUseCase(mapillaryToken: Secrets.mapillaryToken)
-    private let getFeedbackComments = GetFeedbackCommentsUseCase(storage: .shared)
+    private static let getImages = GetImagesUseCase(mapillaryToken: Secrets.mapillaryToken)
+    private static let getFeedbackComments = GetFeedbackCommentsUseCase(storage: .shared)
 
     let amenity: Amenity
     private(set) var images: [ImageMetadata] = []
@@ -32,8 +35,16 @@ final class AmenityDetailViewModel {
 
     @MainActor
     func load() async {
-        images = (try? await getImages(images: amenity.properties.imageIds)) ?? []
-        comments = (try? await getFeedbackComments(osmId: amenity.id)) ?? []
+        let amenityId = amenity.id
+        let imageIds = amenity.properties.imageIds
+
+        let result = await (
+            images: (try? Self.getImages(images: imageIds)) ?? [],
+            comments: (try? Self.getFeedbackComments(osmId: amenityId)) ?? []
+        )
+
+        images = result.images
+        comments = result.comments
     }
 
     @MainActor
