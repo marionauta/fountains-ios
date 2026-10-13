@@ -5,8 +5,6 @@ import MapKit
 import OpenLocationsShared
 import SwiftUI
 
-extension GetAmenitiesUseCase: @retroactive @unchecked Sendable {}
-
 final class MapViewModel: NSObject, ObservableObject {
     private var cancellables: Set<AnyCancellable> = []
     private let getLocationNameUseCase = GetLocationNameUseCase()
@@ -24,11 +22,7 @@ final class MapViewModel: NSObject, ObservableObject {
     @Published var trackingMode: MapUserTrackingMode = .none
     @Published var route: MapCoordinator.Route?
 
-    private let getAmenities = GetAmenitiesUseCase(
-        languages: GetLanguagesUseCase.shared.invoke(),
-        amenityRepository: .shared,
-        settingsRepository: FilterSettingsRepositoryImpl(),
-    )
+    private let getAmenities = GetAmenitiesUseCase.shared
 
     var hideLocationBanner: Bool {
         return isLocationEnabled || locationManager.authorizationStatus == .notDetermined
@@ -53,7 +47,11 @@ final class MapViewModel: NSObject, ObservableObject {
             return
         }
         isTooFarAway = false
-        let flow = getAmenities(northEast: bounds.northEast.location, southWest: bounds.southWest.location)
+        let flow = getAmenities(
+            northEast: bounds.northEast.location,
+            southWest: bounds.southWest.location,
+            filterSettings: FilterSettings.companion.default_
+        )
         collectAmenities: for await r in flow.collect([Amenity].self) {
             amenities = r
             if Task.isCancelled { break collectAmenities }
